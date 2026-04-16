@@ -1,0 +1,50 @@
+export function Hero() {
+  return (
+    <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden">
+      {/* Playful background shapes inspired by the flyer */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+        <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[70vh] bg-brand-turquoise/20 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-[-20%] right-[-10%] w-[60vw] h-[80vh] bg-brand-blush/30 shape-blob blur-2xl"></div>
+        {/* Solid curved shape like on the flyer */}
+        <div className="absolute top-0 left-0 w-[30vw] h-full bg-brand-turquoise/10 rounded-r-[100%] -translate-x-1/2"></div>
+      </div>
+
+      <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
+        <div className="mb-8 inline-flex flex-col items-center relative">
+          {/* Decorative circle behind title */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-brand-cream rounded-full -z-10 shadow-sm"></div>
+          <span className="font-serif text-5xl md:text-7xl lg:text-8xl font-semibold text-brand-dark tracking-tight mb-2 relative z-10">
+            Let It Bloom
+          </span>
+          <span className="text-sm md:text-base tracking-[0.3em] text-brand-turquoise uppercase font-medium mt-4">
+            Blumenatelier
+          </span>
+        </div>
+        
+        <h1 className="text-2xl md:text-3xl font-serif italic text-brand-dark/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+          Ihr mobiler Blumen- & Pflanzenhändler im Weinviertel
+        </h1>
+        
+        <p className="text-base md:text-lg text-brand-dark/70 mb-12 max-w-xl mx-auto leading-relaxed">
+          Schnittblumen, Topfpflanzen, Dekorationsartikel und Gartenpflege. 
+          Vorbestellung aller Produkte jederzeit möglich.
+        </p>
+        
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a
+            href="tel:+43123456789"
+            className="w-full sm:w-auto px-8 py-4 bg-brand-turquoise text-white text-base font-medium rounded-full hover:bg-brand-turquoise/90 transition-all shadow-sm hover:shadow-md hover:-translate-y-1"
+          >
+            Anrufen
+          </a>
+          <a
+            href="#kontakt"
+            className="w-full sm:w-auto px-8 py-4 bg-brand-cream border-2 border-brand-turquoise/30 text-brand-dark text-base font-medium rounded-full hover:border-brand-turquoise hover:bg-brand-turquoise/5 transition-all hover:-translate-y-1"
+          >
+            Kontakt aufnehmen
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
