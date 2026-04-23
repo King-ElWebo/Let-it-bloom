@@ -1,8 +1,8 @@
 export function About() {
   return (
-    <section id="ueber-mich" className="py-20 md:py-28 bg-brand-cream relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-20 xl:gap-24 items-center">
+    <section id="ueber-mich" className="py-16 sm:py-20 md:py-24 lg:py-28 bg-brand-cream relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-14 lg:gap-20 xl:gap-24 items-center">
           <div className="lg:col-span-5 relative">
             <div className="aspect-4/5 rounded-3xl overflow-hidden shadow-lg relative z-10">
                <img 
@@ -17,12 +17,12 @@ export function About() {
           </div>
           
           <div className="lg:col-span-7 lg:pl-10">
-            <h2 className="text-4xl md:text-5xl font-serif font-semibold text-brand-dark mb-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-semibold text-brand-dark mb-6 sm:mb-8">
               Über Mich
             </h2>
-            <div className="space-y-6 text-lg text-brand-dark/80 leading-relaxed relative">
-              <span className="absolute -top-10 -left-6 text-8xl text-brand-turquoise/10 font-serif leading-none">"</span>
-              <p className="relative z-10 font-medium text-xl text-brand-dark">
+            <div className="space-y-5 sm:space-y-6 text-base sm:text-lg text-brand-dark/80 leading-relaxed relative">
+              <span className="hidden md:block absolute -top-10 -left-6 text-8xl text-brand-turquoise/10 font-serif leading-none">"</span>
+              <p className="relative z-10 font-medium text-lg sm:text-xl text-brand-dark">
                 „Schon mein Großvater besaß in den 70iger Jahren eine große Gärtnerei & Landschaftsgestaltung, somit wurde mir die Liebe und Passion zu allem Blühenden von Klein auf mit auf den Weg gegeben.“
               </p>
               <p>

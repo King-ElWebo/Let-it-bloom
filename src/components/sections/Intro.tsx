@@ -2,10 +2,10 @@ import { Heart, MapPin, Leaf } from 'lucide-react';
 
 export function Intro() {
   return (
-    <section className="py-20 md:py-28 bg-white relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 xl:gap-24 items-center">
-          <div className="order-2 lg:order-1 grid grid-cols-2 gap-4 md:gap-6 h-[400px] md:h-[600px]">
+    <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-white relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 lg:gap-20 xl:gap-24 items-center">
+          <div className="order-2 lg:order-1 grid grid-cols-2 gap-4 md:gap-6 h-[300px] sm:h-[380px] md:h-[500px] lg:h-[600px]">
             <div className="relative rounded-3xl overflow-hidden shadow-sm">
               <img 
                 src="/images/haydn-golden-LfT2t-E08kw-unsplash.jpg" 
@@ -32,10 +32,10 @@ export function Intro() {
           </div>
           
           <div className="order-1 lg:order-2">
-            <h2 className="text-3xl md:text-4xl font-serif font-semibold text-brand-dark mb-8 leading-tight">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-semibold text-brand-dark mb-6 sm:mb-8 leading-tight">
               Blumen sind das Lächeln der Erde
             </h2>
-            <p className="text-lg text-brand-dark/80 leading-relaxed mb-10">
+            <p className="text-base sm:text-lg text-brand-dark/80 leading-relaxed mb-8 sm:mb-10">
               In meinem Atelier in Mistelbach verbinde ich handwerkliches Können mit kreativer Leidenschaft. Jedes Werkstück wird individuell und mit viel Liebe zum Detail gefertigt – passend zu Ihren Wünschen und dem jeweiligen Anlass.
             </p>
             

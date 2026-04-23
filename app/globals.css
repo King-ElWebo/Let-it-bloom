@@ -28,10 +28,25 @@ body {
   color: var(--color-brand-dark);
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+html {
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+@media (min-width: 640px) {
+  section[id] {
+    scroll-margin-top: 6rem;
+  }
 }
 
 /* Hide scrollbar for gallery */

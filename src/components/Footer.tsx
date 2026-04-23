@@ -16,12 +16,12 @@ const legalLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-brand-dark text-brand-cream py-16">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+    <footer className="bg-brand-dark text-brand-cream py-12 sm:py-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12 mb-10 sm:mb-12">
           <div>
             <Link href="/" className="flex flex-col mb-6 inline-block">
-              <span className="font-serif text-2xl font-semibold text-brand-cream tracking-wide">Let It Bloom</span>
+              <span className="font-serif text-xl sm:text-2xl font-semibold text-brand-cream tracking-wide">Let It Bloom</span>
               <span className="text-xs tracking-widest text-brand-turquoise uppercase font-medium">Blumenatelier</span>
             </Link>
             <p className="text-brand-cream/60 text-sm leading-relaxed max-w-xs">
@@ -62,7 +62,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-8 border-t border-brand-cream/10 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="pt-6 sm:pt-8 border-t border-brand-cream/10 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
           <p className="text-brand-cream/40 text-sm">
             &copy; {new Date().getFullYear()} Blumenatelier Let It Bloom. Alle Rechte vorbehalten.
           </p>
