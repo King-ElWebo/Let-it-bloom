@@ -1,3 +1,5 @@
+'use client';
+
 import { Phone, Mail, Clock, Instagram, Facebook, Truck, CalendarDays } from 'lucide-react';
 
 export function Contact() {
