@@ -1,4 +1,5 @@
-﻿import Link from 'next/link';
+import Link from 'next/link';
+import { CookieSettingsButton } from '@/src/components/cookies/CookieSettingsButton';
 
 const navigationLinks = [
   { label: 'Leistungen', href: '/#leistungen' },
@@ -58,6 +59,11 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <CookieSettingsButton className="text-brand-cream/60 hover:text-brand-turquoise transition-colors text-sm text-left">
+                  Cookie-Einstellungen
+                </CookieSettingsButton>
+              </li>
             </ul>
           </div>
         </div>

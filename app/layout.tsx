@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import { CookieConsentRoot } from "@/src/components/cookies/CookieConsentRoot";
+import { ConsentProvider } from "@/src/context/ConsentContext";
 
 export const metadata: Metadata = {
   title: "Let It Bloom | Blumenatelier im Weinviertel",
@@ -14,7 +16,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de">
-      <body>{children}</body>
+      <body>
+        <ConsentProvider>
+          {children}
+          <CookieConsentRoot />
+        </ConsentProvider>
+      </body>
     </html>
   );
 }
