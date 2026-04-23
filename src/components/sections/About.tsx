@@ -32,14 +32,6 @@ export function About() {
                 Mit "Let It Bloom" möchte ich diese Leidenschaft weitergeben. Jedes Werkstück, das mein Atelier verlässt, trägt ein Stück dieser Geschichte in sich – gefertigt mit Respekt vor der Natur und dem Wunsch, Freude zu bereiten.
               </p>
             </div>
-            <div className="mt-10">
-              <img 
-                src="https://picsum.photos/seed/signature/300/100" 
-                alt="Unterschrift" 
-                className="h-12 opacity-60 mix-blend-multiply"
-                referrerPolicy="no-referrer"
-              />
-            </div>
           </div>
         </div>
       </div>

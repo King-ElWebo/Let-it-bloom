@@ -20,13 +20,20 @@ export function Header() {
         <div className="flex items-center justify-between h-20">
           <div className="flex-shrink-0 relative">
             <div className="absolute -top-2 -left-2 w-8 h-8 bg-brand-turquoise/20 rounded-full -z-10"></div>
-            <Link href="/" className="flex flex-col">
-              <span className="font-serif text-3xl font-semibold text-brand-dark tracking-wide">Let It Bloom</span>
-              <span className="text-[10px] tracking-[0.2em] text-brand-turquoise uppercase font-medium">Blumenatelier</span>
+            <Link href="/" className="flex items-center gap-3">
+              <img
+                src="/images/WhatsApp Image 2026-03-25 at 05.47.05 (2).jpeg"
+                alt="Let It Bloom Logo Platzhalter"
+                className="w-11 h-11 rounded-full object-cover border border-brand-turquoise/20 shadow-sm"
+              />
+              <span className="flex flex-col">
+                <span className="font-serif text-3xl font-semibold text-brand-dark tracking-wide">Let It Bloom</span>
+                <span className="text-[10px] tracking-[0.2em] text-brand-turquoise uppercase font-medium">Blumenatelier</span>
+              </span>
             </Link>
           </div>
 
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center gap-10 lg:gap-12">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
