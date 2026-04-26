@@ -6,7 +6,7 @@ export function About() {
           <div className="lg:col-span-5 relative">
             <div className="aspect-4/5 rounded-3xl overflow-hidden shadow-lg relative z-10">
                <img 
-                  src="/images/WhatsApp Image 2026-03-25 at 05.47.05 (2).jpeg" 
+                  src="\images\über mihc\WhatsApp Image 2026-04-26 at 13.57.15.jpeg" 
                   alt="Portrait der Floristin" 
                   className="w-full h-full object-cover"
                 />

@@ -23,7 +23,7 @@ export function PrivateHomeShopping() {
             <div className="grid grid-cols-2 gap-4 md:gap-6 h-[280px] sm:h-[320px] md:h-[420px] lg:h-[520px]">
               <div className="grid grid-rows-2 gap-4 md:gap-6 min-h-0">
                 <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                  <img src="/images/viacheslav-volodin-5Sq_x4fYYXA-unsplash.jpg" className="absolute inset-0 w-full h-full object-cover" alt="Floristin berät" />
+                  <img src="\images\private\WhatsApp Image 2026-04-26 at 13.38.23.jpeg" className="absolute inset-0 w-full h-full object-cover" alt="Floristin berät" />
                 </div>
                 <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
                   <img src="/images/WhatsApp Image 2026-04-09 at 06.44.02.jpeg" className="absolute inset-0 w-full h-full object-cover" alt="Zimmerpflanzen" />

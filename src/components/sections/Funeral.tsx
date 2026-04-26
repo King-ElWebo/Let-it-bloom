@@ -6,14 +6,14 @@ export function Funeral() {
           <div className="order-2 lg:order-1 grid grid-cols-2 gap-4 md:gap-6 h-[280px] sm:h-[320px] md:h-[420px] lg:h-[520px]">
             <div className="grid grid-rows-2 gap-4 md:gap-6 min-h-0">
               <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                <img src="/images/abdul-raheem-kannath-USG-nX5kmHM-unsplash.jpg" className="absolute inset-0 w-full h-full object-cover" alt="Ruhiges Grabgesteck" />
+                <img src="\images\grabfloristik\WhatsApp Image 2026-04-09 at 06.44.02.jpeg" className="absolute inset-0 w-full h-full object-cover" alt="Ruhiges Grabgesteck" />
               </div>
               <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                <img src="/images/alex-seinet-8dmtbpJJJ7k-unsplash.jpg" className="absolute inset-0 w-full h-full object-cover" alt="Detail Trauerfloristik" />
+                <img src="\images\grabfloristik\WhatsApp Image 2026-04-09 at 06.44.03 (1).jpeg" className="absolute inset-0 w-full h-full object-cover" alt="Detail Trauerfloristik" />
               </div>
             </div>
             <div className="relative rounded-3xl overflow-hidden shadow-sm">
-              <img src="/images/anita-austvika-69JWPdwM9Ag-unsplash.jpg" className="absolute inset-0 w-full h-full object-cover" alt="Klassischer Trauerkranz" />
+              <img src="\images\grabfloristik\WhatsApp Image 2026-04-09 at 06.44.03 (3).jpeg" className="absolute inset-0 w-full h-full object-cover" alt="Klassischer Trauerkranz" />
             </div>
           </div>
           <div className="order-1 lg:order-2">

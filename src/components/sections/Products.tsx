@@ -7,7 +7,7 @@ export function Products() {
             Mein Angebot
           </h2>
           <p className="text-base sm:text-lg text-brand-dark/80 leading-relaxed">
-            Mit Liebe zum Detail und einem Gespür für die Natur fertige ich individuelle florale Kunstwerke für jeden Anlass.
+          Alle Floralen Kunstwerke werden von befugten Gewerbetreibenden mit viel Liebe zum Detail gefertigt.
           </p>
         </div>
 
@@ -27,14 +27,14 @@ export function Products() {
             </div>
             <div className="grid grid-cols-2 gap-4 md:gap-6 h-[280px] sm:h-[320px] md:h-[420px] lg:h-[520px]">
               <div className="relative rounded-3xl overflow-hidden shadow-sm">
-                <img src="/images/micheile-henderson-FAgn1RJY5jw-unsplash.jpg" className="absolute inset-0 w-full h-full object-cover" alt="Frischer Blumenstrauß" />
+                <img src="\images\mein angebot\groß.jpeg" className="absolute inset-0 w-full h-full object-cover" alt="Frischer Blumenstrauß" />
               </div>
               <div className="grid grid-rows-2 gap-4 md:gap-6 min-h-0">
                 <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                  <img src="/images/micheile-henderson-khu-SpA4Bl0-unsplash.jpg" className="absolute inset-0 w-full h-full object-cover" alt="Florist bei der Arbeit" />
+                  <img src="\images\mein angebot\WhatsApp Image 2026-04-26 at 13.23.23.jpeg" className="absolute inset-0 w-full h-full object-cover" alt="Florist bei der Arbeit" />
                 </div>
                 <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                  <img src="/images/micheile-henderson-PTLBXS2zM0o-unsplash.jpg" className="absolute inset-0 w-full h-full object-cover" alt="Detailaufnahme Blumen" />
+                  <img src="\images\mein angebot\WhatsApp Image 2026-04-26 at 13.23.24 (1).jpeg" className="absolute inset-0 w-full h-full object-cover" alt="Detailaufnahme Blumen" />
                 </div>
               </div>
             </div>

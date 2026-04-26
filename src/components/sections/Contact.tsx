@@ -40,15 +40,15 @@ export function Contact() {
                 </div>
               </div>
 
-              <div className="flex items-start gap-5">
-                <div className="w-12 h-12 rounded-full bg-brand-cream flex items-center justify-center shrink-0 border border-brand-turquoise/20">
+              {/* <div className="flex items-start gap-5"> */}
+                {/* <div className="w-12 h-12 rounded-full bg-brand-cream flex items-center justify-center shrink-0 border border-brand-turquoise/20">
                   <CalendarDays className="text-brand-turquoise w-5 h-5" />
-                </div>
-                <div>
+                </div> */}
+                {/* <div>
                   <h3 className="font-medium text-brand-dark text-base sm:text-lg mb-1">Donnerstag</h3>
                   <p className="text-brand-dark/70">Wochenmarkt Langenzersdorf<br/><span className="text-sm italic">(ab April 2025)</span></p>
-                </div>
-              </div>
+                </div> */}
+              {/* </div> */}
               
               <div className="flex items-start gap-5">
                 <div className="w-12 h-12 rounded-full bg-brand-cream flex items-center justify-center shrink-0 border border-brand-turquoise/20">
@@ -79,7 +79,7 @@ export function Contact() {
               <a href="#" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-cream flex items-center justify-center text-brand-dark hover:bg-brand-turquoise hover:text-white transition-colors border border-brand-turquoise/20">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-cream flex items-center justify-center text-brand-dark hover:bg-brand-turquoise hover:text-white transition-colors border border-brand-turquoise/20">
+              <a href="https://www.facebook.com/p/Blumen-Atelier-Let-It-Bloom-61572277304454/" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-cream flex items-center justify-center text-brand-dark hover:bg-brand-turquoise hover:text-white transition-colors border border-brand-turquoise/20">
                 <Facebook className="w-5 h-5" />
               </a>
             </div>

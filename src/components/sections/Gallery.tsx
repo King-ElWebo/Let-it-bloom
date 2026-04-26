@@ -32,9 +32,9 @@ export function Gallery() {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-semibold text-brand-dark mb-5 sm:mb-6">
             Inspiration & florale Momente
           </h2>
-          <p className="text-base sm:text-lg text-brand-dark/70">Lassen Sie sich von meinen bisherigen Arbeiten inspirieren.</p>
+          <p className="text-base sm:text-lg text-brand-dark/70">By Blumenatelier "Let It Bloom"</p>
         </div>
-        <div className="flex gap-3 sm:gap-4">
+        <div className="hidden md:flex gap-3 sm:gap-4">
           <button 
             onClick={() => scroll('left')}
             className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-brand-dark/10 flex items-center justify-center text-brand-dark hover:bg-brand-turquoise hover:text-white hover:border-brand-turquoise transition-colors"
@@ -45,7 +45,7 @@ export function Gallery() {
           <button 
             onClick={() => scroll('right')}
             className="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-brand-dark/10 flex items-center justify-center text-brand-dark hover:bg-brand-turquoise hover:text-white hover:border-brand-turquoise transition-colors"
-            aria-label="Nächstes Bild"
+            aria-label="Naechstes Bild"
           >
             <ChevronRight size={20} strokeWidth={1.5} />
           </button>
@@ -71,6 +71,23 @@ export function Gallery() {
             </div>
           ))}
         </div>
+      </div>
+
+      <div className="md:hidden mt-2 flex justify-center gap-3">
+        <button
+          onClick={() => scroll('left')}
+          className="w-10 h-10 rounded-full border border-brand-dark/10 flex items-center justify-center text-brand-dark hover:bg-brand-turquoise hover:text-white hover:border-brand-turquoise transition-colors"
+          aria-label="Vorheriges Bild"
+        >
+          <ChevronLeft size={20} strokeWidth={1.5} />
+        </button>
+        <button
+          onClick={() => scroll('right')}
+          className="w-10 h-10 rounded-full border border-brand-dark/10 flex items-center justify-center text-brand-dark hover:bg-brand-turquoise hover:text-white hover:border-brand-turquoise transition-colors"
+          aria-label="Naechstes Bild"
+        >
+          <ChevronRight size={20} strokeWidth={1.5} />
+        </button>
       </div>
     </section>
   );

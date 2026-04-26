@@ -8,14 +8,14 @@ export function Shop() {
           <div className="order-2 lg:order-1 grid grid-cols-2 gap-4 md:gap-6 h-[280px] sm:h-[320px] md:h-[420px] lg:h-[520px]">
             <div className="grid grid-rows-2 gap-4 md:gap-6 min-h-0">
               <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                <img src="/images/anita-austvika-pWol_wdm4ew-unsplash.jpg" className="absolute inset-0 w-full h-full object-cover" alt="Atelier Innenansicht" />
+                <img src="\images\ab hof\WhatsApp Image 2026-04-26 at 13.34.02 (1).jpeg" className="absolute inset-0 w-full h-full object-cover" alt="Atelier Innenansicht" />
               </div>
               <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                <img src="/images/caroline-badran-_5H8TIast-I-unsplash.jpg" className="absolute inset-0 w-full h-full object-cover" alt="Frische Blumen" />
+                <img src="\images\ab hof\WhatsApp Image 2026-04-26 at 13.34.02 (2).jpeg" className="absolute inset-0 w-full h-full object-cover" alt="Frische Blumen" />
               </div>
             </div>
             <div className="relative rounded-3xl overflow-hidden shadow-sm">
-              <img src="/images/duong-ngan-RJudoZ6qJ3o-unsplash.jpg" className="absolute inset-0 w-full h-full object-cover" alt="Floristische Details" />
+              <img src="\images\ab hof\WhatsApp Image 2026-04-26 at 13.34.02.jpeg" className="absolute inset-0 w-full h-full object-cover" alt="Floristische Details" />
             </div>
           </div>
           

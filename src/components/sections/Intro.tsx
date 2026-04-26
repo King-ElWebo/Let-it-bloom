@@ -8,7 +8,7 @@ export function Intro() {
           <div className="order-2 lg:order-1 grid grid-cols-2 gap-4 md:gap-6 h-[300px] sm:h-[380px] md:h-[500px] lg:h-[600px]">
             <div className="relative rounded-3xl overflow-hidden shadow-sm">
               <img 
-                src="/images/haydn-golden-LfT2t-E08kw-unsplash.jpg" 
+                src="\images\final\WhatsApp Image 2026-04-26 at 13.21.30 (1).jpeg" 
                 alt="Floristin bei der Arbeit" 
                 className="absolute inset-0 w-full h-full object-cover"
               />
@@ -16,14 +16,14 @@ export function Intro() {
             <div className="grid grid-rows-2 gap-4 md:gap-6 min-h-0">
               <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
                 <img 
-                  src="/images/irena-carpaccio-Aqkqd6U4W4k-unsplash.jpg" 
+                  src="\images\final\WhatsApp Image 2026-04-26 at 13.21.30 (2).jpeg" 
                   alt="Detail" 
                   className="absolute inset-0 w-full h-full object-cover"
                 />
               </div>
               <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
                 <img 
-                  src="/images/jack-swords-BQtphmFrst4-unsplash.jpg" 
+                  src="\images\final\WhatsApp Image 2026-04-26 at 13.21.30.jpeg" 
                   alt="Frische Blumen" 
                   className="absolute inset-0 w-full h-full object-cover"
                 />
@@ -35,9 +35,9 @@ export function Intro() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-semibold text-brand-dark mb-6 sm:mb-8 leading-tight">
               Blumen sind das Lächeln der Erde
             </h2>
-            <p className="text-base sm:text-lg text-brand-dark/80 leading-relaxed mb-8 sm:mb-10">
+            {/* <p className="text-base sm:text-lg text-brand-dark/80 leading-relaxed mb-8 sm:mb-10">
               In meinem Atelier in Mistelbach verbinde ich handwerkliches Können mit kreativer Leidenschaft. Jedes Werkstück wird individuell und mit viel Liebe zum Detail gefertigt – passend zu Ihren Wünschen und dem jeweiligen Anlass.
-            </p>
+            </p> */}
             
             <div className="space-y-6">
               <div className="flex items-start gap-4">
