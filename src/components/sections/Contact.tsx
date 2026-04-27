@@ -1,8 +1,17 @@
 'use client';
 
-import { Phone, Mail, Clock, Instagram, Facebook, Truck, CalendarDays } from 'lucide-react';
+import { useState } from 'react';
+import { Phone, Mail, Clock, Instagram, Facebook, Truck, Copy, Check } from 'lucide-react';
 
 export function Contact() {
+  const [copied, setCopied] = useState<'phone' | 'email' | null>(null);
+
+  const copyToClipboard = async (value: string, type: 'phone' | 'email') => {
+    await navigator.clipboard.writeText(value);
+    setCopied(type);
+    window.setTimeout(() => setCopied(null), 1600);
+  };
+
   return (
     <section id="kontakt" className="py-16 sm:py-20 md:py-24 lg:py-28 bg-white relative overflow-hidden">
       {/* Decorative shapes */}
@@ -26,7 +35,17 @@ export function Contact() {
                 </div>
                 <div>
                   <h3 className="font-medium text-brand-dark text-base sm:text-lg mb-1">Telefon</h3>
-                  <a href="tel:+43123456789" className="text-brand-dark/70 hover:text-brand-turquoise transition-colors">+43 123 456 789</a>
+                  <div className="flex items-center gap-2">
+                    <a href="tel:+436642303427" className="text-brand-dark/70 hover:text-brand-turquoise transition-colors">+43 664 2303427</a>
+                    <button
+                      type="button"
+                      onClick={() => copyToClipboard('+43 664 2303427', 'phone')}
+                      className="w-8 h-8 rounded-full bg-brand-cream flex items-center justify-center text-brand-dark/60 hover:bg-brand-turquoise hover:text-white transition-colors border border-brand-turquoise/20"
+                      aria-label="Telefonnummer kopieren"
+                    >
+                      {copied === 'phone' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                    </button>
+                  </div>
                 </div>
               </div>
               
@@ -36,20 +55,20 @@ export function Contact() {
                 </div>
                 <div>
                   <h3 className="font-medium text-brand-dark text-base sm:text-lg mb-1">E-Mail</h3>
-                  <a href="mailto:hallo@letitbloom.at" className="text-brand-dark/70 hover:text-brand-turquoise transition-colors">hallo@letitbloom.at</a>
+                  <div className="flex items-center gap-2">
+                    <a href="mailto:wgruber@outlook.at" className="text-brand-dark/70 hover:text-brand-turquoise transition-colors">wgruber@outlook.at</a>
+                    <button
+                      type="button"
+                      onClick={() => copyToClipboard('wgruber@outlook.at', 'email')}
+                      className="w-8 h-8 rounded-full bg-brand-cream flex items-center justify-center text-brand-dark/60 hover:bg-brand-turquoise hover:text-white transition-colors border border-brand-turquoise/20"
+                      aria-label="E-Mail-Adresse kopieren"
+                    >
+                      {copied === 'email' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
+                    </button>
+                  </div>
                 </div>
               </div>
 
-              {/* <div className="flex items-start gap-5"> */}
-                {/* <div className="w-12 h-12 rounded-full bg-brand-cream flex items-center justify-center shrink-0 border border-brand-turquoise/20">
-                  <CalendarDays className="text-brand-turquoise w-5 h-5" />
-                </div> */}
-                {/* <div>
-                  <h3 className="font-medium text-brand-dark text-base sm:text-lg mb-1">Donnerstag</h3>
-                  <p className="text-brand-dark/70">Wochenmarkt Langenzersdorf<br/><span className="text-sm italic">(ab April 2025)</span></p>
-                </div> */}
-              {/* </div> */}
-              
               <div className="flex items-start gap-5">
                 <div className="w-12 h-12 rounded-full bg-brand-cream flex items-center justify-center shrink-0 border border-brand-turquoise/20">
                   <Truck className="text-brand-turquoise w-5 h-5" />
@@ -76,10 +95,10 @@ export function Contact() {
             </div>
             
             <div className="mt-10 sm:mt-12 flex gap-3 sm:gap-4">
-              <a href="#" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-cream flex items-center justify-center text-brand-dark hover:bg-brand-turquoise hover:text-white transition-colors border border-brand-turquoise/20">
+              <a href="https://www.instagram.com/_letitbloom_/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-cream flex items-center justify-center text-brand-dark hover:bg-brand-turquoise hover:text-white transition-colors border border-brand-turquoise/20" aria-label="Instagram in neuem Tab öffnen">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="https://www.facebook.com/p/Blumen-Atelier-Let-It-Bloom-61572277304454/" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-cream flex items-center justify-center text-brand-dark hover:bg-brand-turquoise hover:text-white transition-colors border border-brand-turquoise/20">
+              <a href="https://www.facebook.com/p/Blumen-Atelier-Let-It-Bloom-61572277304454/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-cream flex items-center justify-center text-brand-dark hover:bg-brand-turquoise hover:text-white transition-colors border border-brand-turquoise/20" aria-label="Facebook in neuem Tab öffnen">
                 <Facebook className="w-5 h-5" />
               </a>
             </div>
@@ -131,5 +150,4 @@ export function Contact() {
     </section>
   );
 }
-
 

@@ -17,13 +17,13 @@ const legalLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-brand-dark text-brand-cream py-12 sm:py-16">
+    <footer className="bg-brand-turquoise text-brand-cream py-12 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12 mb-10 sm:mb-12">
           <div>
             <Link href="/" className="flex flex-col mb-6 inline-block">
               <span className="font-serif text-xl sm:text-2xl font-semibold text-brand-cream tracking-wide">Let It Bloom</span>
-              <span className="text-xs tracking-widest text-brand-turquoise uppercase font-medium">Blumenatelier</span>
+              <span className="text-xs tracking-widest text-brand-cream/70 uppercase font-medium">Blumenatelier</span>
             </Link>
             <p className="text-brand-cream/60 text-sm leading-relaxed max-w-xs">
               Ihr mobiler Blumen- & Pflanzenhändler für handgefertigte Floristik im Weinviertel.
@@ -37,7 +37,7 @@ export function Footer() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-brand-cream/60 hover:text-brand-turquoise transition-colors text-sm"
+                    className="text-brand-cream/70 hover:text-white transition-colors text-sm"
                   >
                     {item.label}
                   </Link>
@@ -53,14 +53,14 @@ export function Footer() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-brand-cream/60 hover:text-brand-turquoise transition-colors text-sm"
+                    className="text-brand-cream/70 hover:text-white transition-colors text-sm"
                   >
                     {item.label}
                   </Link>
                 </li>
               ))}
               <li>
-                <CookieSettingsButton className="text-brand-cream/60 hover:text-brand-turquoise transition-colors text-sm text-left">
+                <CookieSettingsButton className="text-brand-cream/70 hover:text-white transition-colors text-sm text-left">
                   Cookie-Einstellungen
                 </CookieSettingsButton>
               </li>

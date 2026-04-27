@@ -43,6 +43,19 @@ section[id] {
   scroll-margin-top: 5rem;
 }
 
+@keyframes gallery-scroll {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-gallery-scroll {
+  animation: gallery-scroll 36s linear infinite;
+}
+
 @media (min-width: 640px) {
   section[id] {
     scroll-margin-top: 6rem;

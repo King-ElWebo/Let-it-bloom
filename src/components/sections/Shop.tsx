@@ -46,7 +46,7 @@ export function Shop() {
                 <MapPin className="text-brand-turquoise w-6 h-6 shrink-0 mt-1" />
                 <div>
                   <h3 className="font-medium text-brand-dark mb-1">Adresse</h3>
-                  <p className="text-brand-dark/70">Musterstraße 12<br />2130 Mistelbach</p>
+                  <p className="text-brand-dark/70">Alleestraße 42<br />2103 Langenzersdorf</p>
                 </div>
               </div>
             </div>

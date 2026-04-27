@@ -22,7 +22,7 @@ export function Hero() {
         </div>
         
         <h1 className="text-xl sm:text-2xl md:text-3xl font-serif italic text-brand-dark/90 mb-4 sm:mb-6 md:mb-8 max-w-2xl mx-auto leading-[1.45]">
-          Ihr mobiler Blumen- & Pflanzenhändler im Weinviertel
+          Ihr mobiler Blumen- & Pflanzenhändler im Langenzersdorf
         </h1>
         
         <p className="text-sm sm:text-base md:text-lg text-brand-dark/70 mb-8 sm:mb-10 md:mb-12 max-w-lg mx-auto leading-[1.5] sm:leading-relaxed">

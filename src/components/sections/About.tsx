@@ -3,7 +3,7 @@ export function About() {
     <section id="ueber-mich" className="py-16 sm:py-20 md:py-24 lg:py-28 bg-brand-cream relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-14 lg:gap-20 xl:gap-24 items-center">
-          <div className="lg:col-span-5 relative">
+          <div className="lg:col-span-5 relative max-w-[380px] lg:max-w-[340px] mx-auto lg:mx-0">
             <div className="aspect-4/5 rounded-3xl overflow-hidden shadow-lg relative z-10">
                <img 
                   src="\images\über mihc\WhatsApp Image 2026-04-26 at 13.57.15.jpeg" 
@@ -38,4 +38,3 @@ export function About() {
     </section>
   );
 }
-
