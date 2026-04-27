@@ -1,6 +1,7 @@
-import { seasonalOffers } from '../../data/seasonal';
+import { getSeasonalOffers } from "@/src/lib/seasonal";
 
-export function Seasonal() {
+export async function Seasonal() {
+  const seasonalOffers = await getSeasonalOffers();
   const activeOffers = seasonalOffers.filter(offer => offer.active).slice(0, 3);
 
   if (activeOffers.length === 0) return null;
