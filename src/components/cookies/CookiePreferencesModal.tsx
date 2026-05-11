@@ -18,7 +18,6 @@ export function CookiePreferencesModal() {
   } = useConsent();
 
   const [draft, setDraft] = useState<ConsentDraft>({
-    analytics: false,
     marketing: false,
     externalMedia: false,
   });
@@ -29,7 +28,6 @@ export function CookiePreferencesModal() {
     if (!isPreferencesOpen) return;
 
     const nextDraft: ConsentDraft = {
-      analytics: consent.analytics,
       marketing: consent.marketing,
       externalMedia: consent.externalMedia,
     };

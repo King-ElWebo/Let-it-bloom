@@ -69,24 +69,46 @@ export default function ImpressumPage() {
         </dl>
       </LegalSection>
 
-      <LegalSection title="Haftungsausschluss">
+      <LegalSection title="EU-Streitschlichtung & Verbraucherstreitbeilegung">
         <p>
-          Die Inhalte dieser Website wurden mit groesster Sorgfalt erstellt. Fuer die
-          Richtigkeit, Vollstaendigkeit und Aktualitaet der Inhalte wird jedoch keine
-          Gewaehr uebernommen.
+          Angaben zur Online-Streitbeilegung: Verbraucher haben die Möglichkeit,
+          Beschwerden an die Online-Streitbeilegungsplattform der EU zu richten:{" "}
+          <a
+            href="https://ec.europa.eu/odr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-brand-turquoise hover:underline transition-colors"
+          >
+            https://ec.europa.eu/odr
+          </a>
+          .
         </p>
         <p>
-          Diese Website enthaelt moeglicherweise Links zu externen Websites Dritter, auf deren
-          Inhalte kein Einfluss besteht. Fuer diese fremden Inhalte wird keine Haftung
-          uebernommen. Fuer die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter
+          Sie können allfällige Beschwerden auch an die im Impressum angegebene
+          E-Mail-Adresse richten. Wir sind nicht bereit oder verpflichtet, an
+          Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle
+          teilzunehmen.
+        </p>
+      </LegalSection>
+
+      <LegalSection title="Haftungsausschluss">
+        <p>
+          Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die
+          Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird jedoch keine
+          Gewähr übernommen.
+        </p>
+        <p>
+          Diese Website enthält möglicherweise Links zu externen Websites Dritter, auf deren
+          Inhalte kein Einfluss besteht. Für diese fremden Inhalte wird keine Haftung
+          übernommen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter
           oder Betreiber verantwortlich.
         </p>
       </LegalSection>
 
       <LegalSection title="Urheberrecht">
         <p>
-          Die auf dieser Website veroeffentlichten Inhalte, Texte und Bilder unterliegen dem
-          jeweils geltenden Urheberrecht. Jede Art der Verwertung ausserhalb der Grenzen des
+          Die auf dieser Website veröffentlichten Inhalte, Texte und Bilder unterliegen dem
+          jeweils geltenden Urheberrecht. Jede Art der Verwertung außerhalb der Grenzen des
           Urheberrechts bedarf der vorherigen schriftlichen Zustimmung des jeweiligen
           Rechteinhabers.
         </p>

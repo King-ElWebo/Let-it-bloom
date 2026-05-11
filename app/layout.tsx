@@ -9,6 +9,8 @@ export const metadata: Metadata = {
     "Ihr mobiler Blumen- und Pflanzenhaendler im Weinviertel. Handgefertigte Floristik, saisonale Arrangements und persoenlicher Service.",
 };
 
+import { Analytics } from "@vercel/analytics/react";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -21,6 +23,7 @@ export default function RootLayout({
           {children}
           <CookieConsentRoot />
         </ConsentProvider>
+        <Analytics />
       </body>
     </html>
   );

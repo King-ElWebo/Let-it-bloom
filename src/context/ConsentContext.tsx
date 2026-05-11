@@ -67,7 +67,6 @@ export function ConsentProvider({ children }: Readonly<{ children: ReactNode }>)
   const acceptAll = useCallback(() => {
     persistConsent(
       withDecision(consent, {
-        analytics: true,
         marketing: true,
         externalMedia: true,
       })
@@ -78,7 +77,6 @@ export function ConsentProvider({ children }: Readonly<{ children: ReactNode }>)
   const acceptNecessaryOnly = useCallback(() => {
     persistConsent(
       withDecision(consent, {
-        analytics: false,
         marketing: false,
         externalMedia: false,
       })
@@ -90,7 +88,6 @@ export function ConsentProvider({ children }: Readonly<{ children: ReactNode }>)
     (draft: ConsentDraft) => {
       persistConsent(
         withDecision(consent, {
-          analytics: draft.analytics,
           marketing: draft.marketing,
           externalMedia: draft.externalMedia,
         })

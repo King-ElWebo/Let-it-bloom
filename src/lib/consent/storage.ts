@@ -7,7 +7,6 @@ const isObject = (value: unknown): value is Record<string, unknown> =>
 export function createDefaultConsent(): ConsentPreferences {
   return {
     necessary: true,
-    analytics: false,
     marketing: false,
     externalMedia: false,
     consentGiven: false,
@@ -19,7 +18,6 @@ export function createDefaultConsent(): ConsentPreferences {
 function normalizeConsent(input: Partial<ConsentPreferences>): ConsentPreferences {
   return {
     necessary: true,
-    analytics: Boolean(input.analytics),
     marketing: Boolean(input.marketing),
     externalMedia: Boolean(input.externalMedia),
     consentGiven: Boolean(input.consentGiven),

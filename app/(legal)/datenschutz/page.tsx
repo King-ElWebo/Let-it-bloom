@@ -83,23 +83,24 @@ export default function DatenschutzPage() {
         </p>
       </LegalSection>
 
-      <LegalSection title="6. Webanalyse mit Google Analytics (optional)">
+      <LegalSection title="6. Webanalyse mit Vercel Analytics">
         {legalProfile.analyticsEnabled ? (
           <>
             <p>
-              Sofern aktiviert, verwendet diese Website {legalProfile.analyticsTool}, einen
-              Webanalysedienst zur Auswertung des Nutzerverhaltens. Die Verarbeitung erfolgt
-              nur auf Grundlage deiner Einwilligung gemaess Art. 6 Abs. 1 lit. a DSGVO.
+              Diese Website verwendet {legalProfile.analyticsTool}, einen Webanalysedienst von Vercel Inc., 
+              zur statistischen Auswertung der Besucherzugriffe und zur Optimierung der Nutzererfahrung.
             </p>
             <p>
-              Du kannst die Erfassung durch Google Analytics z. B. ueber dieses Browser-Add-on
-              deaktivieren: {legalProfile.analyticsOptOutLink}
+              Vercel Analytics arbeitet datenschutzfreundlich und erfasst Standard-Zugriffsdaten (wie Seitenaufrufe, Browsertyp, Betriebssystem) in aggregierter Form. Es werden dabei <strong>keine Tracking-Cookies</strong> auf deinem Endgerät gespeichert und IP-Adressen werden vor der Speicherung anonymisiert, sodass keine Rückschlüsse auf individuelle Nutzer möglich sind.
+            </p>
+            <p>
+              Die Verarbeitung dieser anonymisierten Daten erfolgt auf Grundlage unseres berechtigten Interesses (Art. 6 Abs. 1 lit. f DSGVO) an der Stabilität und kontinuierlichen Verbesserung unserer Website.
             </p>
           </>
         ) : (
           <p>
             Dieser Abschnitt ist als Platzhalter vorgesehen. Bitte aktivieren, anpassen oder
-            entfernen, je nachdem ob {legalProfile.analyticsTool} tatsaechlich eingesetzt wird.
+            entfernen, je nachdem ob {legalProfile.analyticsTool} tatsächlich eingesetzt wird.
           </p>
         )}
       </LegalSection>
