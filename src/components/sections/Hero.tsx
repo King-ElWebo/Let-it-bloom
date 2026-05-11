@@ -40,6 +40,7 @@ export function Hero() {
               alt=""
               width={420}
               height={420}
+              priority
               aria-hidden="true"
               className="absolute left-1/2 top-1/2 -z-10 h-auto w-36 -translate-x-1/2 -translate-y-[52%] rounded-full opacity-[0.18] mix-blend-multiply shadow-sm sm:w-56 md:w-64 lg:w-72"
               sizes="(min-width: 1024px) 288px, (min-width: 768px) 256px, (min-width: 640px) 224px, 176px"
@@ -86,6 +87,7 @@ export function Hero() {
             src={heroImages.large.src}
             alt={heroImages.large.alt}
             fill
+            priority
             className="object-cover"
             sizes="(min-width: 1280px) 280px, (min-width: 1024px) 220px, (min-width: 640px) 200px, 150px"
           />

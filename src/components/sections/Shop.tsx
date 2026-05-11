@@ -1,4 +1,5 @@
 import { MapPin, Clock, Phone } from 'lucide-react';
+import Image from 'next/image';
 
 export function Shop() {
   return (
@@ -8,14 +9,14 @@ export function Shop() {
           <div className="order-2 grid grid-cols-2 gap-4 md:gap-6 h-[280px] sm:h-[320px] md:h-[420px] lg:h-[520px]">
             <div className="grid grid-rows-2 gap-4 md:gap-6 min-h-0">
               <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                <img src="\images\ab hof\WhatsApp Image 2026-04-26 at 13.34.02 (1).jpeg" className="absolute inset-0 w-full h-full object-cover" alt="Atelier Innenansicht" />
+                <Image src="/images/ab hof/WhatsApp Image 2026-04-26 at 13.34.02 (1).jpeg" className="object-cover" fill sizes="(max-width: 1024px) 50vw, 25vw" alt="Atelier Innenansicht" />
               </div>
               <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                <img src="\images\ab hof\WhatsApp Image 2026-04-26 at 13.34.02 (2).jpeg" className="absolute inset-0 w-full h-full object-cover" alt="Frische Blumen" />
+                <Image src="/images/ab hof/WhatsApp Image 2026-04-26 at 13.34.02 (2).jpeg" className="object-cover" fill sizes="(max-width: 1024px) 50vw, 25vw" alt="Frische Blumen" />
               </div>
             </div>
             <div className="relative rounded-3xl overflow-hidden shadow-sm">
-              <img src="\images\ab hof\WhatsApp Image 2026-04-26 at 13.34.02.jpeg" className="absolute inset-0 w-full h-full object-cover" alt="Floristische Details" />
+              <Image src="/images/ab hof/WhatsApp Image 2026-04-26 at 13.34.02.jpeg" className="object-cover" fill sizes="(max-width: 1024px) 50vw, 25vw" alt="Floristische Details" />
             </div>
           </div>
 

@@ -1,7 +1,8 @@
-﻿'use client';
+'use client';
 
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 
 export function Header() {
@@ -21,9 +22,12 @@ export function Header() {
           <div className="flex-shrink-0 relative">
             <div className="absolute -top-2 -left-2 w-8 h-8 bg-brand-turquoise/20 rounded-full -z-10"></div>
             <Link href="/" className="flex items-center gap-2 sm:gap-3">
-              <img
+              <Image
                 src="/images/WhatsApp Image 2026-03-25 at 05.47.05 (2).jpeg"
-                alt="Let It Bloom Logo Platzhalter"
+                alt="Let It Bloom Logo"
+                width={44}
+                height={44}
+                priority
                 className="w-9 h-9 sm:w-11 sm:h-11 rounded-full object-cover border border-brand-turquoise/20 shadow-sm"
               />
               <span className="flex flex-col">
@@ -56,6 +60,7 @@ export function Header() {
               onClick={() => setIsOpen(!isOpen)}
               className="text-brand-dark hover:text-brand-turquoise transition-colors p-2"
               aria-label={isOpen ? 'Menü schließen' : 'Menü öffnen'}
+              aria-expanded={isOpen}
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>

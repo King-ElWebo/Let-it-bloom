@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const galleryImages = [
   "/images/caroline-badran-_5H8TIast-I-unsplash.jpg",
   "/images/duong-ngan-RJudoZ6qJ3o-unsplash.jpg",
@@ -29,10 +31,12 @@ export function Gallery() {
               key={index} 
               className="flex-none w-[78vw] max-w-[280px] sm:w-[300px] md:w-[350px] aspect-4/5 rounded-3xl overflow-hidden shadow-sm group"
             >
-              <img 
+              <Image 
                 src={src} 
                 alt={`Galerie Bild ${(index % galleryImages.length) + 1}`} 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                fill
+                sizes="(max-width: 640px) 280px, (max-width: 768px) 300px, 350px"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
             </div>

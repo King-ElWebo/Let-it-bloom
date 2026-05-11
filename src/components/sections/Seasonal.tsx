@@ -1,4 +1,5 @@
 import { getSeasonalOffers } from "@/src/lib/seasonal";
+import Image from 'next/image';
 
 export async function Seasonal() {
   const seasonalOffers = await getSeasonalOffers();
@@ -21,10 +22,12 @@ export async function Seasonal() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
           {activeOffers.map((offer) => (
             <div key={offer.id} className="group relative rounded-3xl overflow-hidden aspect-4/5 shadow-sm">
-              <img 
+              <Image 
                 src={offer.image} 
                 alt={offer.title} 
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                fill
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-linear-to-t from-brand-dark/80 via-brand-dark/20 to-transparent"></div>

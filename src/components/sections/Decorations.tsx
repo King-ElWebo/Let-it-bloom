@@ -1,4 +1,5 @@
 import { Check } from 'lucide-react';
+import Image from 'next/image';
 
 export function Decorations() {
   return (
@@ -31,14 +32,14 @@ export function Decorations() {
           
           <div className="grid grid-cols-2 gap-4 md:gap-6 h-[300px] sm:h-[360px] md:h-[460px] lg:h-[500px]">
             <div className="relative rounded-3xl overflow-hidden shadow-sm">
-              <img src="/images/pflanzschalen/WhatsApp Image 2026-04-26 at 13.29.53 (2).jpeg" className="absolute inset-0 w-full h-full object-cover" alt="Pflanzschale" />
+              <Image src="/images/pflanzschalen/WhatsApp Image 2026-04-26 at 13.29.53 (2).jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Pflanzschale" />
             </div>
             <div className="grid grid-rows-2 gap-4 md:gap-6 min-h-0">
               <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                <img src="\images\pflanzschalen\WhatsApp Image 2026-04-26 at 13.29.53 (1).jpeg" className="absolute inset-0 w-full h-full object-cover" alt="Sukkulenten Schale" />
+                <Image src="/images/pflanzschalen/WhatsApp Image 2026-04-26 at 13.29.53 (1).jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Sukkulenten Schale" />
               </div>
               <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                <img src="/images/pflanzschalen/WhatsApp Image 2026-04-26 at 13.29.52 (2).jpeg" className="absolute inset-0 w-full h-full object-cover" alt="Detail Pflanzschale" />
+                <Image src="/images/pflanzschalen/WhatsApp Image 2026-04-26 at 13.29.52 (2).jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Detail Pflanzschale" />
               </div>
             </div>
             {/* <div className="grid grid-rows-2 gap-4 md:gap-6 min-h-0">

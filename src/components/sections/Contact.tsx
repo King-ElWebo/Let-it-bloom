@@ -195,7 +195,7 @@ export function Contact() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-semibold text-brand-dark mb-6 sm:mb-8">
               Kontakt &amp; Service
             </h2>
-            <p className="text-base sm:text-lg text-brand-dark/80 leading-relaxed mb-8 sm:mb-10 md:mb-12">
+            <p className="text-base sm:text-lg text-brand-dark/90 leading-relaxed mb-8 sm:mb-10 md:mb-12">
               Haben Sie Fragen, Wünsche oder möchten Sie eine Bestellung aufgeben? Ich bin gerne für Sie da.
             </p>
 
@@ -208,7 +208,7 @@ export function Contact() {
                 <div>
                   <h3 className="font-medium text-brand-dark text-base sm:text-lg mb-1">Telefon</h3>
                   <div className="flex items-center gap-2">
-                    <a href="tel:+436642303427" className="text-brand-dark/70 hover:text-brand-turquoise transition-colors">
+                    <a href="tel:+436642303427" className="text-brand-dark/85 hover:text-brand-turquoise transition-colors">
                       +43 664 2303427
                     </a>
                     <button
@@ -231,7 +231,7 @@ export function Contact() {
                 <div>
                   <h3 className="font-medium text-brand-dark text-base sm:text-lg mb-1">E-Mail</h3>
                   <div className="flex items-center gap-2">
-                    <a href="mailto:wgruber@outlook.at" className="text-brand-dark/70 hover:text-brand-turquoise transition-colors">
+                    <a href="mailto:wgruber@outlook.at" className="text-brand-dark/85 hover:text-brand-turquoise transition-colors">
                       wgruber@outlook.at
                     </a>
                     <button
@@ -253,7 +253,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h3 className="font-medium text-brand-dark text-base sm:text-lg mb-1">Freitag &amp; Samstag</h3>
-                  <p className="text-brand-dark/70">
+                  <p className="text-brand-dark/85">
                     Lieferung in Langenzersdorf u.U. kostenlos<br />sowie Abholung möglich
                   </p>
                 </div>
@@ -266,7 +266,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h3 className="font-medium text-brand-dark text-base sm:text-lg mb-1">Sonntag – Mittwoch</h3>
-                  <p className="text-brand-dark/70">Lieferung und Abholung nach Vereinbarung möglich</p>
+                  <p className="text-brand-dark/85">Lieferung und Abholung nach Vereinbarung möglich</p>
                 </div>
               </div>
             </div>

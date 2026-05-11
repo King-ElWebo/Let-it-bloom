@@ -23,9 +23,9 @@ export function Footer() {
           <div>
             <Link href="/" className="flex flex-col mb-6 inline-block">
               <span className="font-serif text-xl sm:text-2xl font-semibold text-brand-cream tracking-wide">Let It Bloom</span>
-              <span className="text-xs tracking-widest text-brand-cream/70 uppercase font-medium">Blumenatelier</span>
+              <span className="text-xs tracking-widest text-brand-cream/85 uppercase font-medium">Blumenatelier</span>
             </Link>
-            <p className="text-brand-cream/60 text-sm leading-relaxed max-w-xs">
+            <p className="text-brand-cream/80 text-sm leading-relaxed max-w-xs">
               Ihr mobiler Blumen- & Pflanzenhändler für handgefertigte Floristik im Weinviertel.
             </p>
           </div>
@@ -37,7 +37,7 @@ export function Footer() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-brand-cream/70 hover:text-white transition-colors text-sm"
+                    className="text-brand-cream/85 hover:text-white transition-colors text-sm"
                   >
                     {item.label}
                   </Link>
@@ -53,14 +53,14 @@ export function Footer() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-brand-cream/70 hover:text-white transition-colors text-sm"
+                    className="text-brand-cream/85 hover:text-white transition-colors text-sm"
                   >
                     {item.label}
                   </Link>
                 </li>
               ))}
               <li>
-                <CookieSettingsButton className="text-brand-cream/70 hover:text-white transition-colors text-sm text-left">
+                <CookieSettingsButton className="text-brand-cream/85 hover:text-white transition-colors text-sm text-left">
                   Cookie-Einstellungen
                 </CookieSettingsButton>
               </li>
@@ -69,10 +69,10 @@ export function Footer() {
         </div>
 
         <div className="pt-6 sm:pt-8 border-t border-brand-cream/10 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
-          <p className="text-brand-cream/40 text-sm">
+          <p className="text-brand-cream/60 text-sm">
             &copy; {new Date().getFullYear()} Blumenatelier Let It Bloom. Alle Rechte vorbehalten.
           </p>
-          <p className="text-brand-cream/40 text-sm">Gestaltet mit Liebe in Österreich.</p>
+          <p className="text-brand-cream/60 text-sm">Gestaltet mit Liebe in Österreich.</p>
         </div>
       </div>
     </footer>

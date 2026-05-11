@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export function About() {
   return (
     <section id="ueber-mich" className="py-16 sm:py-20 md:py-24 lg:py-28 bg-brand-cream relative overflow-hidden">
@@ -5,10 +7,11 @@ export function About() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-14 lg:gap-20 xl:gap-24 items-center">
           <div className="lg:col-span-5 relative max-w-[380px] lg:max-w-[340px] mx-auto lg:mx-0">
             <div className="aspect-4/5 rounded-3xl overflow-hidden shadow-lg relative z-10">
-               <img 
-                  src="\images\über mihc\WhatsApp Image 2026-04-26 at 13.57.15.jpeg" 
+               <Image 
+                  src="/images/über mihc/WhatsApp Image 2026-04-26 at 13.57.15.jpeg" 
                   alt="Portrait der Floristin" 
-                  className="w-full h-full object-cover"
+                  fill sizes="(max-width: 1024px) 100vw, 33vw"
+                  className="object-cover"
                 />
             </div>
             {/* Decorative background element */}
@@ -20,7 +23,7 @@ export function About() {
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-semibold text-brand-dark mb-6 sm:mb-8">
               Über Mich
             </h2>
-            <div className="space-y-5 sm:space-y-6 text-base sm:text-lg text-brand-dark/80 leading-relaxed relative">
+            <div className="space-y-5 sm:space-y-6 text-base sm:text-lg text-brand-dark/90 leading-relaxed relative">
               <span className="hidden md:block absolute -top-10 -left-6 text-8xl text-brand-turquoise/10 font-serif leading-none">"</span>
               <p className="relative z-10 font-medium text-lg sm:text-xl text-brand-dark">
                 „Schon mein Großvater besaß in den 70iger Jahren eine große Gärtnerei & Landschaftsgestaltung, somit wurde mir die Liebe und Passion zu allem Blühenden von Klein auf mit auf den Weg gegeben.“

@@ -1,4 +1,5 @@
 import { Heart, MapPin, Leaf } from 'lucide-react';
+import Image from 'next/image';
 
 export function Intro() {
   return (
@@ -7,25 +8,28 @@ export function Intro() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 lg:gap-20 xl:gap-24 items-center">
           <div className="order-2 lg:order-1 grid grid-cols-2 gap-4 md:gap-6 h-[300px] sm:h-[380px] md:h-[500px] lg:h-[600px]">
             <div className="relative rounded-3xl overflow-hidden shadow-sm">
-              <img 
-                src="\images\final\WhatsApp Image 2026-04-26 at 13.21.30 (1).jpeg" 
+              <Image 
+                src="/images/final/WhatsApp Image 2026-04-26 at 13.21.30 (1).jpeg" 
                 alt="Floristin bei der Arbeit" 
-                className="absolute inset-0 w-full h-full object-cover"
+                fill sizes="(max-width: 1024px) 50vw, 25vw"
+                className="object-cover"
               />
             </div>
             <div className="grid grid-rows-2 gap-4 md:gap-6 min-h-0">
               <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                <img 
-                  src="\images\final\WhatsApp Image 2026-04-26 at 13.21.30 (2).jpeg" 
+                <Image 
+                  src="/images/final/WhatsApp Image 2026-04-26 at 13.21.30 (2).jpeg" 
                   alt="Detail" 
-                  className="absolute inset-0 w-full h-full object-cover"
+                  fill sizes="(max-width: 1024px) 50vw, 25vw"
+                  className="object-cover"
                 />
               </div>
               <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                <img 
-                  src="\images\final\WhatsApp Image 2026-04-26 at 13.21.30.jpeg" 
+                <Image 
+                  src="/images/final/WhatsApp Image 2026-04-26 at 13.21.30.jpeg" 
                   alt="Frische Blumen" 
-                  className="absolute inset-0 w-full h-full object-cover"
+                  fill sizes="(max-width: 1024px) 50vw, 25vw"
+                  className="object-cover"
                 />
               </div>
             </div>
@@ -46,7 +50,7 @@ export function Intro() {
                 </div>
                 <div>
                   <h3 className="font-medium text-brand-dark text-lg mb-1">Persönlich & Handgemacht</h3>
-                  <p className="text-brand-dark/70 text-sm leading-relaxed">Individuelle Beratung und liebevolle Handarbeit für jedes einzelne Werkstück.</p>
+                  <p className="text-brand-dark/85 text-sm leading-relaxed">Individuelle Beratung und liebevolle Handarbeit für jedes einzelne Werkstück.</p>
                 </div>
               </div>
               
@@ -56,7 +60,7 @@ export function Intro() {
                 </div>
                 <div>
                   <h3 className="font-medium text-brand-dark text-lg mb-1">Regional im Weinviertel</h3>
-                  <p className="text-brand-dark/70 text-sm leading-relaxed">Als mobiler Händler bringe ich florale Freude direkt zu Ihnen in der Region.</p>
+                  <p className="text-brand-dark/85 text-sm leading-relaxed">Als mobiler Händler bringe ich florale Freude direkt zu Ihnen in der Region.</p>
                 </div>
               </div>
               
@@ -66,7 +70,7 @@ export function Intro() {
                 </div>
                 <div>
                   <h3 className="font-medium text-brand-dark text-lg mb-1">Natürlich & Saisonal</h3>
-                  <p className="text-brand-dark/70 text-sm leading-relaxed">Fokus auf saisonale Blumen und natürliche Materialien für authentische Floristik.</p>
+                  <p className="text-brand-dark/85 text-sm leading-relaxed">Fokus auf saisonale Blumen und natürliche Materialien für authentische Floristik.</p>
                 </div>
               </div>
             </div>
