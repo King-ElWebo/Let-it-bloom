@@ -1,7 +1,15 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import { CookieBanner } from '@/src/components/cookies/CookieBanner';
-import { CookiePreferencesModal } from '@/src/components/cookies/CookiePreferencesModal';
+
+const CookiePreferencesModal = dynamic(
+  () =>
+    import('@/src/components/cookies/CookiePreferencesModal').then(
+      (mod) => mod.CookiePreferencesModal
+    ),
+  { ssr: false }
+);
 
 export function CookieConsentRoot() {
   return (

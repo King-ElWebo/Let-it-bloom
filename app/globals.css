@@ -43,6 +43,13 @@ section[id] {
   scroll-margin-top: 5rem;
 }
 
+@supports (content-visibility: auto) {
+  .hero-section ~ section {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 900px;
+  }
+}
+
 @keyframes gallery-scroll {
   from {
     transform: translateX(-50%);

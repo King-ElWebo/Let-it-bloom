@@ -2,8 +2,8 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import { CookieConsentRoot } from "@/src/components/cookies/CookieConsentRoot";
+import { ConsentAnalytics } from "@/src/components/ConsentAnalytics";
 import { ConsentProvider } from "@/src/context/ConsentContext";
-import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -13,7 +13,7 @@ const inter = Inter({
 
 const cormorantGaramond = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
   style: ["normal", "italic"],
   display: "swap",
   variable: "--font-serif",
@@ -54,8 +54,8 @@ export default function RootLayout({
         <ConsentProvider>
           {children}
           <CookieConsentRoot />
+          <ConsentAnalytics />
         </ConsentProvider>
-        <Analytics />
       </body>
     </html>
   );

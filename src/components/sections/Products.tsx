@@ -29,7 +29,7 @@ export function Products() {
             </div>
             <div className="grid grid-cols-2 gap-4 md:gap-6 h-[280px] sm:h-[320px] md:h-[420px] lg:h-[520px]">
               <div className="relative rounded-3xl overflow-hidden shadow-sm">
-                <Image src="/images/mein angebot/groß.jpeg" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" alt="Frischer Blumenstrauß" />
+                <Image src="/images/mein angebot/groß.jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Frischer Blumenstrauß" />
               </div>
               <div className="grid grid-rows-2 gap-4 md:gap-6 min-h-0">
                 <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
@@ -54,7 +54,7 @@ export function Products() {
                 </div>
               </div>
               <div className="relative rounded-3xl overflow-hidden shadow-sm">
-                <Image src="/images/WhatsApp Image 2026-04-09 at 06.44.02.jpeg" fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" alt="Zimmerpflanzen" />
+                <Image src="/images/WhatsApp Image 2026-04-09 at 06.44.02.jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Zimmerpflanzen" />
               </div>
             </div>
             <div className="order-1 lg:order-2">
@@ -74,4 +74,3 @@ export function Products() {
     </section>
   );
 }
-

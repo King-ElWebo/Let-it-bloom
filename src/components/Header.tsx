@@ -1,20 +1,15 @@
-'use client';
-
-import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { MobileMenu } from '@/src/components/MobileMenu';
+
+const navLinks = [
+  { name: 'Leistungen', href: '/#leistungen' },
+  { name: 'Galerie', href: '/#galerie' },
+  { name: 'Saisonales', href: '/#saisonales' },
+  { name: 'Über mich', href: '/#ueber-mich' },
+];
 
 export function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const navLinks = [
-    { name: 'Leistungen', href: '/#leistungen' },
-    { name: 'Galerie', href: '/#galerie' },
-    { name: 'Saisonales', href: '/#saisonales' },
-    { name: 'Über mich', href: '/#ueber-mich' },
-  ];
-
   return (
     <header className="sticky top-0 z-50 bg-brand-beige/90 backdrop-blur-md border-b border-brand-turquoise/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -55,44 +50,9 @@ export function Header() {
             </Link>
           </nav>
 
-          <div className="lg:hidden flex items-center">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-brand-dark hover:text-brand-turquoise transition-colors p-2"
-              aria-label={isOpen ? 'Menü schließen' : 'Menü öffnen'}
-              aria-expanded={isOpen}
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+          <MobileMenu links={navLinks} />
         </div>
       </div>
-
-      {isOpen && (
-        <div className="lg:hidden bg-brand-cream border-b border-brand-turquoise/20 absolute top-full left-0 right-0">
-          <div className="px-4 pt-2 pb-6 space-y-2 shadow-lg">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="block px-4 py-3 text-base font-medium text-brand-dark hover:bg-brand-beige rounded-2xl transition-colors"
-              >
-                {link.name}
-              </Link>
-            ))}
-            <div className="pt-2 px-4 pb-2">
-              <Link
-                href="/#kontakt"
-                onClick={() => setIsOpen(false)}
-                className="block w-full py-3 bg-brand-turquoise text-white text-center font-medium rounded-full hover:bg-brand-turquoise/90 transition-colors shadow-sm"
-              >
-                Kontakt
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
     </header>
   );
 }

@@ -40,10 +40,9 @@ export function Hero() {
               alt=""
               width={420}
               height={420}
-              priority
               aria-hidden="true"
               className="absolute left-1/2 top-1/2 -z-10 h-auto w-36 -translate-x-1/2 -translate-y-[52%] rounded-full opacity-[0.18] mix-blend-multiply shadow-sm sm:w-56 md:w-64 lg:w-72"
-              sizes="(min-width: 1024px) 288px, (min-width: 768px) 256px, (min-width: 640px) 224px, 176px"
+              sizes="(min-width: 1024px) 288px, (min-width: 768px) 256px, (min-width: 640px) 224px, 144px"
             />
             <span className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-semibold text-brand-dark tracking-normal mb-2 relative z-10">
               Let It Bloom
@@ -88,6 +87,7 @@ export function Hero() {
             alt={heroImages.large.alt}
             fill
             priority
+            fetchPriority="high"
             className="object-cover"
             sizes="(min-width: 1280px) 280px, (min-width: 1024px) 220px, (min-width: 640px) 200px, 150px"
           />
@@ -98,6 +98,7 @@ export function Hero() {
             src={heroImages.small1.src}
             alt={heroImages.small1.alt}
             fill
+            loading="lazy"
             className="object-cover"
             sizes="(min-width: 1280px) 120px, (min-width: 1024px) 100px, 72px"
           />
