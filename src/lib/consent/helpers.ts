@@ -6,7 +6,3 @@ export function hasOptionalConsent(
 ): boolean {
   return Boolean(consent[category]);
 }
-
-export function canLoadAnalytics(consent: ConsentPreferences): boolean {
-  return hasOptionalConsent(consent, 'analytics');
-}
