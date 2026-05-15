@@ -139,8 +139,13 @@ export async function POST(req: NextRequest): Promise<NextResponse<ContactRespon
 
     const result = (await response.json()) as Web3FormsResponse;
 
+    if (response.status === 401 || response.status === 403) {
+      console.error(`[contact] Web3Forms rejected the access key with status ${response.status}.`);
+      return json({ success: false, message: INACTIVE_MESSAGE, inactive: true }, { status: 503 });
+    }
+
     if (!response.ok || result.success !== true) {
-      console.error('[contact] Web3Forms request failed.');
+      console.error(`[contact] Web3Forms request failed with status ${response.status}.`);
       return json({ success: false, message: ERROR_MESSAGE }, { status: 502 });
     }
   } catch {
