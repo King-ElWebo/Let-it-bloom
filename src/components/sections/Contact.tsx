@@ -127,34 +127,43 @@ export function Contact() {
     setSubmitStatus('loading');
     setServerMessage('');
 
-    // Prepare direct Web3Forms payload
-    const formData = new FormData();
-    formData.append('access_key', WEB3FORMS_ACCESS_KEY);
-    formData.append('name', form.name.trim());
-    formData.append('email', form.email.trim());
-    formData.append('phone', form.phone.trim());
-    formData.append('subject', form.subject.trim() || 'Neue Kontaktanfrage');
-    formData.append('message', form.message.trim());
-    formData.append('occasion', form.occasion);
-    formData.append('from_name', 'Let It Bloom Website');
-    
-    // Honeypot check
-    if (form.website) {
+    if (form.website.trim()) {
       setSubmitStatus('success');
       setServerMessage(SUCCESS_MESSAGE);
       setForm(INITIAL_FORM);
+      setFieldErrors({});
       return;
     }
 
     try {
+      const formData = new FormData();
+      formData.append('access_key', WEB3FORMS_ACCESS_KEY);
+      formData.append('name', form.name.trim());
+      formData.append('email', form.email.trim());
+      formData.append('phone', form.phone.trim());
+      formData.append('subject', 'Neue Anfrage über Let It Bloom Website');
+      formData.append('message', form.message.trim());
+      formData.append('from_name', 'Let It Bloom Website');
+      formData.append('botcheck', '');
+      formData.append('Datenschutz akzeptiert', 'Ja');
+
+      if (form.subject.trim()) {
+        formData.append('Betreff aus Formular', form.subject.trim());
+      }
+
+      if (form.occasion.trim()) {
+        formData.append('Anlass', form.occasion.trim());
+      }
+
       const res = await fetch(WEB3FORMS_ENDPOINT, {
         method: 'POST',
+        headers: { Accept: 'application/json' },
         body: formData,
       });
 
       const data = await res.json();
 
-      if (data.success) {
+      if (res.ok && data.success) {
         setSubmitStatus('success');
         setServerMessage(SUCCESS_MESSAGE);
         setForm(INITIAL_FORM);
