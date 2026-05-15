@@ -29,7 +29,7 @@ export function Gallery() {
           {loopImages.map((src, index) => (
             <div 
               key={index} 
-              className="flex-none w-[78vw] max-w-[280px] sm:w-[300px] md:w-[350px] aspect-4/5 rounded-3xl overflow-hidden shadow-sm group"
+              className="relative flex-none w-[78vw] max-w-[280px] sm:w-[300px] md:w-[350px] aspect-4/5 rounded-3xl overflow-hidden shadow-sm group"
             >
               <Image 
                 src={src} 

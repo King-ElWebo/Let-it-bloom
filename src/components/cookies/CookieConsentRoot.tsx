@@ -2,6 +2,7 @@
 
 import dynamic from 'next/dynamic';
 import { CookieBanner } from '@/src/components/cookies/CookieBanner';
+import { useConsent } from '@/src/hooks/useConsent';
 
 const CookiePreferencesModal = dynamic(
   () =>
@@ -12,10 +13,12 @@ const CookiePreferencesModal = dynamic(
 );
 
 export function CookieConsentRoot() {
+  const { isPreferencesOpen } = useConsent();
+
   return (
     <>
       <CookieBanner />
-      <CookiePreferencesModal />
+      {isPreferencesOpen && <CookiePreferencesModal />}
     </>
   );
 }

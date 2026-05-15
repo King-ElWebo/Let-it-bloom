@@ -18,11 +18,11 @@ export function Header() {
             <div className="absolute -top-2 -left-2 w-8 h-8 bg-brand-turquoise/20 rounded-full -z-10"></div>
             <Link href="/" className="flex items-center gap-2 sm:gap-3">
               <Image
-                src="/images/WhatsApp Image 2026-03-25 at 05.47.05 (2).jpeg"
+                src="/images/optimized/logo-mark.jpg"
                 alt="Let It Bloom Logo"
                 width={44}
                 height={44}
-                priority
+                sizes="(min-width: 640px) 44px, 36px"
                 className="w-9 h-9 sm:w-11 sm:h-11 rounded-full object-cover border border-brand-turquoise/20 shadow-sm"
               />
               <span className="flex flex-col">

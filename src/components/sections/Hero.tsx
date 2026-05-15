@@ -1,14 +1,14 @@
 import Image from "next/image";
 
-const logoSrc = "/images/WhatsApp Image 2026-03-25 at 05.47.05 (2).jpeg";
+const logoSrc = "/images/optimized/logo-mark.jpg";
 
 const heroImages = {
   large: {
-    src: "/images/mein angebot/WhatsApp Image 2026-04-26 at 13.23.23.jpeg",
+    src: "/images/optimized/hero-bouquet.jpg",
     alt: "Zart rosa Blumenarrangement in einer Vase",
   },
   small1: {
-    src: "/images/mein angebot/WhatsApp Image 2026-04-26 at 13.23.24.jpeg",
+    src: "/images/optimized/hero-bouquet-accent.jpg",
     alt: "Frischer Freesienstrauss in hellem Papier",
   },
   small2: {
@@ -41,6 +41,7 @@ export function Hero() {
               width={420}
               height={420}
               aria-hidden="true"
+              loading="lazy"
               className="absolute left-1/2 top-1/2 -z-10 h-auto w-36 -translate-x-1/2 -translate-y-[52%] rounded-full opacity-[0.18] mix-blend-multiply shadow-sm sm:w-56 md:w-64 lg:w-72"
               sizes="(min-width: 1024px) 288px, (min-width: 768px) 256px, (min-width: 640px) 224px, 144px"
             />
@@ -89,7 +90,7 @@ export function Hero() {
             priority
             fetchPriority="high"
             className="object-cover"
-            sizes="(min-width: 1280px) 280px, (min-width: 1024px) 220px, (min-width: 640px) 200px, 150px"
+            sizes="(min-width: 1280px) 280px, (min-width: 1024px) 220px, (min-width: 640px) 200px, (max-width: 359px) 140px, 150px"
           />
         </div>
         {/* Smaller accent circle */}
