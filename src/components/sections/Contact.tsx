@@ -127,6 +127,7 @@ export function Contact() {
     setSubmitStatus('loading');
     setServerMessage('');
 
+    // Honeypot check
     if (form.website.trim()) {
       setSubmitStatus('success');
       setServerMessage(SUCCESS_MESSAGE);
@@ -136,38 +137,23 @@ export function Contact() {
     }
 
     try {
-      const formData = new FormData();
+      // Use exact Web3Forms approach
+      const formData = new FormData(e.currentTarget);
       formData.append('access_key', WEB3FORMS_ACCESS_KEY);
-      formData.append('name', form.name.trim());
-      formData.append('email', form.email.trim());
-      formData.append('phone', form.phone.trim());
-      formData.append('subject', 'Neue Anfrage über Let It Bloom Website');
-      formData.append('message', form.message.trim());
-      formData.append('from_name', 'Let It Bloom Website');
-      formData.append('botcheck', '');
-      formData.append('Datenschutz akzeptiert', 'Ja');
 
-      if (form.subject.trim()) {
-        formData.append('Betreff aus Formular', form.subject.trim());
-      }
-
-      if (form.occasion.trim()) {
-        formData.append('Anlass', form.occasion.trim());
-      }
-
-      const res = await fetch(WEB3FORMS_ENDPOINT, {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { Accept: 'application/json' },
         body: formData,
       });
 
-      const data = await res.json();
+      const data = await response.json();
 
-      if (res.ok && data.success) {
+      if (data.success) {
         setSubmitStatus('success');
         setServerMessage(SUCCESS_MESSAGE);
         setForm(INITIAL_FORM);
         setFieldErrors({});
+        e.currentTarget.reset(); // Reset the form natively
       } else {
         setSubmitStatus('error');
         setServerMessage(data.message || ERROR_MESSAGE);
