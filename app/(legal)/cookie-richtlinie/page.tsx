@@ -6,21 +6,21 @@ import { legalProfile } from "@/src/content/legal";
 export const metadata: Metadata = {
   title: "Cookie-Richtlinie | Let It Bloom",
   description:
-    "Informationen zu eingesetzten Cookies, Cookie-Kategorien und Moeglichkeiten zur Einwilligung und Verwaltung.",
+    "Informationen zu eingesetzten Cookies, Cookie-Kategorien und Möglichkeiten zur Einwilligung und Verwaltung.",
 };
 
 export default function CookieRichtliniePage() {
   return (
     <LegalPageLayout
       title="Cookie-Richtlinie"
-      intro="Hier findest du Informationen darueber, welche Arten von Cookies auf dieser Website eingesetzt werden und wie du deine Einstellungen verwalten kannst."
+      intro="Hier findest du Informationen darüber, welche Arten von Cookies auf dieser Website eingesetzt werden und wie du deine Einstellungen verwalten kannst."
       lastUpdated={legalProfile.lastUpdated}
     >
       <LegalSection title="1. Was sind Cookies?">
         <p>
-          Cookies sind kleine Textdateien, die beim Besuch einer Website auf deinem Endgeraet
-          gespeichert werden. Sie enthalten Informationen, die bei spaeteren Besuchen wieder
-          ausgelesen werden koennen.
+          Cookies sind kleine Textdateien, die beim Besuch einer Website auf deinem Endgerät
+          gespeichert werden. Sie enthalten Informationen, die bei späteren Besuchen wieder
+          ausgelesen werden können.
         </p>
       </LegalSection>
 
@@ -45,24 +45,24 @@ export default function CookieRichtliniePage() {
           Marketing-Cookies
         </h3>
         <p>
-          Diese Cookies koennen genutzt werden, um Besucher ueber Websites hinweg zu verfolgen und
+          Diese Cookies können genutzt werden, um Besucher über Websites hinweg zu verfolgen und
           personalisierte Werbung auszuspielen. Auch sie werden nur nach Einwilligung gesetzt.
         </p>
       </LegalSection>
 
       <LegalSection title="3. Rechtsgrundlage">
         <p>
-          Technisch notwendige Cookies werden auf Basis berechtigter Interessen gemaess Art. 6
+          Technisch notwendige Cookies werden auf Basis berechtigter Interessen gemäß Art. 6
           Abs. 1 lit. f DSGVO verwendet. Alle optionalen Cookies (z. B. Analyse oder Marketing)
-          werden nur mit deiner Einwilligung gemaess Art. 6 Abs. 1 lit. a DSGVO gesetzt.
+          werden nur mit deiner Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO gesetzt.
         </p>
       </LegalSection>
 
       <LegalSection title="4. Cookie-Einstellungen verwalten">
         <p>
           Du kannst deine Cookie-Einstellungen jederzeit im Cookie-Banner bzw. Consent-Tool
-          aendern oder widerrufen. Alternativ kannst du Cookies ueber deine Browser-Einstellungen
-          loeschen oder blockieren.
+          ändern oder widerrufen. Alternativ kannst du Cookies über deine Browser-Einstellungen
+          löschen oder blockieren.
         </p>
       </LegalSection>
 
@@ -70,7 +70,7 @@ export default function CookieRichtliniePage() {
         <p>
           Falls auf dieser Website Analyse- oder Marketingdienste eingesetzt werden (z. B.
           {` ${legalProfile.analyticsTool}`}), findest du weitere Informationen dazu in der
-          Datenschutzerklaerung.
+          Datenschutzerklärung.
         </p>
       </LegalSection>
     </LegalPageLayout>

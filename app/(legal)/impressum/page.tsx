@@ -6,14 +6,14 @@ import { legalProfile } from "@/src/content/legal";
 export const metadata: Metadata = {
   title: "Impressum | Let It Bloom",
   description:
-    "Impressum mit Anbieterkennzeichnung, Kontaktangaben und Haftungshinweisen fuer die Website.",
+    "Impressum mit Anbieterkennzeichnung, Kontaktangaben und Haftungshinweisen für die Website.",
 };
 
 export default function ImpressumPage() {
   return (
     <LegalPageLayout
       title="Impressum"
-      intro="Angaben gemaess den Informationspflichten fuer Websites in Oesterreich und Deutschland. Bitte ersetze die Platzhalter durch deine echten Unternehmensdaten."
+      intro="Angaben gemäß den Informationspflichten für Websites in Österreich und Deutschland. Bitte ersetze die Platzhalter durch deine echten Unternehmensdaten."
       lastUpdated={legalProfile.lastUpdated}
     >
       <LegalSection title="Angaben zum Unternehmen">
@@ -61,10 +61,10 @@ export default function ImpressumPage() {
           <dt className="font-medium text-brand-dark">Firmenbuchgericht</dt>
           <dd>{legalProfile.companyRegisterCourt}</dd>
 
-          <dt className="font-medium text-brand-dark">Aufsichtsbehoerde</dt>
+          <dt className="font-medium text-brand-dark">Aufsichtsbehörde</dt>
           <dd>{legalProfile.supervisoryAuthority}</dd>
 
-          <dt className="font-medium text-brand-dark">Kammerzugehoerigkeit</dt>
+          <dt className="font-medium text-brand-dark">Kammerzugehörigkeit</dt>
           <dd>{legalProfile.chamber}</dd>
         </dl>
       </LegalSection>

@@ -1,4 +1,4 @@
-﻿'use client';
+'use client';
 
 import Link from 'next/link';
 import { useState, useRef, FormEvent, ChangeEvent } from 'react';
@@ -29,7 +29,7 @@ interface FormState {
   subject: string;
   message: string;
   privacy: boolean;
-  // Honeypot â€“ hidden from real users, filled only by bots
+  // Honeypot – hidden from real users, filled only by bots
   website: string;
 }
 
@@ -42,9 +42,10 @@ interface FieldErrors {
 
 type SubmitStatus = 'idle' | 'loading' | 'success' | 'error' | 'inactive';
 
-type Web3FormsClientResponse = {
-  success?: boolean;
-  message?: string;
+type ContactApiResponse = {
+  success: boolean;
+  message: string;
+  inactive?: boolean;
 };
 
 // ---------------------------------------------------------------------------
@@ -52,19 +53,17 @@ type Web3FormsClientResponse = {
 // ---------------------------------------------------------------------------
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
-const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
+const CONTACT_API_ENDPOINT = '/api/contact';
 const SUCCESS_MESSAGE = 'Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.';
 const ERROR_MESSAGE =
   'Leider konnte Ihre Nachricht nicht gesendet werden. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.';
 const INACTIVE_MESSAGE =
   'Das Kontaktformular ist aktuell nicht verfügbar. Bitte kontaktieren Sie uns direkt per E-Mail oder Telefon.';
-const WEB3FORMS_SUBJECT = 'Neue Anfrage über Let It Bloom Website';
 
 const OCCASION_OPTIONS = [
-  { value: '', label: 'Anlass auswÃ¤hlen (optional)' },
+  { value: '', label: 'Anlass auswählen (optional)' },
   { value: 'general', label: 'Allgemeine Anfrage' },
-  { value: 'bouquet', label: 'BlumenstrauÃŸ' },
+  { value: 'bouquet', label: 'Blumenstrauß' },
   { value: 'wedding', label: 'Hochzeit' },
   { value: 'funeral', label: 'Trauerfloristik' },
   { value: 'seasonal', label: 'Saisonale Angebote' },
@@ -87,7 +86,7 @@ const INITIAL_FORM: FormState = {
 // ---------------------------------------------------------------------------
 
 export function Contact() {
-  // â”€â”€ Copy-to-clipboard state â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── Copy-to-clipboard state ───────────────────────────────────────────────
   const [copied, setCopied] = useState<'phone' | 'email' | null>(null);
 
   const copyToClipboard = async (value: string, type: 'phone' | 'email') => {
@@ -96,14 +95,14 @@ export function Contact() {
     window.setTimeout(() => setCopied(null), 1600);
   };
 
-  // â”€â”€ Form state â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── Form state ──────────────────────────────────────────────────────────
   const [form, setForm] = useState<FormState>(INITIAL_FORM);
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle');
   const [serverMessage, setServerMessage] = useState('');
   const formRef = useRef<HTMLFormElement>(null);
 
-  // â”€â”€ Field change handlers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── Field change handlers ────────────────────────────────────────────────
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
   ) => {
@@ -114,26 +113,26 @@ export function Contact() {
     setFieldErrors((prev) => ({ ...prev, [name]: undefined }));
   };
 
-  // â”€â”€ Client-side validation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── Client-side validation ─────────────────────────────────────────────
   const validate = (): boolean => {
     const errors: FieldErrors = {};
     if (!form.name.trim() || form.name.trim().length < 2) {
       errors.name = 'Bitte geben Sie Ihren Namen ein (mindestens 2 Zeichen).';
     }
     if (!form.email.trim() || !EMAIL_REGEX.test(form.email.trim())) {
-      errors.email = 'Bitte geben Sie eine gÃ¼ltige E-Mail-Adresse ein.';
+      errors.email = 'Bitte geben Sie eine gültige E-Mail-Adresse ein.';
     }
     if (!form.message.trim() || form.message.trim().length < 10) {
       errors.message = 'Bitte geben Sie eine Nachricht ein (mindestens 10 Zeichen).';
     }
     if (!form.privacy) {
-      errors.privacy = 'Bitte stimmen Sie der DatenschutzerklÃ¤rung zu.';
+      errors.privacy = 'Bitte stimmen Sie der Datenschutzerklärung zu.';
     }
     setFieldErrors(errors);
     return Object.keys(errors).length === 0;
   };
 
-  // â”€â”€ Submit â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── Submit ─────────────────────────────────────────────────────────────────
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!validate()) return;
@@ -141,56 +140,36 @@ export function Contact() {
     setSubmitStatus('loading');
     setServerMessage('');
 
-    if (!WEB3FORMS_ACCESS_KEY) {
-      setSubmitStatus('inactive');
-      setServerMessage(INACTIVE_MESSAGE);
-      return;
-    }
-
-    if (form.website.trim()) {
-      setSubmitStatus('success');
-      setServerMessage(SUCCESS_MESSAGE);
-      setForm(INITIAL_FORM);
-      setFieldErrors({});
-      return;
-    }
-
     try {
-      const formData = new FormData();
-      formData.append('access_key', WEB3FORMS_ACCESS_KEY);
-      formData.append('name', form.name.trim());
-      formData.append('email', form.email.trim());
-      formData.append('phone', form.phone.trim());
-      formData.append('subject', WEB3FORMS_SUBJECT);
-      formData.append('message', form.message.trim());
-      formData.append('from_name', 'Let It Bloom Website');
-      formData.append('botcheck', '');
-      formData.append('Datenschutz akzeptiert', 'Ja');
-
-      if (form.subject.trim()) {
-        formData.append('Betreff aus Formular', form.subject.trim());
-      }
-
-      if (form.occasion.trim()) {
-        formData.append('Anlass', form.occasion.trim());
-      }
-
-      const res = await fetch(WEB3FORMS_ENDPOINT, {
+      const res = await fetch(CONTACT_API_ENDPOINT, {
         method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: formData,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: form.name.trim(),
+          email: form.email.trim(),
+          phone: form.phone.trim(),
+          occasion: form.occasion.trim(),
+          subject: form.subject.trim(),
+          message: form.message.trim(),
+          privacyAccepted: form.privacy,
+          website: form.website, // Honeypot
+        }),
       });
 
-      const data = (await res.json()) as Web3FormsClientResponse;
+      const data = (await res.json()) as ContactApiResponse;
 
       if (res.ok && data.success) {
         setSubmitStatus('success');
-        setServerMessage(SUCCESS_MESSAGE);
+        setServerMessage(data.message || SUCCESS_MESSAGE);
         setForm(INITIAL_FORM);
         setFieldErrors({});
       } else {
-        setSubmitStatus('error');
-        setServerMessage(ERROR_MESSAGE);
+        if (data.inactive) {
+          setSubmitStatus('inactive');
+        } else {
+          setSubmitStatus('error');
+        }
+        setServerMessage(data.message || ERROR_MESSAGE);
       }
     } catch {
       setSubmitStatus('error');
@@ -198,22 +177,20 @@ export function Contact() {
     }
   };
 
-  // â”€â”€ Input / textarea base classes â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── Input / textarea base classes ───────────────────────────────────────
   const inputClass = (hasError?: string) =>
-    `w-full px-5 py-4 rounded-full bg-white/60 border transition-all focus:outline-none focus:ring-2 focus:bg-white ${
-      hasError
-        ? 'border-red-400/60 focus:ring-red-300/50'
-        : 'border-brand-turquoise/20 focus:ring-brand-turquoise/50'
+    `w-full px-5 py-4 rounded-full bg-white/60 border transition-all focus:outline-none focus:ring-2 focus:bg-white ${hasError
+      ? 'border-red-400/60 focus:ring-red-300/50'
+      : 'border-brand-turquoise/20 focus:ring-brand-turquoise/50'
     }`;
 
   const textareaClass = (hasError?: string) =>
-    `w-full px-5 py-4 rounded-3xl bg-white/60 border transition-all focus:outline-none focus:ring-2 focus:bg-white resize-none ${
-      hasError
-        ? 'border-red-400/60 focus:ring-red-300/50'
-        : 'border-brand-turquoise/20 focus:ring-brand-turquoise/50'
+    `w-full px-5 py-4 rounded-3xl bg-white/60 border transition-all focus:outline-none focus:ring-2 focus:bg-white resize-none ${hasError
+      ? 'border-red-400/60 focus:ring-red-300/50'
+      : 'border-brand-turquoise/20 focus:ring-brand-turquoise/50'
     }`;
 
-  // â”€â”€ Render â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+  // ── Render ───────────────────────────────────────────────────────────────
   return (
     <section id="kontakt" className="py-16 sm:py-20 md:py-24 lg:py-28 bg-white relative overflow-hidden">
       {/* Decorative shapes */}
@@ -223,13 +200,13 @@ export function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 lg:gap-20 xl:gap-24">
 
-          {/* â”€â”€ Left column: contact info â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+          {/* Left column: contact info */}
           <div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-semibold text-brand-dark mb-6 sm:mb-8">
               Kontakt &amp; Service
             </h2>
             <p className="text-base sm:text-lg text-brand-dark/90 leading-relaxed mb-8 sm:mb-10 md:mb-12">
-              Haben Sie Fragen, WÃ¼nsche oder mÃ¶chten Sie eine Bestellung aufgeben? Ich bin gerne fÃ¼r Sie da.
+              Haben Sie Fragen, Wünsche oder möchten Sie eine Bestellung aufgeben? Ich bin gerne für Sie da.
             </p>
 
             <div className="space-y-5 sm:space-y-6 md:space-y-8">
@@ -287,7 +264,7 @@ export function Contact() {
                 <div>
                   <h3 className="font-medium text-brand-dark text-base sm:text-lg mb-1">Freitag &amp; Samstag</h3>
                   <p className="text-brand-dark/85">
-                    Lieferung in Langenzersdorf u.U. kostenlos<br />sowie Abholung mÃ¶glich
+                    Lieferung in Langenzersdorf u.U. kostenlos<br />sowie Abholung möglich
                   </p>
                 </div>
               </div>
@@ -298,8 +275,8 @@ export function Contact() {
                   <Clock className="text-brand-turquoise w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-medium text-brand-dark text-base sm:text-lg mb-1">Sonntag â€“ Mittwoch</h3>
-                  <p className="text-brand-dark/85">Lieferung und Abholung nach Vereinbarung mÃ¶glich</p>
+                  <h3 className="font-medium text-brand-dark text-base sm:text-lg mb-1">Sonntag – Mittwoch</h3>
+                  <p className="text-brand-dark/85">Lieferung und Abholung nach Vereinbarung möglich</p>
                 </div>
               </div>
             </div>
@@ -311,7 +288,7 @@ export function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-cream flex items-center justify-center text-brand-dark hover:bg-brand-turquoise hover:text-white transition-colors border border-brand-turquoise/20"
-                aria-label="Instagram in neuem Tab Ã¶ffnen"
+                aria-label="Instagram in neuem Tab öffnen"
               >
                 <Instagram className="w-5 h-5" />
               </a>
@@ -320,14 +297,14 @@ export function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-cream flex items-center justify-center text-brand-dark hover:bg-brand-turquoise hover:text-white transition-colors border border-brand-turquoise/20"
-                aria-label="Facebook in neuem Tab Ã¶ffnen"
+                aria-label="Facebook in neuem Tab öffnen"
               >
                 <Facebook className="w-5 h-5" />
               </a>
             </div>
           </div>
 
-          {/* â”€â”€ Right column: form â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+          {/* Right column: form */}
           <div className="bg-brand-cream rounded-[2rem] sm:rounded-[2.5rem] lg:rounded-[3rem] p-6 sm:p-8 md:p-10 lg:p-14 shadow-sm relative">
             {/* Decorative corner */}
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-brand-turquoise/20 rounded-full -z-10" />
@@ -336,7 +313,7 @@ export function Contact() {
               Nachricht senden
             </h3>
 
-            {/* â”€â”€ Success state â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+            {/* Success state */}
             {submitStatus === 'success' && (
               <div className="flex flex-col items-center text-center py-10 gap-4">
                 <CheckCircle2 className="w-14 h-14 text-brand-turquoise" strokeWidth={1.5} />
@@ -351,14 +328,13 @@ export function Contact() {
               </div>
             )}
 
-            {/* â”€â”€ Inactive / Error banner â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+            {/* Inactive / Error banner */}
             {(submitStatus === 'inactive' || submitStatus === 'error') && (
               <div
-                className={`flex items-start gap-3 rounded-2xl p-4 mb-6 text-sm ${
-                  submitStatus === 'inactive'
-                    ? 'bg-amber-50 border border-amber-200 text-amber-800'
-                    : 'bg-red-50 border border-red-200 text-red-700'
-                }`}
+                className={`flex items-start gap-3 rounded-2xl p-4 mb-6 text-sm ${submitStatus === 'inactive'
+                  ? 'bg-amber-50 border border-amber-200 text-amber-800'
+                  : 'bg-red-50 border border-red-200 text-red-700'
+                  }`}
                 role="alert"
               >
                 <AlertCircle className="w-5 h-5 shrink-0 mt-0.5" />
@@ -366,11 +342,11 @@ export function Contact() {
                   <p>{serverMessage}</p>
                   {submitStatus === 'inactive' && (
                     <p className="mt-2 font-medium">
-                      ðŸ“ž{' '}
+                      📞{' '}
                       <a href="tel:+436642303427" className="underline hover:no-underline">
                         +43 664 2303427
                       </a>
-                      &nbsp;Â·&nbsp;âœ‰ï¸{' '}
+                      &nbsp;·&nbsp;✉️{' '}
                       <a href="mailto:wgruber@outlook.at" className="underline hover:no-underline">
                         wgruber@outlook.at
                       </a>
@@ -380,7 +356,7 @@ export function Contact() {
               </div>
             )}
 
-            {/* â”€â”€ Form (hidden on success) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
+            {/* Form (hidden on success) */}
             {submitStatus !== 'success' && (
               <form
                 ref={formRef}
@@ -388,7 +364,7 @@ export function Contact() {
                 onSubmit={handleSubmit}
                 noValidate
               >
-                {/* Honeypot â€“ visually hidden, accessible-hidden */}
+                {/* Honeypot – visually hidden, accessible-hidden */}
                 <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', top: 'auto', width: '1px', height: '1px', overflow: 'hidden' }}>
                   <label htmlFor="website-hp">Website leer lassen</label>
                   <input
@@ -456,7 +432,7 @@ export function Contact() {
                     value={form.phone}
                     onChange={handleChange}
                     className={inputClass()}
-                    placeholder="+43 664 â€¦"
+                    placeholder="+43 664 …"
                     autoComplete="tel"
                   />
                 </div>
@@ -482,7 +458,7 @@ export function Contact() {
                     </select>
                     {/* Custom arrow */}
                     <span className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-brand-dark/40">
-                      â–¾
+                      ▾
                     </span>
                   </div>
                 </div>
@@ -541,13 +517,12 @@ export function Contact() {
                       />
                       {/* Custom checkbox UI */}
                       <div
-                        className={`w-5 h-5 rounded-md border-2 flex items-center justify-center transition-all ${
-                          form.privacy
+                        className={`w-5 h-5 rounded-md border-2 flex items-center justify-center transition-all ${form.privacy
                             ? 'bg-brand-turquoise border-brand-turquoise'
                             : fieldErrors.privacy
-                            ? 'border-red-400 bg-white/60'
-                            : 'border-brand-turquoise/40 bg-white/60 group-hover:border-brand-turquoise'
-                        }`}
+                              ? 'border-red-400 bg-white/60'
+                              : 'border-brand-turquoise/40 bg-white/60 group-hover:border-brand-turquoise'
+                          }`}
                       >
                         {form.privacy && <Check className="w-3 h-3 text-white" strokeWidth={3} />}
                       </div>
@@ -556,7 +531,7 @@ export function Contact() {
                       Ich stimme zu, dass meine Angaben zur Bearbeitung meiner Anfrage verarbeitet werden.
                       Weitere Informationen finden Sie in unserer{' '}
                       <Link href="/datenschutz" className="text-brand-turquoise hover:underline">
-                        DatenschutzerklÃ¤rung
+                        Datenschutzerklärung
                       </Link>
                       .{' '}
                       <span className="text-brand-turquoise" aria-hidden="true">*</span>
@@ -585,7 +560,7 @@ export function Contact() {
                   {submitStatus === 'loading' ? (
                     <>
                       <Loader2 className="w-5 h-5 animate-spin" />
-                      Wird gesendetâ€¦
+                      Wird gesendet...
                     </>
                   ) : (
                     <>

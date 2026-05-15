@@ -64,7 +64,7 @@ export function Hero() {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-4">
             <a
-              href="tel:+43123456789"
+              href="tel:+436642303427"
               className="w-full max-w-[230px] sm:w-auto px-6 py-2.5 sm:px-8 sm:py-4 bg-brand-turquoise text-white text-sm sm:text-base font-medium rounded-full hover:bg-brand-turquoise/90 transition-all shadow-sm sm:hover:shadow-md sm:hover:-translate-y-1"
             >
               Anrufen

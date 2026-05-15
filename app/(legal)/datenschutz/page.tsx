@@ -6,19 +6,19 @@ import { legalProfile } from "@/src/content/legal";
 export const metadata: Metadata = {
   title: "Datenschutz | Let It Bloom",
   description:
-    "Datenschutzerklaerung mit Informationen zur Verarbeitung personenbezogener Daten gemaess DSGVO.",
+    "Datenschutzerklärung mit Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO.",
 };
 
 export default function DatenschutzPage() {
   return (
     <LegalPageLayout
-      title="Datenschutzerklaerung"
-      intro="Diese Vorlage informiert ueber Art, Umfang und Zweck der Verarbeitung personenbezogener Daten auf dieser Website. Bitte ersetze alle Platzhalter durch deine realen Angaben."
+      title="Datenschutzerklärung"
+      intro="Diese Vorlage informiert über Art, Umfang und Zweck der Verarbeitung personenbezogener Daten auf dieser Website. Bitte ersetze alle Platzhalter durch deine realen Angaben."
       lastUpdated={legalProfile.lastUpdated}
     >
       <LegalSection title="1. Verantwortlicher">
         <p>
-          Verantwortlich fuer die Datenverarbeitung auf dieser Website ist:
+          Verantwortlich für die Datenverarbeitung auf dieser Website ist:
           <br />
           {legalProfile.companyName}
           <br />
@@ -37,7 +37,7 @@ export default function DatenschutzPage() {
         <p>
           Wir verarbeiten personenbezogene Daten nur im Einklang mit den anwendbaren
           Datenschutzvorschriften, insbesondere der Datenschutz-Grundverordnung (DSGVO),
-          dem oesterreichischen Datenschutzgesetz (DSG) sowie ggf. weiteren nationalen
+          dem österreichischen Datenschutzgesetz (DSG) sowie ggf. weiteren nationalen
           Regelungen.
         </p>
       </LegalSection>
@@ -56,26 +56,26 @@ export default function DatenschutzPage() {
       <LegalSection title="4. Server-Logfiles">
         <p>
           Beim Aufruf dieser Website werden durch den Hosting-Anbieter automatisch
-          Informationen in sogenannten Server-Logfiles erfasst. Dazu koennen z. B. gehoeren:
+          Informationen in sogenannten Server-Logfiles erfasst. Dazu können z. B. gehören:
         </p>
         <ul className="list-disc pl-6 space-y-2">
-          <li>IP-Adresse (ggf. gekuerzt oder anonymisiert)</li>
+          <li>IP-Adresse (ggf. gekürzt oder anonymisiert)</li>
           <li>Datum und Uhrzeit der Anfrage</li>
           <li>aufgerufene Seite / Datei</li>
           <li>Referrer-URL</li>
           <li>Browsertyp und Betriebssystem</li>
         </ul>
         <p>
-          Die Verarbeitung erfolgt zur Gewaehrleistung von Stabilitaet, Sicherheit und
-          Fehleranalyse auf Grundlage berechtigter Interessen gemaess Art. 6 Abs. 1 lit. f DSGVO.
+          Die Verarbeitung erfolgt zur Gewährleistung von Stabilität, Sicherheit und
+          Fehleranalyse auf Grundlage berechtigter Interessen gemäß Art. 6 Abs. 1 lit. f DSGVO.
         </p>
       </LegalSection>
 
       <LegalSection title="5. Cookies">
         <p>
           Unsere Website verwendet Cookies. Dabei handelt es sich um kleine Textdateien, die auf
-          deinem Endgeraet gespeichert werden. Cookies koennen technisch notwendig sein oder
-          fuer Analyse- und Marketingzwecke eingesetzt werden.
+          deinem Endgerät gespeichert werden. Cookies können technisch notwendig sein oder
+          für Analyse- und Marketingzwecke eingesetzt werden.
         </p>
         <p>
           Details zur Art und Steuerung eingesetzter Cookies findest du in der
@@ -107,13 +107,13 @@ export default function DatenschutzPage() {
 
       <LegalSection title="7. Kontaktformular">
         <p>
-          Wenn du uns ueber das Kontaktformular kontaktierst, verarbeiten wir die von dir
+          Wenn du uns über das Kontaktformular kontaktierst, verarbeiten wir die von dir
           eingegebenen Daten (z. B. Name, E-Mail-Adresse, Nachricht), um deine Anfrage zu
           bearbeiten.
         </p>
         <p>
           Rechtsgrundlage ist je nach Anliegen Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche
-          Massnahmen) oder Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an
+          Maßnahmen) oder Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an
           Kommunikationsbearbeitung).
         </p>
       </LegalSection>
@@ -121,7 +121,7 @@ export default function DatenschutzPage() {
       <LegalSection title="8. Speicherdauer">
         <p>{legalProfile.storagePeriodGeneral}</p>
         <p>
-          Daten aus Kontaktanfragen werden grundsaetzlich nur so lange gespeichert, wie dies zur
+          Daten aus Kontaktanfragen werden grundsätzlich nur so lange gespeichert, wie dies zur
           Bearbeitung erforderlich ist, sofern keine gesetzlichen Aufbewahrungspflichten
           entgegenstehen.
         </p>
@@ -140,27 +140,27 @@ export default function DatenschutzPage() {
         <ul className="list-disc pl-6 space-y-2">
           <li>Recht auf Auskunft (Art. 15 DSGVO)</li>
           <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
-          <li>Recht auf Loeschung (Art. 17 DSGVO)</li>
-          <li>Recht auf Einschraenkung der Verarbeitung (Art. 18 DSGVO)</li>
-          <li>Recht auf Datenuebertragbarkeit (Art. 20 DSGVO)</li>
+          <li>Recht auf Löschung (Art. 17 DSGVO)</li>
+          <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+          <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
           <li>Widerspruchsrecht (Art. 21 DSGVO)</li>
           <li>Recht auf Widerruf erteilter Einwilligungen (Art. 7 Abs. 3 DSGVO)</li>
         </ul>
       </LegalSection>
 
-      <LegalSection title="11. Beschwerderecht bei einer Aufsichtsbehoerde">
+      <LegalSection title="11. Beschwerderecht bei einer Aufsichtsbehörde">
         <p>
           Wenn du der Ansicht bist, dass die Verarbeitung deiner Daten gegen Datenschutzrecht
-          verstoesst, hast du das Recht auf Beschwerde bei einer Datenschutzaufsichtsbehoerde.
-          In Oesterreich ist dies insbesondere die Datenschutzbehoerde.
+          verstößt, hast du das Recht auf Beschwerde bei einer Datenschutzaufsichtsbehörde.
+          In Österreich ist dies insbesondere die Datenschutzbehörde.
         </p>
       </LegalSection>
 
-      <LegalSection title="12. Aenderungen dieser Datenschutzerklaerung">
+      <LegalSection title="12. Änderungen dieser Datenschutzerklärung">
         <p>
-          Wir behalten uns vor, diese Datenschutzerklaerung anzupassen, damit sie stets den
-          aktuellen rechtlichen Anforderungen entspricht oder um Aenderungen unserer Leistungen in
-          der Datenschutzerklaerung umzusetzen.
+          Wir behalten uns vor, diese Datenschutzerklärung anzupassen, damit sie stets den
+          aktuellen rechtlichen Anforderungen entspricht oder um Änderungen unserer Leistungen in
+          der Datenschutzerklärung umzusetzen.
         </p>
       </LegalSection>
     </LegalPageLayout>
