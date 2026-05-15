@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 
 import Link from 'next/link';
 import { useState, useRef, FormEvent, ChangeEvent } from 'react';
@@ -29,7 +29,7 @@ interface FormState {
   subject: string;
   message: string;
   privacy: boolean;
-  // Honeypot – hidden from real users, filled only by bots
+  // Honeypot â€“ hidden from real users, filled only by bots
   website: string;
 }
 
@@ -49,9 +49,9 @@ type SubmitStatus = 'idle' | 'loading' | 'success' | 'error' | 'inactive';
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 const OCCASION_OPTIONS = [
-  { value: '', label: 'Anlass auswählen (optional)' },
+  { value: '', label: 'Anlass auswÃ¤hlen (optional)' },
   { value: 'general', label: 'Allgemeine Anfrage' },
-  { value: 'bouquet', label: 'Blumenstrauß' },
+  { value: 'bouquet', label: 'BlumenstrauÃŸ' },
   { value: 'wedding', label: 'Hochzeit' },
   { value: 'funeral', label: 'Trauerfloristik' },
   { value: 'seasonal', label: 'Saisonale Angebote' },
@@ -74,7 +74,7 @@ const INITIAL_FORM: FormState = {
 // ---------------------------------------------------------------------------
 
 export function Contact() {
-  // ── Copy-to-clipboard state ─────────────────────────────────────────────
+  // â”€â”€ Copy-to-clipboard state â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const [copied, setCopied] = useState<'phone' | 'email' | null>(null);
 
   const copyToClipboard = async (value: string, type: 'phone' | 'email') => {
@@ -83,14 +83,14 @@ export function Contact() {
     window.setTimeout(() => setCopied(null), 1600);
   };
 
-  // ── Form state ──────────────────────────────────────────────────────────
+  // â”€â”€ Form state â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const [form, setForm] = useState<FormState>(INITIAL_FORM);
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [submitStatus, setSubmitStatus] = useState<SubmitStatus>('idle');
   const [serverMessage, setServerMessage] = useState('');
   const formRef = useRef<HTMLFormElement>(null);
 
-  // ── Field change handlers ───────────────────────────────────────────────
+  // â”€â”€ Field change handlers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
   ) => {
@@ -101,26 +101,26 @@ export function Contact() {
     setFieldErrors((prev) => ({ ...prev, [name]: undefined }));
   };
 
-  // ── Client-side validation ──────────────────────────────────────────────
+  // â”€â”€ Client-side validation â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const validate = (): boolean => {
     const errors: FieldErrors = {};
     if (!form.name.trim() || form.name.trim().length < 2) {
       errors.name = 'Bitte geben Sie Ihren Namen ein (mindestens 2 Zeichen).';
     }
     if (!form.email.trim() || !EMAIL_REGEX.test(form.email.trim())) {
-      errors.email = 'Bitte geben Sie eine gültige E-Mail-Adresse ein.';
+      errors.email = 'Bitte geben Sie eine gÃ¼ltige E-Mail-Adresse ein.';
     }
     if (!form.message.trim() || form.message.trim().length < 10) {
       errors.message = 'Bitte geben Sie eine Nachricht ein (mindestens 10 Zeichen).';
     }
     if (!form.privacy) {
-      errors.privacy = 'Bitte stimmen Sie der Datenschutzerklärung zu.';
+      errors.privacy = 'Bitte stimmen Sie der DatenschutzerklÃ¤rung zu.';
     }
     setFieldErrors(errors);
     return Object.keys(errors).length === 0;
   };
 
-  // ── Submit ──────────────────────────────────────────────────────────────
+  // â”€â”€ Submit â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!validate()) return;
@@ -132,7 +132,10 @@ export function Contact() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          ...form,
+          privacyAccepted: form.privacy,
+        }),
       });
 
       const data: { success: boolean; message?: string; inactive?: boolean } = await res.json();
@@ -148,24 +151,24 @@ export function Contact() {
         setSubmitStatus('inactive');
         setServerMessage(
           data.message ??
-            'Das Kontaktformular ist derzeit noch nicht aktiviert. Bitte kontaktieren Sie uns direkt per E-Mail oder Telefon.',
+            'Das Kontaktformular ist aktuell nicht verfÃ¼gbar. Bitte kontaktieren Sie uns direkt per E-Mail oder Telefon.',
         );
       } else {
         setSubmitStatus('error');
         setServerMessage(
           data.message ??
-            'Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.',
+            'Leider konnte Ihre Nachricht nicht gesendet werden. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.',
         );
       }
     } catch {
       setSubmitStatus('error');
       setServerMessage(
-        'Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder kontaktieren Sie uns direkt.',
+        'Leider konnte Ihre Nachricht nicht gesendet werden. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.',
       );
     }
   };
 
-  // ── Input / textarea base classes ────────────────────────────────────────
+  // â”€â”€ Input / textarea base classes â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const inputClass = (hasError?: string) =>
     `w-full px-5 py-4 rounded-full bg-white/60 border transition-all focus:outline-none focus:ring-2 focus:bg-white ${
       hasError
@@ -180,7 +183,7 @@ export function Contact() {
         : 'border-brand-turquoise/20 focus:ring-brand-turquoise/50'
     }`;
 
-  // ── Render ───────────────────────────────────────────────────────────────
+  // â”€â”€ Render â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   return (
     <section id="kontakt" className="py-16 sm:py-20 md:py-24 lg:py-28 bg-white relative overflow-hidden">
       {/* Decorative shapes */}
@@ -190,13 +193,13 @@ export function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-14 lg:gap-20 xl:gap-24">
 
-          {/* ── Left column: contact info ─────────────────────────────────── */}
+          {/* â”€â”€ Left column: contact info â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
           <div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-serif font-semibold text-brand-dark mb-6 sm:mb-8">
               Kontakt &amp; Service
             </h2>
             <p className="text-base sm:text-lg text-brand-dark/90 leading-relaxed mb-8 sm:mb-10 md:mb-12">
-              Haben Sie Fragen, Wünsche oder möchten Sie eine Bestellung aufgeben? Ich bin gerne für Sie da.
+              Haben Sie Fragen, WÃ¼nsche oder mÃ¶chten Sie eine Bestellung aufgeben? Ich bin gerne fÃ¼r Sie da.
             </p>
 
             <div className="space-y-5 sm:space-y-6 md:space-y-8">
@@ -254,7 +257,7 @@ export function Contact() {
                 <div>
                   <h3 className="font-medium text-brand-dark text-base sm:text-lg mb-1">Freitag &amp; Samstag</h3>
                   <p className="text-brand-dark/85">
-                    Lieferung in Langenzersdorf u.U. kostenlos<br />sowie Abholung möglich
+                    Lieferung in Langenzersdorf u.U. kostenlos<br />sowie Abholung mÃ¶glich
                   </p>
                 </div>
               </div>
@@ -265,8 +268,8 @@ export function Contact() {
                   <Clock className="text-brand-turquoise w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-medium text-brand-dark text-base sm:text-lg mb-1">Sonntag – Mittwoch</h3>
-                  <p className="text-brand-dark/85">Lieferung und Abholung nach Vereinbarung möglich</p>
+                  <h3 className="font-medium text-brand-dark text-base sm:text-lg mb-1">Sonntag â€“ Mittwoch</h3>
+                  <p className="text-brand-dark/85">Lieferung und Abholung nach Vereinbarung mÃ¶glich</p>
                 </div>
               </div>
             </div>
@@ -278,7 +281,7 @@ export function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-cream flex items-center justify-center text-brand-dark hover:bg-brand-turquoise hover:text-white transition-colors border border-brand-turquoise/20"
-                aria-label="Instagram in neuem Tab öffnen"
+                aria-label="Instagram in neuem Tab Ã¶ffnen"
               >
                 <Instagram className="w-5 h-5" />
               </a>
@@ -287,14 +290,14 @@ export function Contact() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-cream flex items-center justify-center text-brand-dark hover:bg-brand-turquoise hover:text-white transition-colors border border-brand-turquoise/20"
-                aria-label="Facebook in neuem Tab öffnen"
+                aria-label="Facebook in neuem Tab Ã¶ffnen"
               >
                 <Facebook className="w-5 h-5" />
               </a>
             </div>
           </div>
 
-          {/* ── Right column: form ────────────────────────────────────────── */}
+          {/* â”€â”€ Right column: form â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
           <div className="bg-brand-cream rounded-[2rem] sm:rounded-[2.5rem] lg:rounded-[3rem] p-6 sm:p-8 md:p-10 lg:p-14 shadow-sm relative">
             {/* Decorative corner */}
             <div className="absolute -top-4 -right-4 w-24 h-24 bg-brand-turquoise/20 rounded-full -z-10" />
@@ -303,7 +306,7 @@ export function Contact() {
               Nachricht senden
             </h3>
 
-            {/* ── Success state ──────────────────────────────────────────── */}
+            {/* â”€â”€ Success state â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
             {submitStatus === 'success' && (
               <div className="flex flex-col items-center text-center py-10 gap-4">
                 <CheckCircle2 className="w-14 h-14 text-brand-turquoise" strokeWidth={1.5} />
@@ -318,7 +321,7 @@ export function Contact() {
               </div>
             )}
 
-            {/* ── Inactive / Error banner ────────────────────────────────── */}
+            {/* â”€â”€ Inactive / Error banner â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
             {(submitStatus === 'inactive' || submitStatus === 'error') && (
               <div
                 className={`flex items-start gap-3 rounded-2xl p-4 mb-6 text-sm ${
@@ -333,11 +336,11 @@ export function Contact() {
                   <p>{serverMessage}</p>
                   {submitStatus === 'inactive' && (
                     <p className="mt-2 font-medium">
-                      📞{' '}
+                      ðŸ“ž{' '}
                       <a href="tel:+436642303427" className="underline hover:no-underline">
                         +43 664 2303427
                       </a>
-                      &nbsp;·&nbsp;✉️{' '}
+                      &nbsp;Â·&nbsp;âœ‰ï¸{' '}
                       <a href="mailto:wgruber@outlook.at" className="underline hover:no-underline">
                         wgruber@outlook.at
                       </a>
@@ -347,7 +350,7 @@ export function Contact() {
               </div>
             )}
 
-            {/* ── Form (hidden on success) ───────────────────────────────── */}
+            {/* â”€â”€ Form (hidden on success) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */}
             {submitStatus !== 'success' && (
               <form
                 ref={formRef}
@@ -355,7 +358,7 @@ export function Contact() {
                 onSubmit={handleSubmit}
                 noValidate
               >
-                {/* Honeypot – visually hidden, accessible-hidden */}
+                {/* Honeypot â€“ visually hidden, accessible-hidden */}
                 <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', top: 'auto', width: '1px', height: '1px', overflow: 'hidden' }}>
                   <label htmlFor="website-hp">Website leer lassen</label>
                   <input
@@ -423,7 +426,7 @@ export function Contact() {
                     value={form.phone}
                     onChange={handleChange}
                     className={inputClass()}
-                    placeholder="+43 664 …"
+                    placeholder="+43 664 â€¦"
                     autoComplete="tel"
                   />
                 </div>
@@ -449,7 +452,7 @@ export function Contact() {
                     </select>
                     {/* Custom arrow */}
                     <span className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-brand-dark/40">
-                      ▾
+                      â–¾
                     </span>
                   </div>
                 </div>
@@ -523,7 +526,7 @@ export function Contact() {
                       Ich stimme zu, dass meine Angaben zur Bearbeitung meiner Anfrage verarbeitet werden.
                       Weitere Informationen finden Sie in unserer{' '}
                       <Link href="/datenschutz" className="text-brand-turquoise hover:underline">
-                        Datenschutzerklärung
+                        DatenschutzerklÃ¤rung
                       </Link>
                       .{' '}
                       <span className="text-brand-turquoise" aria-hidden="true">*</span>
@@ -552,7 +555,7 @@ export function Contact() {
                   {submitStatus === 'loading' ? (
                     <>
                       <Loader2 className="w-5 h-5 animate-spin" />
-                      Wird gesendet…
+                      Wird gesendetâ€¦
                     </>
                   ) : (
                     <>

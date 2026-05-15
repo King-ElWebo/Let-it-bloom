@@ -1,173 +1,152 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// ---------------------------------------------------------------------------
-// Types
-// ---------------------------------------------------------------------------
+type ContactRequestBody = {
+  name?: unknown;
+  email?: unknown;
+  phone?: unknown;
+  occasion?: unknown;
+  subject?: unknown;
+  message?: unknown;
+  privacy?: unknown;
+  privacyAccepted?: unknown;
+  website?: unknown;
+  botcheck?: unknown;
+};
 
-interface ContactRequestBody {
-  name: string;
-  email: string;
-  phone?: string;
-  occasion?: string;
-  subject?: string;
-  message: string;
-  privacy: boolean;
-  // Honeypot – must be empty
-  website?: string;
-}
-
-interface Web3FormsResponse {
+type ContactResponseBody = {
   success: boolean;
-  message?: string;
-}
+  message: string;
+  inactive?: boolean;
+};
 
-// ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
+type Web3FormsResponse = {
+  success?: boolean;
+};
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
+const SUCCESS_MESSAGE = 'Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.';
+const ERROR_MESSAGE =
+  'Leider konnte Ihre Nachricht nicht gesendet werden. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.';
+const INACTIVE_MESSAGE =
+  'Das Kontaktformular ist aktuell nicht verfügbar. Bitte kontaktieren Sie uns direkt per E-Mail oder Telefon.';
+const WEB3FORMS_SUBJECT = 'Neue Anfrage über Let It Bloom Website';
 
-const PLACEHOLDER_KEYS = [
+const PLACEHOLDER_KEYS = new Set([
   'DEIN_WEB3FORMS_ACCESS_KEY',
+  'dein_web3forms_access_key',
   'YOUR_WEB3FORMS_ACCESS_KEY',
   'change-me',
   '',
-];
+]);
 
-function isPlaceholderKey(key: string | undefined): boolean {
-  if (!key) return true;
-  return PLACEHOLDER_KEYS.some((p) => key.trim() === p);
+function asString(value: unknown): string {
+  return typeof value === 'string' ? value.trim() : '';
 }
 
-// ---------------------------------------------------------------------------
-// POST /api/contact
-// ---------------------------------------------------------------------------
+function asBoolean(value: unknown): boolean {
+  return value === true || value === 'true' || value === 'on';
+}
 
-export async function POST(req: NextRequest): Promise<NextResponse> {
-  // ── 1. Parse body ─────────────────────────────────────────────────────────
+function json(
+  body: ContactResponseBody,
+  init?: ResponseInit,
+): NextResponse<ContactResponseBody> {
+  return NextResponse.json(body, init);
+}
+
+export async function POST(req: NextRequest): Promise<NextResponse<ContactResponseBody>> {
   let body: ContactRequestBody;
+
   try {
-    body = await req.json();
+    body = (await req.json()) as ContactRequestBody;
   } catch {
-    return NextResponse.json(
-      { success: false, message: 'Ungültige Anfrage.' },
-      { status: 400 },
-    );
+    return json({ success: false, message: 'Ungültige Anfrage.' }, { status: 400 });
   }
 
-  // ── 2. Honeypot check ────────────────────────────────────────────────────
-  // If the hidden "website" field is filled, silently succeed (bot traffic).
-  if (body.website && body.website.trim() !== '') {
-    return NextResponse.json({ success: true, message: 'Vielen Dank für Ihre Nachricht!' });
+  const website = asString(body.website);
+  const botcheck = asString(body.botcheck);
+
+  if (website || botcheck) {
+    return json({ success: true, message: SUCCESS_MESSAGE });
   }
 
-  // ── 3. Server-side validation ────────────────────────────────────────────
-  const errors: string[] = [];
+  const name = asString(body.name);
+  const email = asString(body.email);
+  const phone = asString(body.phone);
+  const occasion = asString(body.occasion);
+  const submittedSubject = asString(body.subject);
+  const message = asString(body.message);
+  const privacyAccepted = asBoolean(body.privacyAccepted) || asBoolean(body.privacy);
 
-  if (!body.name || body.name.trim().length < 2) {
-    errors.push('Bitte geben Sie Ihren Namen ein (mindestens 2 Zeichen).');
-  }
-  if (!body.email || !EMAIL_REGEX.test(body.email.trim())) {
-    errors.push('Bitte geben Sie eine gültige E-Mail-Adresse ein.');
-  }
-  if (!body.message || body.message.trim().length < 10) {
-    errors.push('Bitte geben Sie eine Nachricht ein (mindestens 10 Zeichen).');
-  }
-  if (!body.privacy) {
-    errors.push('Bitte stimmen Sie der Datenschutzerklärung zu.');
+  if (name.length < 2) {
+    return json({ success: false, message: 'Bitte geben Sie Ihren Namen ein.' }, { status: 422 });
   }
 
-  if (errors.length > 0) {
-    return NextResponse.json(
-      { success: false, message: errors[0] },
+  if (!EMAIL_REGEX.test(email)) {
+    return json(
+      { success: false, message: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.' },
       { status: 422 },
     );
   }
 
-  // ── 4. Access key check ──────────────────────────────────────────────────
-  const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
+  if (message.length < 10) {
+    return json({ success: false, message: 'Bitte geben Sie eine Nachricht ein.' }, { status: 422 });
+  }
 
-  if (isPlaceholderKey(accessKey)) {
-    return NextResponse.json(
-      {
-        success: false,
-        message:
-          'Das Kontaktformular ist derzeit noch nicht aktiviert. Bitte kontaktieren Sie uns direkt per E-Mail oder Telefon.',
-        inactive: true,
-      },
-      { status: 503 },
+  if (!privacyAccepted) {
+    return json(
+      { success: false, message: 'Bitte stimmen Sie der Datenschutzerklärung zu.' },
+      { status: 422 },
     );
   }
 
-  // ── 5. Build subject ──────────────────────────────────────────────────────
-  const occasionLabels: Record<string, string> = {
-    general: 'Allgemeine Anfrage',
-    bouquet: 'Blumenstrauß',
-    wedding: 'Hochzeit',
-    funeral: 'Trauerfloristik',
-    seasonal: 'Saisonale Angebote',
-    other: 'Sonstiges',
-  };
+  const accessKey = process.env.WEB3FORMS_ACCESS_KEY?.trim();
 
-  const occasionLabel = body.occasion ? occasionLabels[body.occasion] ?? body.occasion : null;
-  const emailSubject =
-    body.subject?.trim() ||
-    (occasionLabel ? `Anfrage: ${occasionLabel}` : 'Neue Anfrage über Let it Bloom Website');
+  if (!accessKey || PLACEHOLDER_KEYS.has(accessKey)) {
+    return json({ success: false, message: INACTIVE_MESSAGE, inactive: true }, { status: 503 });
+  }
 
-  // ── 6. Send via Web3Forms ─────────────────────────────────────────────────
-  const payload: Record<string, string | boolean> = {
-    access_key: accessKey as string,
-    name: body.name.trim(),
-    email: body.email.trim(),
-    subject: emailSubject,
-    message: body.message.trim(),
-    from_name: 'Let it Bloom Website',
-    // Web3Forms botcheck – must be false for real users
+  const web3FormsPayload: Record<string, string | boolean> = {
+    access_key: accessKey,
+    name,
+    email,
+    phone,
+    subject: WEB3FORMS_SUBJECT,
+    message,
     botcheck: false,
+    from_name: 'Let It Bloom Website',
+    'Datenschutz akzeptiert': 'Ja',
   };
 
-  if (body.phone?.trim()) {
-    payload['phone'] = body.phone.trim();
-  }
-  if (occasionLabel) {
-    payload['occasion'] = occasionLabel;
+  if (submittedSubject) {
+    web3FormsPayload['Betreff aus Formular'] = submittedSubject;
   }
 
-  let web3Response: Web3FormsResponse;
+  if (occasion) {
+    web3FormsPayload['Anlass'] = occasion;
+  }
+
   try {
-    const res = await fetch('https://api.web3forms.com/submit', {
+    const response = await fetch(WEB3FORMS_ENDPOINT, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify(payload),
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify(web3FormsPayload),
     });
 
-    web3Response = (await res.json()) as Web3FormsResponse;
-  } catch (err) {
-    console.error('[contact/route] Web3Forms fetch error:', err);
-    return NextResponse.json(
-      {
-        success: false,
-        message:
-          'Beim Senden Ihrer Nachricht ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut.',
-      },
-      { status: 502 },
-    );
+    const result = (await response.json()) as Web3FormsResponse;
+
+    if (!response.ok || result.success !== true) {
+      console.error('[contact] Web3Forms request failed.');
+      return json({ success: false, message: ERROR_MESSAGE }, { status: 502 });
+    }
+  } catch {
+    console.error('[contact] Web3Forms request could not be completed.');
+    return json({ success: false, message: ERROR_MESSAGE }, { status: 502 });
   }
 
-  if (!web3Response.success) {
-    console.error('[contact/route] Web3Forms returned failure:', web3Response);
-    return NextResponse.json(
-      {
-        success: false,
-        message:
-          'Ihre Nachricht konnte leider nicht gesendet werden. Bitte versuchen Sie es später erneut.',
-      },
-      { status: 500 },
-    );
-  }
-
-  return NextResponse.json({
-    success: true,
-    message: 'Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet. Ich melde mich bald bei Ihnen.',
-  });
+  return json({ success: true, message: SUCCESS_MESSAGE });
 }
