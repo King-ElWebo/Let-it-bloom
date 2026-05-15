@@ -21,6 +21,7 @@ type ContactResponseBody = {
 
 type Web3FormsResponse = {
   success?: boolean;
+  message?: string;
 };
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -107,34 +108,35 @@ export async function POST(req: NextRequest): Promise<NextResponse<ContactRespon
     return json({ success: false, message: INACTIVE_MESSAGE, inactive: true }, { status: 503 });
   }
 
-  const web3FormsPayload: Record<string, string | boolean> = {
-    access_key: accessKey,
-    name,
-    email,
-    phone,
-    subject: WEB3FORMS_SUBJECT,
-    message,
-    botcheck: false,
-    from_name: 'Let It Bloom Website',
-    'Datenschutz akzeptiert': 'Ja',
-  };
+  const web3FormsPayload = new FormData();
+  web3FormsPayload.append('access_key', accessKey);
+  web3FormsPayload.append('name', name);
+  web3FormsPayload.append('email', email);
+  web3FormsPayload.append('subject', WEB3FORMS_SUBJECT);
+  web3FormsPayload.append('message', message);
+  web3FormsPayload.append('from_name', 'Let It Bloom Website');
+  web3FormsPayload.append('botcheck', '');
+  web3FormsPayload.append('Datenschutz akzeptiert', 'Ja');
+
+  if (phone) {
+    web3FormsPayload.append('phone', phone);
+  }
 
   if (submittedSubject) {
-    web3FormsPayload['Betreff aus Formular'] = submittedSubject;
+    web3FormsPayload.append('Betreff aus Formular', submittedSubject);
   }
 
   if (occasion) {
-    web3FormsPayload['Anlass'] = occasion;
+    web3FormsPayload.append('Anlass', occasion);
   }
 
   try {
     const response = await fetch(WEB3FORMS_ENDPOINT, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
         Accept: 'application/json',
       },
-      body: JSON.stringify(web3FormsPayload),
+      body: web3FormsPayload,
     });
 
     const result = (await response.json()) as Web3FormsResponse;

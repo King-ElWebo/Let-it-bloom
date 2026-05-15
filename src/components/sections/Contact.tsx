@@ -42,11 +42,24 @@ interface FieldErrors {
 
 type SubmitStatus = 'idle' | 'loading' | 'success' | 'error' | 'inactive';
 
+type Web3FormsClientResponse = {
+  success?: boolean;
+  message?: string;
+};
+
 // ---------------------------------------------------------------------------
 // Constants
 // ---------------------------------------------------------------------------
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const WEB3FORMS_ACCESS_KEY = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY;
+const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
+const SUCCESS_MESSAGE = 'Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.';
+const ERROR_MESSAGE =
+  'Leider konnte Ihre Nachricht nicht gesendet werden. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.';
+const INACTIVE_MESSAGE =
+  'Das Kontaktformular ist aktuell nicht verfügbar. Bitte kontaktieren Sie uns direkt per E-Mail oder Telefon.';
+const WEB3FORMS_SUBJECT = 'Neue Anfrage über Let It Bloom Website';
 
 const OCCASION_OPTIONS = [
   { value: '', label: 'Anlass auswÃ¤hlen (optional)' },
@@ -128,43 +141,60 @@ export function Contact() {
     setSubmitStatus('loading');
     setServerMessage('');
 
+    if (!WEB3FORMS_ACCESS_KEY) {
+      setSubmitStatus('inactive');
+      setServerMessage(INACTIVE_MESSAGE);
+      return;
+    }
+
+    if (form.website.trim()) {
+      setSubmitStatus('success');
+      setServerMessage(SUCCESS_MESSAGE);
+      setForm(INITIAL_FORM);
+      setFieldErrors({});
+      return;
+    }
+
     try {
-      const res = await fetch('/api/contact', {
+      const formData = new FormData();
+      formData.append('access_key', WEB3FORMS_ACCESS_KEY);
+      formData.append('name', form.name.trim());
+      formData.append('email', form.email.trim());
+      formData.append('phone', form.phone.trim());
+      formData.append('subject', WEB3FORMS_SUBJECT);
+      formData.append('message', form.message.trim());
+      formData.append('from_name', 'Let It Bloom Website');
+      formData.append('botcheck', '');
+      formData.append('Datenschutz akzeptiert', 'Ja');
+
+      if (form.subject.trim()) {
+        formData.append('Betreff aus Formular', form.subject.trim());
+      }
+
+      if (form.occasion.trim()) {
+        formData.append('Anlass', form.occasion.trim());
+      }
+
+      const res = await fetch(WEB3FORMS_ENDPOINT, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          ...form,
-          privacyAccepted: form.privacy,
-        }),
+        headers: { Accept: 'application/json' },
+        body: formData,
       });
 
-      const data: { success: boolean; message?: string; inactive?: boolean } = await res.json();
+      const data = (await res.json()) as Web3FormsClientResponse;
 
-      if (data.success) {
+      if (res.ok && data.success) {
         setSubmitStatus('success');
-        setServerMessage(
-          data.message ?? 'Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.',
-        );
+        setServerMessage(SUCCESS_MESSAGE);
         setForm(INITIAL_FORM);
         setFieldErrors({});
-      } else if (data.inactive) {
-        setSubmitStatus('inactive');
-        setServerMessage(
-          data.message ??
-            'Das Kontaktformular ist aktuell nicht verfÃ¼gbar. Bitte kontaktieren Sie uns direkt per E-Mail oder Telefon.',
-        );
       } else {
         setSubmitStatus('error');
-        setServerMessage(
-          data.message ??
-            'Leider konnte Ihre Nachricht nicht gesendet werden. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.',
-        );
+        setServerMessage(ERROR_MESSAGE);
       }
     } catch {
       setSubmitStatus('error');
-      setServerMessage(
-        'Leider konnte Ihre Nachricht nicht gesendet werden. Bitte versuchen Sie es später erneut oder kontaktieren Sie uns direkt.',
-      );
+      setServerMessage(ERROR_MESSAGE);
     }
   };
 
