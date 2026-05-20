@@ -1,10 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Cormorant_Garamond } from "next/font/google";
-import "./globals.css";
 import { CookieConsentRoot } from "@/src/components/cookies/CookieConsentRoot";
 import { ConsentAnalytics } from "@/src/components/ConsentAnalytics";
+import { ConsentSpeedInsights } from "@/src/components/ConsentSpeedInsights";
 import { ConsentProvider } from "@/src/context/ConsentContext";
 import { WhatsAppFloatingButton } from "@/src/components/ui/WhatsAppFloatingButton";
+import { Inter, Cormorant_Garamond } from "next/font/google";
+import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -56,6 +57,7 @@ export default function RootLayout({
           {children}
           <CookieConsentRoot />
           <ConsentAnalytics />
+          <ConsentSpeedInsights />
           <WhatsAppFloatingButton />
         </ConsentProvider>
       </body>
