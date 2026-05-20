@@ -55,11 +55,6 @@ export default function ImpressumPage() {
           <dt className="font-medium text-brand-dark">UID-Nummer</dt>
           <dd>{legalProfile.uidNumber}</dd>
 
-          <dt className="font-medium text-brand-dark">Firmenbuchnummer</dt>
-          <dd>{legalProfile.companyRegisterNumber}</dd>
-
-          <dt className="font-medium text-brand-dark">Firmenbuchgericht</dt>
-          <dd>{legalProfile.companyRegisterCourt}</dd>
 
           <dt className="font-medium text-brand-dark">Aufsichtsbehörde</dt>
           <dd>{legalProfile.supervisoryAuthority}</dd>

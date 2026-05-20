@@ -60,7 +60,7 @@ section[id] {
 }
 
 .animate-gallery-scroll {
-  animation: gallery-scroll 36s linear infinite;
+  animation: gallery-scroll 50s linear infinite;
 }
 
 @media (min-width: 640px) {
@@ -201,8 +201,8 @@ section[id] {
 /* ── Hero image composition ── */
 .hero-image-composition {
   position: relative;
-  width: 170px;
-  height: 170px;
+  width: 196px;
+  height: 196px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 0.75rem;
@@ -221,8 +221,8 @@ section[id] {
 
 /* Primary large image – anchored bottom-right */
 .hero-img--primary {
-  width: 150px;
-  height: 150px;
+  width: 173px;
+  height: 173px;
   right: 0;
   bottom: 0;
   z-index: 2;
@@ -230,8 +230,8 @@ section[id] {
 
 /* Accent circle – top-left, partially overlapping primary */
 .hero-img--accent {
-  width: 72px;
-  height: 72px;
+  width: 83px;
+  height: 83px;
   left: 0;
   top: 0;
   z-index: 3;
@@ -255,8 +255,8 @@ section[id] {
 /* ── Responsive: sm ── */
 @media (min-width: 640px) {
   .hero-image-composition {
-    width: 260px;
-    height: 240px;
+    width: 300px;
+    height: 275px;
     margin-top: 1rem;
   }
 
@@ -268,36 +268,37 @@ section[id] {
   }
 
   .hero-img--primary {
-    width: 200px;
-    height: 200px;
+    width: 230px;
+    height: 230px;
   }
 
   .hero-img--accent {
-    width: 96px;
-    height: 96px;
+    width: 110px;
+    height: 110px;
   }
 }
 
-/* ── Responsive: lg – float to lower-right ── */
+/* ── Responsive: lg – float to right, vertically centered ── */
 @media (min-width: 1024px) {
   .hero-image-composition {
     position: absolute;
     right: 2rem;
-    bottom: 15%;
-    top: auto;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
     margin: 0;
-    width: 300px;
-    height: 280px;
+    width: 345px;
+    height: 320px;
   }
 
   .hero-img--primary {
-    width: 220px;
-    height: 220px;
+    width: 255px;
+    height: 255px;
   }
 
   .hero-img--accent {
-    width: 100px;
-    height: 100px;
+    width: 115px;
+    height: 115px;
   }
 }
 
@@ -305,18 +306,20 @@ section[id] {
 @media (min-width: 1280px) {
   .hero-image-composition {
     right: 4rem;
-    width: 360px;
-    height: 330px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 415px;
+    height: 380px;
   }
 
   .hero-img--primary {
-    width: 280px;
-    height: 280px;
+    width: 320px;
+    height: 320px;
   }
 
   .hero-img--accent {
-    width: 120px;
-    height: 120px;
+    width: 138px;
+    height: 138px;
   }
 }
 
@@ -326,3 +329,24 @@ section[id] {
     right: 6rem;
   }
 }
+
+/* ── Premium WhatsApp Ripple Animation ── */
+@keyframes elegant-ripple {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+.animate-elegant-ripple {
+  animation: elegant-ripple 3s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+

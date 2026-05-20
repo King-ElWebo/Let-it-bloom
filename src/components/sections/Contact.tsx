@@ -24,7 +24,7 @@ import {
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // Using direct Web3Forms submission as requested to restore functionality
 const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit';
-const WEB3FORMS_ACCESS_KEY = 'b0c538a9-58f7-4cab-8624-b7c12e97dff8';
+const WEB3FORMS_ACCESS_KEY = 'db6e1604-e8e7-460e-88f3-004b6878dd98';
 
 const SUCCESS_MESSAGE = 'Vielen Dank! Ihre Nachricht wurde erfolgreich gesendet.';
 const ERROR_MESSAGE =
@@ -241,14 +241,14 @@ export function Contact() {
                   <Truck className="text-brand-turquoise w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-medium text-brand-dark text-base sm:text-lg mb-1">Freitag &amp; Samstag</h3>
+                  <h3 className="font-medium text-brand-dark text-base sm:text-lg mb-1">Montag &amp; Sonntag</h3>
                   <p className="text-brand-dark/85">
-                    Lieferung in Langenzersdorf u.U. kostenlos<br />sowie Abholung möglich
+                    Lieferung in Langenzersdorf und Umgebung kostenlos<br />sowie Abholung möglich
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-5">
+              {/* <div className="flex items-start gap-5">
                 <div className="w-12 h-12 rounded-full bg-brand-cream flex items-center justify-center shrink-0 border border-brand-turquoise/20">
                   <Clock className="text-brand-turquoise w-5 h-5" />
                 </div>
@@ -256,7 +256,7 @@ export function Contact() {
                   <h3 className="font-medium text-brand-dark text-base sm:text-lg mb-1">Sonntag – Mittwoch</h3>
                   <p className="text-brand-dark/85">Lieferung und Abholung nach Vereinbarung möglich</p>
                 </div>
-              </div>
+              </div> */}
             </div>
 
             <div className="mt-10 sm:mt-12 flex gap-3 sm:gap-4">

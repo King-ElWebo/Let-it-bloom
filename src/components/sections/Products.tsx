@@ -29,14 +29,14 @@ export function Products() {
             </div>
             <div className="grid grid-cols-2 gap-4 md:gap-6 h-[280px] sm:h-[320px] md:h-[420px] lg:h-[520px]">
               <div className="relative rounded-3xl overflow-hidden shadow-sm">
-                <Image src="/images/mein angebot/groß.jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Frischer Blumenstrauß" />
+                <Image src="/images/mein angebot/WhatsApp Image 2026-05-20 at 08.35.40.jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Frischer Blumenstrauß" />
               </div>
               <div className="grid grid-rows-2 gap-4 md:gap-6 min-h-0">
                 <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
                   <Image src="/images/mein angebot/WhatsApp Image 2026-04-26 at 13.23.23.jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Florist bei der Arbeit" />
                 </div>
                 <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                  <Image src="/images/mein angebot/WhatsApp Image 2026-04-26 at 13.23.24 (1).jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Detailaufnahme Blumen" />
+                  <Image src="/images/mein angebot/WhatsApp Image 2026-05-20 at 08.35.40 (1).jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Frischer Blumenstrauß" />
                 </div>
               </div>
             </div>
@@ -47,20 +47,20 @@ export function Products() {
             <div className="order-2 lg:order-1 grid grid-cols-2 gap-4 md:gap-6 h-[280px] sm:h-[320px] md:h-[420px] lg:h-[520px]">
               <div className="grid grid-rows-2 gap-4 md:gap-6 min-h-0">
                 <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                  <Image src="/images/szobota-zsuzsi-UpEyjFLuInM-unsplash.jpg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Topfpflanzen Arrangement" />
+                  <Image src="/images/Topfpflanzen/WhatsApp Image 2026-05-20 at 08.37.26 (1).jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Topfpflanzen Arrangement" />
                 </div>
                 <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                  <Image src="/images/viacheslav-volodin-5Sq_x4fYYXA-unsplash.jpg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Sukkulenten" />
+                  <Image src="/images/Topfpflanzen/WhatsApp Image 2026-05-20 at 08.37.26.jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Sukkulenten" />
                 </div>
               </div>
               <div className="relative rounded-3xl overflow-hidden shadow-sm">
-                <Image src="/images/WhatsApp Image 2026-04-09 at 06.44.02.jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Zimmerpflanzen" />
+                <Image src="/images/Topfpflanzen/WhatsApp Image 2026-05-20 at 08.37.27.jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Zimmerpflanzen" />
               </div>
             </div>
             <div className="order-1 lg:order-2">
               <h3 className="text-2xl sm:text-3xl font-serif font-semibold text-brand-dark mb-5 sm:mb-6">Topfpflanzen für Alle Bereiche</h3>
               <p className="text-base sm:text-lg text-brand-dark/90 leading-relaxed mb-6 sm:mb-8">
-                „Topfpflanzen für Alle Bereiche, ob Klassisch oder Exotisch, Saisonal oder Dauerblüher."
+                „Ob Klassisch oder Exotisch, Saisonal oder Dauerblüher."
               </p>
               <ul className="space-y-4">
                 <li className="flex items-center gap-3 text-brand-dark/85"><span className="w-1.5 h-1.5 rounded-full bg-brand-turquoise"></span> Für Innen & Außen</li>

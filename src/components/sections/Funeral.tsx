@@ -11,11 +11,11 @@ export function Funeral() {
                 <Image src="/images/grabfloristik/WhatsApp Image 2026-04-09 at 06.44.02.jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Ruhiges Grabgesteck" />
               </div>
               <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                <Image src="/images/grabfloristik/WhatsApp Image 2026-04-09 at 06.44.03 (1).jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Detail Trauerfloristik" />
+                <Image src="/images/grabfloristik/WhatsApp Image 2026-04-09 at 06.44.03 (3).jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Detail Trauerfloristik" />
               </div>
             </div>
             <div className="relative rounded-3xl overflow-hidden shadow-sm">
-              <Image src="/images/grabfloristik/WhatsApp Image 2026-04-09 at 06.44.03 (3).jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Klassischer Trauerkranz" />
+              <Image src="/images/grabfloristik/WhatsApp Image 2026-05-20 at 08.44.15.jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Klassischer Trauerkranz" />
             </div>
           </div>
           <div className="order-1 lg:order-2">

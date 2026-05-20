@@ -26,7 +26,7 @@ export function Footer() {
               <span className="text-xs tracking-widest text-brand-cream/85 uppercase font-medium">Blumenatelier</span>
             </Link>
             <p className="text-brand-cream/80 text-sm leading-relaxed max-w-xs">
-              Ihr mobiler Blumen- & Pflanzenhändler für handgefertigte Floristik im Weinviertel.
+              Ihr mobiler Blumen- & Pflanzenhändler im Weinviertel.
             </p>
           </div>
 

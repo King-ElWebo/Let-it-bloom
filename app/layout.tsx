@@ -4,6 +4,7 @@ import "./globals.css";
 import { CookieConsentRoot } from "@/src/components/cookies/CookieConsentRoot";
 import { ConsentAnalytics } from "@/src/components/ConsentAnalytics";
 import { ConsentProvider } from "@/src/context/ConsentContext";
+import { WhatsAppFloatingButton } from "@/src/components/ui/WhatsAppFloatingButton";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -55,6 +56,7 @@ export default function RootLayout({
           {children}
           <CookieConsentRoot />
           <ConsentAnalytics />
+          <WhatsAppFloatingButton />
         </ConsentProvider>
       </body>
     </html>

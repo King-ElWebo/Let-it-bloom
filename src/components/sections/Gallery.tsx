@@ -1,13 +1,16 @@
 import Image from 'next/image';
 
 const galleryImages = [
-  "/images/caroline-badran-_5H8TIast-I-unsplash.jpg",
-  "/images/duong-ngan-RJudoZ6qJ3o-unsplash.jpg",
-  "/images/haydn-golden-LfT2t-E08kw-unsplash.jpg",
-  "/images/irena-carpaccio-Aqkqd6U4W4k-unsplash.jpg",
-  "/images/jack-swords-BQtphmFrst4-unsplash.jpg",
-  "/images/karly-jones--G0zi4mqDeI-unsplash.jpg",
-  "/images/martin-baron-Uu1ipfa0Mqg-unsplash.jpg",
+  "/images/galerie/WhatsApp Image 2026-05-20 at 08.47.28 (1).jpeg",
+  "/images/galerie/WhatsApp Image 2026-05-20 at 08.47.28.jpeg",
+  "/images/galerie/WhatsApp Image 2026-05-20 at 08.47.29 (1).jpeg",
+  "/images/galerie/WhatsApp Image 2026-05-20 at 08.47.29.jpeg",
+  "/images/galerie/WhatsApp Image 2026-05-20 at 08.47.30 (1).jpeg",
+  "/images/galerie/WhatsApp Image 2026-05-20 at 08.47.30 (2).jpeg",
+  "/images/galerie/WhatsApp Image 2026-05-20 at 08.47.30 (3).jpeg",
+  "/images/galerie/WhatsApp Image 2026-05-20 at 08.47.30 (4).jpeg",
+  "/images/galerie/WhatsApp Image 2026-05-20 at 08.47.30 (5).jpeg",
+  "/images/galerie/WhatsApp Image 2026-05-20 at 08.47.30.jpeg",
 ];
 
 export function Gallery() {
