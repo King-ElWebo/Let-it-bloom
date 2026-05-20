@@ -23,7 +23,7 @@ export function Funeral() {
               Trauer & Grabfloristik
             </h2>
             <p className="text-base sm:text-lg text-brand-dark/80 leading-relaxed mb-5 sm:mb-6">
-              „Der Abschied eines geliebten Menschen sollte Stil-und würdevoll sein und das Leben des Verstorbenen wiederspiegeln. Ob Kranz, Bukett oder Gesteck, klassisch oder ausgefallen. Gemeinsam gestalten wir einen passenden, floralen Abschied. Gerne gestalten wir auch Ihre gewünschte saisonale Grabfloristik wie zb. Schalen und Arrangements für Ostern , Advent, Weihnachten etc.“
+              „Der Abschied eines geliebten Menschen sollte stil- und würdevoll sein und das Leben des Verstorbenen widerspiegeln. Ob Kranz, Bukett oder Gesteck, klassisch oder ausgefallen. Gemeinsam gestalten wir einen passenden, floralen Abschied. Gerne gestalten wir auch Ihre gewünschte saisonale Grabfloristik wie z. B. Schalen und Arrangements für Ostern, Advent, Weihnachten etc.“
             </p>
             <ul className="space-y-3">
               <li className="flex items-center gap-3 text-brand-dark/70"><span className="w-1.5 h-1.5 rounded-full bg-brand-turquoise"></span> Kränze & Buketts</li>

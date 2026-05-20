@@ -9,7 +9,7 @@ export function Products() {
             Mein Angebot
           </h2>
           <p className="text-base sm:text-lg text-brand-dark/90 leading-relaxed">
-          Alle Floralen Kunstwerke werden von befugten Gewerbetreibenden mit viel Liebe zum Detail gefertigt.
+          Alle floralen Kunstwerke werden von befugten Gewerbetreibenden mit viel Liebe zum Detail gefertigt.
           </p>
         </div>
 
@@ -58,9 +58,9 @@ export function Products() {
               </div>
             </div>
             <div className="order-1 lg:order-2">
-              <h3 className="text-2xl sm:text-3xl font-serif font-semibold text-brand-dark mb-5 sm:mb-6">Topfpflanzen für Alle Bereiche</h3>
+              <h3 className="text-2xl sm:text-3xl font-serif font-semibold text-brand-dark mb-5 sm:mb-6">Topfpflanzen für alle Bereiche</h3>
               <p className="text-base sm:text-lg text-brand-dark/90 leading-relaxed mb-6 sm:mb-8">
-                „Ob Klassisch oder Exotisch, Saisonal oder Dauerblüher."
+                „Ob klassisch oder exotisch, saisonal oder Dauerblüher.“
               </p>
               <ul className="space-y-4">
                 <li className="flex items-center gap-3 text-brand-dark/85"><span className="w-1.5 h-1.5 rounded-full bg-brand-turquoise"></span> Für Innen & Außen</li>

@@ -26,10 +26,10 @@ export function About() {
             <div className="space-y-5 sm:space-y-6 text-base sm:text-lg text-brand-dark/90 leading-relaxed relative">
               <span className="hidden md:block absolute -top-10 -left-6 text-8xl text-brand-turquoise/10 font-serif leading-none">"</span>
               <p className="relative z-10 font-medium text-lg sm:text-xl text-brand-dark">
-                „Schon mein Großvater besaß in den 70iger Jahren eine große Gärtnerei & Landschaftsgestaltung, somit wurde mir die Liebe und Passion zu allem Blühenden von Klein auf mit auf den Weg gegeben.“
+                „Schon mein Großvater besaß in den 70er Jahren eine große Gärtnerei & Landschaftsgestaltung, somit wurde mir die Liebe und Passion zu allem Blühenden von klein auf mit auf den Weg gegeben.“
               </p>
               <p>
-                Aber erst sehr spät mit 47 Jahren hab ich mir meinen Kindheitstraum von einer eigenen Selbstständigkeit mit Pflanzen erfüllt.
+                Aber erst sehr spät, mit 47 Jahren, habe ich mir meinen Kindheitstraum von einer eigenen Selbstständigkeit mit Pflanzen erfüllt.
               </p>
               <p>
                 Mit "Let It Bloom" möchte ich diese Leidenschaft weitergeben. Jedes Werkstück, das mein Atelier verlässt, trägt ein Stück dieser Geschichte in sich – gefertigt mit Respekt vor der Natur und dem Wunsch, Freude zu bereiten.

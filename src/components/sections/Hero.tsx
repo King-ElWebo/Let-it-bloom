@@ -9,11 +9,11 @@ const heroImages = {
   },
   small1: {
     src: "/images/hero/WhatsApp Image 2026-05-20 at 08.34.08.jpeg",
-    alt: "Frischer Freesienstrauss in hellem Papier",
+    alt: "Frischer Freesienstrauß in hellem Papier",
   },
   small2: {
     src: "/images/hero/WhatsApp Image 2026-05-20 at 08.34.07.jpeg",
-    alt: "Bepflanzte Schale mit kraeftigen pinken Blueten",
+    alt: "Bepflanzte Schale mit kräftigen pinken Blüten",
   },
 };
 
@@ -49,7 +49,7 @@ export function Hero() {
           </div>
 
           <h2 className="text-xl sm:text-3xl md:text-4xl font-serif italic text-brand-dark mb-4 sm:mb-7 md:mb-10 max-w-xl mx-auto leading-[1.4] sm:leading-[1.45]">
-            Ihr mobiler Blumen- &amp; Pflanzenhändler im Weinviertel/Langezersdorf
+            Ihr mobiler Blumen- &amp; Pflanzenhändler im Weinviertel/Langenzersdorf
           </h2>
 
           <p className="text-base sm:text-lg md:text-xl text-brand-dark/85 mb-8 sm:mb-12 md:mb-16 max-w-md mx-auto leading-relaxed">

@@ -11,7 +11,7 @@ export function Decorations() {
               Pflanzschalen aller Art für jeden Anlass
             </h2>
             <p className="text-base sm:text-lg text-brand-dark/80 leading-relaxed mb-6 sm:mb-8">
-              „Geht Nicht-Gibt´s Nicht“ Bei der Gestaltung deiner gewünschten Pflanzenschale sind Deiner Fantasie keine Grenzen gesetzt .Jede angefertigte Pflanzenschale ist ein Unikat.
+              „Geht nicht, gibt's nicht!“ Bei der Gestaltung deiner gewünschten Pflanzenschale sind deiner Fantasie keine Grenzen gesetzt. Jede angefertigte Pflanzenschale ist ein Unikat.
             </p>
             
             <ul className="space-y-4 mb-10">
