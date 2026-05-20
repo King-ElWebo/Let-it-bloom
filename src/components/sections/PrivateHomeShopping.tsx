@@ -17,7 +17,7 @@ export function PrivateHomeShopping() {
               <p className="text-base sm:text-lg text-brand-dark/80 leading-relaxed mb-6 sm:mb-8">
                 „Du bist nicht Mobil, hast einen stressigen Alltag mit Job oder Kind oder möchtest Dir den Pflanzeneinkauf einfach und bequem gestalten. Wir nehmen uns Zeit, besuchen Dich mit unserem gesamten Sortiment und geben Dir somit die Möglichkeit die passenden Pflanzen für Garten & Terrasse bei Dir vor Ort in aller Ruhe auszuwählen“
               </p>
-              <a href="#kontakt" className="inline-block px-7 py-3.5 sm:px-8 sm:py-4 bg-brand-turquoise text-white text-sm sm:text-base font-medium rounded-full hover:bg-brand-turquoise/90 transition-colors shadow-sm hover:-translate-y-0.5">
+              <a href="#kontakt" className="inline-block px-7 py-3.5 sm:px-8 sm:py-4 bg-brand-turquoise text-white text-sm sm:text-base font-medium rounded-full hover:bg-brand-turquoise/90 transition-colors shadow-sm hover:-translate-y-0.5" aria-label="Termin für Private Home Shopping vereinbaren">
                 Termin vereinbaren
               </a>
             </div>

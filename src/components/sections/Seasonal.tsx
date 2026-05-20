@@ -39,6 +39,7 @@ export async function Seasonal() {
                 <a 
                   href="#kontakt" 
                   className="inline-block px-6 py-2.5 bg-white/20 backdrop-blur-sm border border-white/30 text-white text-sm font-medium rounded-full hover:bg-white hover:text-brand-dark transition-colors"
+                  aria-label={`Saisonales Angebot ${offer.title} anfragen`}
                 >
                   Anfragen
                 </a>

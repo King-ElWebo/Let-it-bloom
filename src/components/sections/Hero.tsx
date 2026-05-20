@@ -32,25 +32,27 @@ export function Hero() {
 
       {/* ── Main content container ── */}
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* ── Centered text block ── */}
+        {/* ── Main content container ── */}
         <div className="mx-auto max-w-3xl text-center">
+          <h1 className="sr-only">Let It Bloom – Blumenatelier in Langenzersdorf</h1>
           <div className="mb-6 sm:mb-10 inline-flex flex-col items-center relative">
             <Image
               src={logoSrc}
               alt="Let It Bloom – Blumenatelier Logo"
               width={420}
               height={420}
-              loading="lazy"
+              priority={true}
+              fetchPriority="high"
               className="h-auto w-40 sm:w-56 md:w-64 lg:w-72 rounded-full shadow-lg drop-shadow-md"
               sizes="(min-width: 1024px) 288px, (min-width: 768px) 256px, (min-width: 640px) 224px, 160px"
             />
           </div>
 
-          <h1 className="text-xl sm:text-3xl md:text-4xl font-serif italic text-brand-dark/90 mb-4 sm:mb-7 md:mb-10 max-w-xl mx-auto leading-[1.4] sm:leading-[1.45]">
+          <h2 className="text-xl sm:text-3xl md:text-4xl font-serif italic text-brand-dark mb-4 sm:mb-7 md:mb-10 max-w-xl mx-auto leading-[1.4] sm:leading-[1.45]">
             Ihr mobiler Blumen- &amp; Pflanzenhändler im Weinviertel/Langezersdorf
-          </h1>
+          </h2>
 
-          <p className="text-base sm:text-lg md:text-xl text-brand-dark/70 mb-8 sm:mb-12 md:mb-16 max-w-md mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl text-brand-dark/85 mb-8 sm:mb-12 md:mb-16 max-w-md mx-auto leading-relaxed">
             Schnittblumen, Topfpflanzen, Dekorationsartikel und Gartenpflege.
             Vorbestellung aller Produkte jederzeit möglich.
           </p>
@@ -59,12 +61,14 @@ export function Hero() {
             <a
               href="tel:+436642303427"
               className="w-full max-w-[230px] sm:w-auto px-6 py-2.5 sm:px-8 sm:py-4 bg-brand-turquoise text-white text-sm sm:text-base font-medium rounded-full hover:bg-brand-turquoise/90 transition-all shadow-sm sm:hover:shadow-md sm:hover:-translate-y-1"
+              aria-label="Telefonisch kontaktieren: +43 664 2303427"
             >
               Anrufen
             </a>
             <a
               href="#kontakt"
               className="w-full max-w-[230px] sm:w-auto px-6 py-2.5 sm:px-8 sm:py-4 bg-brand-cream border-2 border-brand-turquoise/30 text-brand-dark text-sm sm:text-base font-medium rounded-full hover:border-brand-turquoise hover:bg-brand-turquoise/5 transition-all sm:hover:-translate-y-1"
+              aria-label="Zum Kontaktformular springen"
             >
               Kontakt aufnehmen
             </a>

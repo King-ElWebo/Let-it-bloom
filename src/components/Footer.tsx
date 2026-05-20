@@ -17,16 +17,16 @@ const legalLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-brand-turquoise text-brand-cream py-12 sm:py-16">
+    <footer className="bg-[var(--color-brand-turquoise-footer)] text-brand-cream py-12 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 md:gap-12 mb-10 sm:mb-12">
           <div>
-            <Link href="/" className="flex flex-col mb-6 inline-block">
+            <Link href="/" className="flex flex-col mb-6 inline-block" aria-label="Zur Startseite – Let It Bloom">
               <span className="font-serif text-xl sm:text-2xl font-semibold text-brand-cream tracking-wide">Let It Bloom</span>
-              <span className="text-xs tracking-widest text-brand-cream/85 uppercase font-medium">Blumenatelier</span>
+              <span className="text-xs tracking-widest text-brand-cream uppercase font-medium">Blumenatelier</span>
             </Link>
-            <p className="text-brand-cream/80 text-sm leading-relaxed max-w-xs">
-              Ihr mobiler Blumen- & Pflanzenhändler im Weinviertel.
+            <p className="text-brand-cream/90 text-sm leading-relaxed max-w-xs">
+              Ihr mobiler Blumen- &amp; Pflanzenhändler im Weinviertel.
             </p>
           </div>
 
@@ -37,7 +37,7 @@ export function Footer() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-brand-cream/85 hover:text-white transition-colors text-sm"
+                    className="text-brand-cream/90 hover:text-white hover:underline transition-colors text-sm"
                   >
                     {item.label}
                   </Link>
@@ -53,14 +53,14 @@ export function Footer() {
                 <li key={item.label}>
                   <Link
                     href={item.href}
-                    className="text-brand-cream/85 hover:text-white transition-colors text-sm"
+                    className="text-brand-cream/90 hover:text-white hover:underline transition-colors text-sm"
                   >
                     {item.label}
                   </Link>
                 </li>
               ))}
               <li>
-                <CookieSettingsButton className="text-brand-cream/85 hover:text-white transition-colors text-sm text-left">
+                <CookieSettingsButton className="text-brand-cream/90 hover:text-white hover:underline transition-colors text-sm text-left cursor-pointer">
                   Cookie-Einstellungen
                 </CookieSettingsButton>
               </li>
@@ -68,11 +68,11 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-6 sm:pt-8 border-t border-brand-cream/10 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
-          <p className="text-brand-cream/60 text-sm">
+        <div className="pt-6 sm:pt-8 border-t border-brand-cream/15 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
+          <p className="text-brand-cream/80 text-sm">
             &copy; {new Date().getFullYear()} Blumenatelier Let It Bloom. Alle Rechte vorbehalten.
           </p>
-          <p className="text-brand-cream/60 text-sm">Gestaltet mit Liebe in Österreich.</p>
+          <p className="text-brand-cream/80 text-sm">Gestaltet mit Liebe in Österreich.</p>
         </div>
       </div>
     </footer>

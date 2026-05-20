@@ -201,13 +201,14 @@ export function Contact() {
                 <div>
                   <h3 className="font-medium text-brand-dark text-base sm:text-lg mb-1">Telefon</h3>
                   <div className="flex items-center gap-2">
-                    <a href="tel:+436642303427" className="text-brand-dark/85 hover:text-brand-turquoise transition-colors">
+                    <a href="tel:+436642303427" className="text-brand-dark hover:text-brand-turquoise transition-colors font-medium" aria-label="Telefonisch kontaktieren: +43 664 2303427">
                       +43 664 2303427
                     </a>
                     <button
                       type="button"
                       onClick={() => copyToClipboard('+43 664 2303427', 'phone')}
-                      className="w-8 h-8 rounded-full bg-brand-cream flex items-center justify-center text-brand-dark/60 hover:bg-brand-turquoise hover:text-white transition-colors border border-brand-turquoise/20"
+                      className="w-8 h-8 rounded-full bg-brand-cream flex items-center justify-center text-brand-dark/70 hover:bg-brand-turquoise hover:text-white transition-colors border border-brand-turquoise/20 cursor-pointer"
+                      aria-label="Telefonnummer in die Zwischenablage kopieren"
                     >
                       {copied === 'phone' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                     </button>
@@ -222,13 +223,14 @@ export function Contact() {
                 <div>
                   <h3 className="font-medium text-brand-dark text-base sm:text-lg mb-1">E-Mail</h3>
                   <div className="flex items-center gap-2">
-                    <a href="mailto:wgruber@outlook.at" className="text-brand-dark/85 hover:text-brand-turquoise transition-colors">
+                    <a href="mailto:wgruber@outlook.at" className="text-brand-dark hover:text-brand-turquoise transition-colors font-medium" aria-label="E-Mail an wgruber@outlook.at senden">
                       wgruber@outlook.at
                     </a>
                     <button
                       type="button"
                       onClick={() => copyToClipboard('wgruber@outlook.at', 'email')}
-                      className="w-8 h-8 rounded-full bg-brand-cream flex items-center justify-center text-brand-dark/60 hover:bg-brand-turquoise hover:text-white transition-colors border border-brand-turquoise/20"
+                      className="w-8 h-8 rounded-full bg-brand-cream flex items-center justify-center text-brand-dark/70 hover:bg-brand-turquoise hover:text-white transition-colors border border-brand-turquoise/20 cursor-pointer"
+                      aria-label="E-Mail-Adresse in die Zwischenablage kopieren"
                     >
                       {copied === 'email' ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
                     </button>
@@ -242,7 +244,7 @@ export function Contact() {
                 </div>
                 <div>
                   <h3 className="font-medium text-brand-dark text-base sm:text-lg mb-1">Montag &amp; Sonntag</h3>
-                  <p className="text-brand-dark/85">
+                  <p className="text-brand-dark">
                     Lieferung in Langenzersdorf und Umgebung kostenlos<br />sowie Abholung möglich
                   </p>
                 </div>
@@ -260,10 +262,10 @@ export function Contact() {
             </div>
 
             <div className="mt-10 sm:mt-12 flex gap-3 sm:gap-4">
-              <a href="https://www.instagram.com/_letitbloom_/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-cream flex items-center justify-center text-brand-dark hover:bg-brand-turquoise hover:text-white transition-colors border border-brand-turquoise/20">
+              <a href="https://www.instagram.com/_letitbloom_/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-cream flex items-center justify-center text-brand-dark hover:bg-brand-turquoise hover:text-white transition-colors border border-brand-turquoise/20" aria-label="Let It Bloom auf Instagram besuchen">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="https://www.facebook.com/p/Blumen-Atelier-Let-It-Bloom-61572277304454/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-cream flex items-center justify-center text-brand-dark hover:bg-brand-turquoise hover:text-white transition-colors border border-brand-turquoise/20">
+              <a href="https://www.facebook.com/p/Blumen-Atelier-Let-It-Bloom-61572277304454/" target="_blank" rel="noopener noreferrer" className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-brand-cream flex items-center justify-center text-brand-dark hover:bg-brand-turquoise hover:text-white transition-colors border border-brand-turquoise/20" aria-label="Let It Bloom auf Facebook besuchen">
                 <Facebook className="w-5 h-5" />
               </a>
             </div>
@@ -280,7 +282,7 @@ export function Contact() {
               <div className="flex flex-col items-center text-center py-10 gap-4">
                 <CheckCircle2 className="w-14 h-14 text-brand-turquoise" strokeWidth={1.5} />
                 <p className="text-brand-dark font-medium text-lg">{serverMessage}</p>
-                <button type="button" onClick={() => setSubmitStatus('idle')} className="mt-2 text-sm text-brand-turquoise hover:underline">
+                <button type="button" onClick={() => setSubmitStatus('idle')} className="mt-2 text-sm text-brand-turquoise hover:underline cursor-pointer">
                   Weitere Nachricht senden
                 </button>
               </div>
@@ -297,7 +299,7 @@ export function Contact() {
               <form ref={formRef} className="space-y-5 sm:space-y-6" onSubmit={handleSubmit} noValidate>
                 {/* Honeypot */}
                 <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px' }}>
-                  <input type="text" name="website" value={form.website} onChange={handleChange} tabIndex={-1} autoComplete="off" />
+                  <input type="text" name="website" value={form.website} onChange={handleChange} tabIndex={-1} autoComplete="off" aria-label="Website Honeypot" />
                 </div>
 
                 <div>

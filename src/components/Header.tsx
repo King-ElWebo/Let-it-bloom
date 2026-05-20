@@ -16,7 +16,7 @@ export function Header() {
         <div className="flex items-center justify-between h-16 sm:h-20">
           <div className="flex-shrink-0 relative">
             <div className="absolute -top-2 -left-2 w-8 h-8 bg-brand-turquoise/20 rounded-full -z-10"></div>
-            <Link href="/" className="flex items-center gap-2 sm:gap-3">
+            <Link href="/" className="flex items-center gap-2 sm:gap-3" aria-label="Zur Startseite – Let It Bloom">
               <Image
                 src="/images/optimized/logo-mark.jpg"
                 alt="Let It Bloom Logo"
@@ -27,7 +27,7 @@ export function Header() {
               />
               <span className="flex flex-col">
                 <span className="font-serif text-2xl sm:text-3xl font-semibold text-brand-dark tracking-wide">Let It Bloom</span>
-                <span className="hidden sm:block text-[10px] tracking-[0.2em] text-brand-turquoise uppercase font-medium">Blumenatelier</span>
+                <span className="hidden sm:block text-[10px] tracking-[0.2em] text-[var(--color-brand-turquoise-dark)] uppercase font-medium">Blumenatelier</span>
               </span>
             </Link>
           </div>

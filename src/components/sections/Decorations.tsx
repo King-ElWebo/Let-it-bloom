@@ -25,7 +25,7 @@ export function Decorations() {
               ))}
             </ul>
             
-            <a href="#kontakt" className="inline-block px-7 py-3.5 sm:px-8 bg-brand-turquoise text-white text-sm sm:text-base font-medium rounded-full hover:bg-brand-turquoise/90 transition-colors shadow-sm hover:-translate-y-0.5">
+            <a href="#kontakt" className="inline-block px-7 py-3.5 sm:px-8 bg-brand-turquoise text-white text-sm sm:text-base font-medium rounded-full hover:bg-brand-turquoise/90 transition-colors shadow-sm hover:-translate-y-0.5" aria-label="Angebot für Pflanzschalen anfragen">
               Anfrage stellen
             </a>
           </div>

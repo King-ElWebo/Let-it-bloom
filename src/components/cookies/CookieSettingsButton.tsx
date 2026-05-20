@@ -15,7 +15,7 @@ export function CookieSettingsButton({
   const { openPreferences } = useConsent();
 
   return (
-    <button type="button" onClick={openPreferences} className={className}>
+    <button type="button" onClick={openPreferences} className={className} aria-label="Cookie-Einstellungen verwalten">
       {children}
     </button>
   );

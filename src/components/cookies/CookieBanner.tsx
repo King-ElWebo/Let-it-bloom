@@ -1,12 +1,25 @@
 'use client';
 
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useConsent } from '@/src/hooks/useConsent';
 
 export function CookieBanner() {
   const { hydrated, hasDecision, acceptAll, acceptNecessaryOnly, openPreferences } = useConsent();
+  const [shouldShow, setShouldShow] = useState(false);
 
-  if (!hydrated || hasDecision) return null;
+  useEffect(() => {
+    if (hydrated && !hasDecision) {
+      const timer = setTimeout(() => {
+        setShouldShow(true);
+      }, 800);
+      return () => clearTimeout(timer);
+    } else {
+      setShouldShow(false);
+    }
+  }, [hydrated, hasDecision]);
+
+  if (!hydrated || hasDecision || !shouldShow) return null;
 
   return (
     <section
