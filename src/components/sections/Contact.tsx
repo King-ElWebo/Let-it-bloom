@@ -122,6 +122,7 @@ export function Contact() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const formElement = e.currentTarget;
     if (!validate()) return;
 
     setSubmitStatus('loading');
@@ -138,7 +139,7 @@ export function Contact() {
 
     try {
       // Use exact Web3Forms approach
-      const formData = new FormData(e.currentTarget);
+      const formData = new FormData(formElement);
       formData.append('access_key', WEB3FORMS_ACCESS_KEY);
 
       const object = Object.fromEntries(formData);
@@ -160,12 +161,13 @@ export function Contact() {
         setServerMessage(SUCCESS_MESSAGE);
         setForm(INITIAL_FORM);
         setFieldErrors({});
-        e.currentTarget.reset(); // Reset the form natively
+        formElement.reset(); // Reset the form natively
       } else {
         setSubmitStatus('error');
         setServerMessage(data.message || ERROR_MESSAGE);
       }
-    } catch {
+    } catch (error) {
+      console.error('Web3Forms submission failed:', error);
       setSubmitStatus('error');
       setServerMessage(ERROR_MESSAGE);
     }
