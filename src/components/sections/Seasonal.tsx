@@ -29,6 +29,7 @@ export async function Seasonal() {
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-linear-to-t from-brand-dark/80 via-brand-dark/20 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 md:p-8 text-white">

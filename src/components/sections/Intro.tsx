@@ -13,6 +13,7 @@ export function Intro() {
                 alt="Floristin bei der Arbeit" 
                 fill sizes="(max-width: 1024px) 50vw, 25vw"
                 className="object-cover"
+                loading="lazy"
               />
             </div>
             <div className="grid grid-rows-2 gap-4 md:gap-6 min-h-0">
@@ -22,6 +23,7 @@ export function Intro() {
                   alt="Detail" 
                   fill sizes="(max-width: 1024px) 50vw, 25vw"
                   className="object-cover"
+                  loading="lazy"
                 />
               </div>
               <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
@@ -30,6 +32,7 @@ export function Intro() {
                   alt="Frische Blumen" 
                   fill sizes="(max-width: 1024px) 50vw, 25vw"
                   className="object-cover"
+                  loading="lazy"
                 />
               </div>
             </div>

@@ -9,14 +9,14 @@ export function Shop() {
           <div className="order-2 grid grid-cols-2 gap-4 md:gap-6 h-[280px] sm:h-[320px] md:h-[420px] lg:h-[520px]">
             <div className="grid grid-rows-2 gap-4 md:gap-6 min-h-0">
               <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                <Image src="/images/ab hof/WhatsApp Image 2026-04-26 at 13.34.02 (1).jpeg" className="object-cover" fill sizes="(max-width: 1024px) 50vw, 25vw" alt="Atelier Innenansicht" />
+                <Image src="/images/ab hof/WhatsApp Image 2026-04-26 at 13.34.02 (1).jpeg" className="object-cover" fill sizes="(max-width: 1024px) 50vw, 25vw" alt="Atelier Innenansicht" loading="lazy" />
               </div>
               <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                <Image src="/images/ab hof/WhatsApp Image 2026-04-26 at 13.34.02 (2).jpeg" className="object-cover" fill sizes="(max-width: 1024px) 50vw, 25vw" alt="Frische Blumen" />
+                <Image src="/images/ab hof/WhatsApp Image 2026-04-26 at 13.34.02 (2).jpeg" className="object-cover" fill sizes="(max-width: 1024px) 50vw, 25vw" alt="Frische Blumen" loading="lazy" />
               </div>
             </div>
             <div className="relative rounded-3xl overflow-hidden shadow-sm">
-              <Image src="/images/ab hof/WhatsApp Image 2026-04-26 at 13.34.02.jpeg" className="object-cover" fill sizes="(max-width: 1024px) 50vw, 25vw" alt="Floristische Details" />
+              <Image src="/images/ab hof/WhatsApp Image 2026-04-26 at 13.34.02.jpeg" className="object-cover" fill sizes="(max-width: 1024px) 50vw, 25vw" alt="Floristische Details" loading="lazy" />
             </div>
           </div>
 

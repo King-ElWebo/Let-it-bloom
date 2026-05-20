@@ -97,6 +97,7 @@ export function Hero() {
             alt={heroImages.small1.alt}
             fill
             loading="lazy"
+            fetchPriority="low"
             className="object-cover"
             sizes="(min-width: 1280px) 120px, (min-width: 1024px) 100px, 72px"
           />

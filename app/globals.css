@@ -48,7 +48,7 @@ section[id] {
 @supports (content-visibility: auto) {
   .hero-section ~ section {
     content-visibility: auto;
-    contain-intrinsic-size: auto 900px;
+    contain-intrinsic-size: auto 700px;
   }
 }
 
@@ -63,6 +63,7 @@ section[id] {
 
 .animate-gallery-scroll {
   animation: gallery-scroll 50s linear infinite;
+  will-change: transform;
 }
 
 @media (min-width: 640px) {

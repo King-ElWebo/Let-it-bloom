@@ -8,14 +8,14 @@ export function Funeral() {
           <div className="order-2 lg:order-1 grid grid-cols-2 gap-4 md:gap-6 h-[280px] sm:h-[320px] md:h-[420px] lg:h-[520px]">
             <div className="grid grid-rows-2 gap-4 md:gap-6 min-h-0">
               <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                <Image src="/images/grabfloristik/WhatsApp Image 2026-04-09 at 06.44.02.jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Ruhiges Grabgesteck" />
+                <Image src="/images/grabfloristik/WhatsApp Image 2026-04-09 at 06.44.02.jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Ruhiges Grabgesteck" loading="lazy" />
               </div>
               <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                <Image src="/images/grabfloristik/WhatsApp Image 2026-04-09 at 06.44.03 (3).jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Detail Trauerfloristik" />
+                <Image src="/images/grabfloristik/WhatsApp Image 2026-04-09 at 06.44.03 (3).jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Detail Trauerfloristik" loading="lazy" />
               </div>
             </div>
             <div className="relative rounded-3xl overflow-hidden shadow-sm">
-              <Image src="/images/grabfloristik/WhatsApp Image 2026-05-20 at 08.44.15.jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Klassischer Trauerkranz" />
+              <Image src="/images/grabfloristik/WhatsApp Image 2026-05-20 at 08.44.15.jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Klassischer Trauerkranz" loading="lazy" />
             </div>
           </div>
           <div className="order-1 lg:order-2">

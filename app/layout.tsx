@@ -1,9 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { CookieConsentRoot } from "@/src/components/cookies/CookieConsentRoot";
-import { ConsentAnalytics } from "@/src/components/ConsentAnalytics";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ConsentProvider } from "@/src/context/ConsentContext";
-import { WhatsAppFloatingButton } from "@/src/components/ui/WhatsAppFloatingButton";
+import { ClientWidgets } from "@/src/components/ClientWidgets";
 import { Inter, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 
@@ -55,10 +52,7 @@ export default function RootLayout({
       <body>
         <ConsentProvider>
           {children}
-          <CookieConsentRoot />
-          <ConsentAnalytics />
-          <SpeedInsights />
-          <WhatsAppFloatingButton />
+          <ClientWidgets />
         </ConsentProvider>
       </body>
     </html>

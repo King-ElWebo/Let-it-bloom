@@ -32,14 +32,14 @@ export function WhatsAppFloatingButton({
   useEffect(() => {
     setHasMounted(true);
 
-    // Show mobile tooltip briefly after 1.5 seconds, then hide after 6 seconds (4.5s visibility)
+    // Show mobile tooltip briefly after 1s, then hide after 4.5s (3.5s visibility)
     const showTimer = setTimeout(() => {
       setShowMobileTooltip(true);
-    }, 1500);
+    }, 1000);
 
     const hideTimer = setTimeout(() => {
       setShowMobileTooltip(false);
-    }, 6000);
+    }, 4500);
 
     return () => {
       clearTimeout(showTimer);
@@ -59,10 +59,10 @@ export function WhatsAppFloatingButton({
 
   return (
     <div
-      className={`fixed right-4 sm:right-6 z-40 transition-all duration-500 ease-in-out group ${
+      className={`fixed right-4 sm:right-6 z-40 transition-transform duration-500 ease-in-out group bottom-[max(20px,env(safe-area-inset-bottom))] sm:bottom-6 ${
         isBannerActive
-          ? 'bottom-[290px] sm:bottom-[176px]'
-          : 'bottom-[max(20px,env(safe-area-inset-bottom))] sm:bottom-6'
+          ? '-translate-y-[270px] sm:-translate-y-[152px]'
+          : 'translate-y-0'
       }`}
     >
       {/* ── MOBILE BRIEF TOOLTIP ── */}

@@ -29,14 +29,14 @@ export function Products() {
             </div>
             <div className="grid grid-cols-2 gap-4 md:gap-6 h-[280px] sm:h-[320px] md:h-[420px] lg:h-[520px]">
               <div className="relative rounded-3xl overflow-hidden shadow-sm">
-                <Image src="/images/mein angebot/WhatsApp Image 2026-05-20 at 08.35.40.jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Frischer Blumenstrauß" />
+                <Image src="/images/mein angebot/WhatsApp Image 2026-05-20 at 08.35.40.jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Frischer Blumenstrauß" loading="lazy" />
               </div>
               <div className="grid grid-rows-2 gap-4 md:gap-6 min-h-0">
                 <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                  <Image src="/images/mein angebot/WhatsApp Image 2026-04-26 at 13.23.23.jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Florist bei der Arbeit" />
+                  <Image src="/images/mein angebot/WhatsApp Image 2026-04-26 at 13.23.23.jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Florist bei der Arbeit" loading="lazy" />
                 </div>
                 <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                  <Image src="/images/mein angebot/WhatsApp Image 2026-05-20 at 08.35.40 (1).jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Frischer Blumenstrauß" />
+                  <Image src="/images/mein angebot/WhatsApp Image 2026-05-20 at 08.35.40 (1).jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Frischer Blumenstrauß" loading="lazy" />
                 </div>
               </div>
             </div>
@@ -47,14 +47,14 @@ export function Products() {
             <div className="order-2 lg:order-1 grid grid-cols-2 gap-4 md:gap-6 h-[280px] sm:h-[320px] md:h-[420px] lg:h-[520px]">
               <div className="grid grid-rows-2 gap-4 md:gap-6 min-h-0">
                 <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                  <Image src="/images/Topfpflanzen/WhatsApp Image 2026-05-20 at 08.37.26 (1).jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Topfpflanzen Arrangement" />
+                  <Image src="/images/Topfpflanzen/WhatsApp Image 2026-05-20 at 08.37.26 (1).jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Topfpflanzen Arrangement" loading="lazy" />
                 </div>
                 <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                  <Image src="/images/Topfpflanzen/WhatsApp Image 2026-05-20 at 08.37.26.jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Sukkulenten" />
+                  <Image src="/images/Topfpflanzen/WhatsApp Image 2026-05-20 at 08.37.26.jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Sukkulenten" loading="lazy" />
                 </div>
               </div>
               <div className="relative rounded-3xl overflow-hidden shadow-sm">
-                <Image src="/images/Topfpflanzen/WhatsApp Image 2026-05-20 at 08.37.27.jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Zimmerpflanzen" />
+                <Image src="/images/Topfpflanzen/WhatsApp Image 2026-05-20 at 08.37.27.jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Zimmerpflanzen" loading="lazy" />
               </div>
             </div>
             <div className="order-1 lg:order-2">

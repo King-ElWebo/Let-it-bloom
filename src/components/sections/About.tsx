@@ -12,6 +12,7 @@ export function About() {
                   alt="Portrait der Floristin" 
                   fill sizes="(max-width: 1024px) 100vw, 33vw"
                   className="object-cover"
+                  loading="lazy"
                 />
             </div>
             {/* Decorative background element */}

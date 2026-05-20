@@ -41,6 +41,7 @@ export function Gallery() {
                 sizes="(max-width: 640px) 280px, (max-width: 768px) 300px, 350px"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
+                loading="lazy"
               />
             </div>
           ))}
