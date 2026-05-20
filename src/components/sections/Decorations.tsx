@@ -1,6 +1,8 @@
 import { Check } from 'lucide-react';
 import Image from 'next/image';
 
+const mosaicImageSizes = "(max-width: 640px) 160px, (max-width: 1024px) 240px, 25vw";
+
 export function Decorations() {
   return (
     <section className="py-16 sm:py-20 md:py-24 lg:py-28 relative overflow-hidden bg-white">
@@ -32,14 +34,14 @@ export function Decorations() {
           
           <div className="grid grid-cols-2 gap-4 md:gap-6 h-[300px] sm:h-[360px] md:h-[460px] lg:h-[500px]">
             <div className="relative rounded-3xl overflow-hidden shadow-sm">
-              <Image src="/images/pflanzschalen/WhatsApp Image 2026-05-20 at 08.43.20 (1).jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Pflanzschale" loading="lazy" />
+              <Image src="/images/pflanzschalen/WhatsApp Image 2026-05-20 at 08.43.20 (1).jpeg" fill sizes={mosaicImageSizes} className="object-cover" alt="Pflanzschale" loading="lazy" quality={72} />
             </div>
             <div className="grid grid-rows-2 gap-4 md:gap-6 min-h-0">
               <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                <Image src="/images/pflanzschalen/WhatsApp Image 2026-04-26 at 13.29.53 (1).jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Sukkulenten Schale" loading="lazy" />
+                <Image src="/images/pflanzschalen/WhatsApp Image 2026-04-26 at 13.29.53 (1).jpeg" fill sizes={mosaicImageSizes} className="object-cover" alt="Sukkulenten Schale" loading="lazy" quality={70} />
               </div>
               <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                <Image src="/images/pflanzschalen/WhatsApp Image 2026-04-26 at 13.29.53 (2).jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Detail Pflanzschale" loading="lazy" />
+                <Image src="/images/pflanzschalen/WhatsApp Image 2026-04-26 at 13.29.53 (2).jpeg" fill sizes={mosaicImageSizes} className="object-cover" alt="Detail Pflanzschale" loading="lazy" quality={70} />
               </div>
             </div>
 
@@ -49,4 +51,3 @@ export function Decorations() {
     </section>
   );
 }
-

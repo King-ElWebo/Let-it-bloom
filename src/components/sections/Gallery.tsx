@@ -1,5 +1,7 @@
 import Image from 'next/image';
 
+const galleryImageSizes = "(max-width: 359px) 78vw, (max-width: 640px) 280px, (max-width: 768px) 300px, 350px";
+
 const galleryImages = [
   "/images/galerie/WhatsApp Image 2026-05-20 at 08.47.28 (1).jpeg",
   "/images/galerie/WhatsApp Image 2026-05-20 at 08.47.28.jpeg",
@@ -34,10 +36,11 @@ export function Gallery() {
                 src={src} 
                 alt={`Galerie Bild ${(index % galleryImages.length) + 1}`} 
                 fill
-                sizes="(max-width: 640px) 78vw, (max-width: 768px) 300px, 350px"
+                sizes={galleryImageSizes}
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
                 loading="lazy"
+                quality={70}
               />
             </div>
           ))}

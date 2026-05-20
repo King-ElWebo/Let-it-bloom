@@ -1,6 +1,8 @@
 import { MapPin, Clock, Phone } from 'lucide-react';
 import Image from 'next/image';
 
+const mosaicImageSizes = "(max-width: 640px) 160px, (max-width: 1024px) 240px, 25vw";
+
 export function Shop() {
   return (
     <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-white">
@@ -9,14 +11,14 @@ export function Shop() {
           <div className="order-2 grid grid-cols-2 gap-4 md:gap-6 h-[280px] sm:h-[320px] md:h-[420px] lg:h-[520px]">
             <div className="grid grid-rows-2 gap-4 md:gap-6 min-h-0">
               <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                <Image src="/images/ab hof/WhatsApp Image 2026-04-26 at 13.34.02 (1).jpeg" className="object-cover" fill sizes="(max-width: 1024px) 50vw, 25vw" alt="Atelier Innenansicht" loading="lazy" />
+                <Image src="/images/ab hof/WhatsApp Image 2026-04-26 at 13.34.02 (1).jpeg" className="object-cover" fill sizes={mosaicImageSizes} alt="Atelier Innenansicht" loading="lazy" quality={70} />
               </div>
               <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                <Image src="/images/ab hof/WhatsApp Image 2026-04-26 at 13.34.02 (2).jpeg" className="object-cover" fill sizes="(max-width: 1024px) 50vw, 25vw" alt="Frische Blumen" loading="lazy" />
+                <Image src="/images/ab hof/WhatsApp Image 2026-04-26 at 13.34.02 (2).jpeg" className="object-cover" fill sizes={mosaicImageSizes} alt="Frische Blumen" loading="lazy" quality={70} />
               </div>
             </div>
             <div className="relative rounded-3xl overflow-hidden shadow-sm">
-              <Image src="/images/ab hof/WhatsApp Image 2026-04-26 at 13.34.02.jpeg" className="object-cover" fill sizes="(max-width: 1024px) 50vw, 25vw" alt="Floristische Details" loading="lazy" />
+              <Image src="/images/ab hof/WhatsApp Image 2026-04-26 at 13.34.02.jpeg" className="object-cover" fill sizes={mosaicImageSizes} alt="Floristische Details" loading="lazy" quality={72} />
             </div>
           </div>
 
@@ -57,5 +59,4 @@ export function Shop() {
     </section>
   );
 }
-
 

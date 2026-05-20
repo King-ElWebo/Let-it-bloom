@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useConsent } from '@/src/hooks/useConsent';
 
+const COOKIE_BANNER_DELAY_MS = 1800;
+
 export function CookieBanner() {
   const { hydrated, hasDecision, acceptAll, acceptNecessaryOnly, openPreferences } = useConsent();
   const [shouldShow, setShouldShow] = useState(false);
@@ -12,7 +14,7 @@ export function CookieBanner() {
     if (hydrated && !hasDecision) {
       const timer = setTimeout(() => {
         setShouldShow(true);
-      }, 800);
+      }, COOKIE_BANNER_DELAY_MS);
       return () => clearTimeout(timer);
     } else {
       setShouldShow(false);

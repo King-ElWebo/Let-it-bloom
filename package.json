@@ -32,8 +32,8 @@
     "chrome >= 90",
     "edge >= 90",
     "firefox >= 90",
-    "safari >= 15",
-    "iOS >= 15",
+    "safari >= 16",
+    "iOS >= 16",
     "not dead"
   ]
 }

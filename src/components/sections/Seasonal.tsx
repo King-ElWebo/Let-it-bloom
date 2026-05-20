@@ -1,6 +1,8 @@
 import { getSeasonalOffers } from "@/src/lib/seasonal";
 import Image from 'next/image';
 
+const seasonalImageSizes = "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 50vw, 33vw";
+
 export async function Seasonal() {
   const seasonalOffers = await getSeasonalOffers();
   const activeOffers = seasonalOffers.filter(offer => offer.active).slice(0, 3);
@@ -26,10 +28,11 @@ export async function Seasonal() {
                 src={offer.image} 
                 alt={offer.title} 
                 fill
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                sizes={seasonalImageSizes}
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
                 loading="lazy"
+                quality={72}
               />
               <div className="absolute inset-0 bg-linear-to-t from-brand-dark/80 via-brand-dark/20 to-transparent"></div>
               <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6 md:p-8 text-white">

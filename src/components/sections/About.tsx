@@ -1,5 +1,7 @@
 import Image from 'next/image';
 
+const portraitImageSizes = "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 380px, 33vw";
+
 export function About() {
   return (
     <section id="ueber-mich" className="py-16 sm:py-20 md:py-24 lg:py-28 bg-brand-cream relative overflow-hidden">
@@ -10,9 +12,10 @@ export function About() {
                <Image 
                   src="/images/über mihc/WhatsApp Image 2026-04-26 at 13.57.15.jpeg" 
                   alt="Portrait der Floristin" 
-                  fill sizes="(max-width: 1024px) 100vw, 33vw"
+                  fill sizes={portraitImageSizes}
                   className="object-cover"
                   loading="lazy"
+                  quality={72}
                 />
             </div>
             {/* Decorative background element */}

@@ -1,5 +1,7 @@
 import Image from 'next/image';
 
+const mosaicImageSizes = "(max-width: 640px) 160px, (max-width: 1024px) 240px, 25vw";
+
 export function Funeral() {
   return (
     <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-brand-cream relative overflow-hidden">
@@ -8,14 +10,14 @@ export function Funeral() {
           <div className="order-2 lg:order-1 grid grid-cols-2 gap-4 md:gap-6 h-[280px] sm:h-[320px] md:h-[420px] lg:h-[520px]">
             <div className="grid grid-rows-2 gap-4 md:gap-6 min-h-0">
               <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                <Image src="/images/grabfloristik/WhatsApp Image 2026-04-09 at 06.44.02.jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Ruhiges Grabgesteck" loading="lazy" />
+                <Image src="/images/grabfloristik/WhatsApp Image 2026-04-09 at 06.44.02.jpeg" fill sizes={mosaicImageSizes} className="object-cover" alt="Ruhiges Grabgesteck" loading="lazy" quality={70} />
               </div>
               <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                <Image src="/images/grabfloristik/WhatsApp Image 2026-04-09 at 06.44.03 (3).jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Detail Trauerfloristik" loading="lazy" />
+                <Image src="/images/grabfloristik/WhatsApp Image 2026-04-09 at 06.44.03 (3).jpeg" fill sizes={mosaicImageSizes} className="object-cover" alt="Detail Trauerfloristik" loading="lazy" quality={70} />
               </div>
             </div>
             <div className="relative rounded-3xl overflow-hidden shadow-sm">
-              <Image src="/images/grabfloristik/WhatsApp Image 2026-05-20 at 08.44.15.jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Klassischer Trauerkranz" loading="lazy" />
+              <Image src="/images/grabfloristik/WhatsApp Image 2026-05-20 at 08.44.15.jpeg" fill sizes={mosaicImageSizes} className="object-cover" alt="Klassischer Trauerkranz" loading="lazy" quality={72} />
             </div>
           </div>
           <div className="order-1 lg:order-2">
@@ -36,4 +38,3 @@ export function Funeral() {
     </section>
   );
 }
-

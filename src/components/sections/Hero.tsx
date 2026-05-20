@@ -2,6 +2,9 @@ import Image from "next/image";
 
 const logoSrc = "/images/optimized/logo-mark.jpg";
 
+const heroLogoSizes =
+  "(min-width: 1024px) 288px, (min-width: 768px) 256px, (min-width: 640px) 224px, 160px";
+
 const heroImages = {
   large: {
     src: "/images/hero/WhatsApp Image 2026-05-20 at 08.34.07.jpeg",
@@ -43,8 +46,9 @@ export function Hero() {
               height={420}
               priority={true}
               fetchPriority="high"
+              quality={78}
               className="h-auto w-40 sm:w-56 md:w-64 lg:w-72 rounded-full shadow-lg drop-shadow-md"
-              sizes="(min-width: 1024px) 288px, (min-width: 768px) 256px, (min-width: 640px) 224px, 160px"
+              sizes={heroLogoSizes}
             />
           </div>
 
@@ -84,8 +88,9 @@ export function Hero() {
             src={heroImages.large.src}
             alt={heroImages.large.alt}
             fill
-            priority
-            fetchPriority="high"
+            loading="lazy"
+            fetchPriority="low"
+            quality={72}
             className="object-cover"
             sizes="(min-width: 1280px) 280px, (min-width: 1024px) 220px, (min-width: 640px) 200px, (max-width: 359px) 140px, 150px"
           />
@@ -98,6 +103,7 @@ export function Hero() {
             fill
             loading="lazy"
             fetchPriority="low"
+            quality={70}
             className="object-cover"
             sizes="(min-width: 1280px) 120px, (min-width: 1024px) 100px, 72px"
           />

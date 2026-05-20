@@ -1,6 +1,8 @@
 import { Heart, MapPin, Leaf } from 'lucide-react';
 import Image from 'next/image';
 
+const mosaicImageSizes = "(max-width: 640px) 160px, (max-width: 1024px) 240px, 25vw";
+
 export function Intro() {
   return (
     <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-white relative overflow-hidden">
@@ -11,9 +13,10 @@ export function Intro() {
               <Image 
                 src="/images/final/WhatsApp Image 2026-04-26 at 13.21.30 (1).jpeg" 
                 alt="Floristin bei der Arbeit" 
-                fill sizes="(max-width: 1024px) 50vw, 25vw"
+                fill sizes={mosaicImageSizes}
                 className="object-cover"
                 loading="lazy"
+                quality={72}
               />
             </div>
             <div className="grid grid-rows-2 gap-4 md:gap-6 min-h-0">
@@ -21,18 +24,20 @@ export function Intro() {
                 <Image 
                   src="/images/final/WhatsApp Image 2026-04-26 at 13.21.30 (2).jpeg" 
                   alt="Detail" 
-                  fill sizes="(max-width: 1024px) 50vw, 25vw"
+                  fill sizes={mosaicImageSizes}
                   className="object-cover"
                   loading="lazy"
+                  quality={70}
                 />
               </div>
               <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
                 <Image 
                   src="/images/final/WhatsApp Image 2026-04-26 at 13.21.30.jpeg" 
                   alt="Frische Blumen" 
-                  fill sizes="(max-width: 1024px) 50vw, 25vw"
+                  fill sizes={mosaicImageSizes}
                   className="object-cover"
                   loading="lazy"
+                  quality={70}
                 />
               </div>
             </div>

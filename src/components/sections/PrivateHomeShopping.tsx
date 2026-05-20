@@ -1,6 +1,8 @@
 import { ShoppingBag } from 'lucide-react';
 import Image from 'next/image';
 
+const mosaicImageSizes = "(max-width: 640px) 160px, (max-width: 1024px) 240px, 25vw";
+
 export function PrivateHomeShopping() {
   return (
     <section className="py-16 sm:py-20 md:py-24 lg:py-28 bg-brand-cream relative overflow-hidden">
@@ -24,14 +26,14 @@ export function PrivateHomeShopping() {
             <div className="grid grid-cols-2 gap-4 md:gap-6 h-[280px] sm:h-[320px] md:h-[420px] lg:h-[520px]">
               <div className="grid grid-rows-2 gap-4 md:gap-6 min-h-0">
                 <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                  <Image src="/images/private/WhatsApp Image 2026-05-20 at 08.41.11.jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Floristin berät" />
+                  <Image src="/images/private/WhatsApp Image 2026-05-20 at 08.41.11.jpeg" fill sizes={mosaicImageSizes} className="object-cover" alt="Floristin berät" loading="lazy" quality={70} />
                 </div>
                 <div className="relative rounded-3xl overflow-hidden shadow-sm min-h-0">
-                  <Image src="/images/private/WhatsApp Image 2026-05-20 at 08.41.12 (1).jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Zimmerpflanzen" />
+                  <Image src="/images/private/WhatsApp Image 2026-05-20 at 08.41.12 (1).jpeg" fill sizes={mosaicImageSizes} className="object-cover" alt="Zimmerpflanzen" loading="lazy" quality={70} />
                 </div>
               </div>
               <div className="relative rounded-3xl overflow-hidden shadow-sm">
-                <Image src="/images/private/WhatsApp Image 2026-05-20 at 08.41.11 (2).jpeg" fill sizes="(max-width: 1024px) 50vw, 25vw" className="object-cover" alt="Pflanzen im Zuhause" />
+                <Image src="/images/private/WhatsApp Image 2026-05-20 at 08.41.11 (2).jpeg" fill sizes={mosaicImageSizes} className="object-cover" alt="Pflanzen im Zuhause" loading="lazy" quality={72} />
               </div>
             </div>
           </div>
@@ -40,5 +42,4 @@ export function PrivateHomeShopping() {
     </section>
   );
 }
-
 

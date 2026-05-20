@@ -23,6 +23,7 @@ export function Header() {
                 width={44}
                 height={44}
                 sizes="(min-width: 640px) 44px, 36px"
+                quality={75}
                 className="w-9 h-9 sm:w-11 sm:h-11 rounded-full object-cover border border-brand-turquoise/20 shadow-sm"
               />
               <span className="flex flex-col">
