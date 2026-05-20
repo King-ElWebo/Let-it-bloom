@@ -7,10 +7,6 @@ const galleryImages = [
   "/images/galerie/WhatsApp Image 2026-05-20 at 08.47.29.jpeg",
   "/images/galerie/WhatsApp Image 2026-05-20 at 08.47.30 (1).jpeg",
   "/images/galerie/WhatsApp Image 2026-05-20 at 08.47.30 (2).jpeg",
-  "/images/galerie/WhatsApp Image 2026-05-20 at 08.47.30 (3).jpeg",
-  "/images/galerie/WhatsApp Image 2026-05-20 at 08.47.30 (4).jpeg",
-  "/images/galerie/WhatsApp Image 2026-05-20 at 08.47.30 (5).jpeg",
-  "/images/galerie/WhatsApp Image 2026-05-20 at 08.47.30.jpeg",
 ];
 
 export function Gallery() {
@@ -38,7 +34,7 @@ export function Gallery() {
                 src={src} 
                 alt={`Galerie Bild ${(index % galleryImages.length) + 1}`} 
                 fill
-                sizes="(max-width: 640px) 280px, (max-width: 768px) 300px, 350px"
+                sizes="(max-width: 640px) 78vw, (max-width: 768px) 300px, 350px"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 referrerPolicy="no-referrer"
                 loading="lazy"
