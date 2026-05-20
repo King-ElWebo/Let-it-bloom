@@ -60,7 +60,7 @@ export function normalizeSeasonalOffers(value: unknown): SeasonalOffer[] {
 }
 
 export async function getSeasonalOffers(): Promise<SeasonalOffer[]> {
-
+  noStore();
   try {
     const offers = await readSeasonalOffersFromStore();
     return normalizeSeasonalOffers(offers);
