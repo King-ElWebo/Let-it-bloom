@@ -68,11 +68,18 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="pt-6 sm:pt-8 border-t border-brand-cream/15 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
-          <p className="text-brand-cream/80 text-sm">
+        <div className="pt-6 sm:pt-8 border-t border-brand-cream/15 flex flex-col md:flex-row items-center md:items-end justify-between gap-4 md:gap-8">
+          <p className="text-brand-cream/80 text-sm text-center md:text-left">
             &copy; {new Date().getFullYear()} Blumenatelier Let It Bloom. Alle Rechte vorbehalten.
           </p>
-          <p className="text-brand-cream/80 text-sm">Gestaltet mit Liebe in Österreich.</p>
+          <div className="flex flex-col items-center md:items-end text-center md:text-right gap-1">
+            <p className="text-brand-cream/70 text-xs">
+              Website erstellt von Benjamin Wilk
+            </p>
+            <p className="text-brand-cream/55 text-[11px] leading-relaxed max-w-xs sm:max-w-md">
+              Für Inhalte, spätere Änderungen sowie technische Ausfälle durch Drittanbieter wird keine Haftung übernommen.
+            </p>
+          </div>
         </div>
       </div>
     </footer>

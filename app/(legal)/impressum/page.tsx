@@ -13,7 +13,7 @@ export default function ImpressumPage() {
   return (
     <LegalPageLayout
       title="Impressum"
-      intro="Angaben gemäß den Informationspflichten für Websites in Österreich und Deutschland. Bitte ersetze die Platzhalter durch deine echten Unternehmensdaten."
+      intro="Angaben gemäß den gesetzlichen Informationspflichten für Websites in Österreich."
       lastUpdated={legalProfile.lastUpdated}
     >
       <LegalSection title="Angaben zum Unternehmen">
@@ -55,12 +55,31 @@ export default function ImpressumPage() {
           <dt className="font-medium text-brand-dark">UID-Nummer</dt>
           <dd>{legalProfile.uidNumber}</dd>
 
-
           <dt className="font-medium text-brand-dark">Aufsichtsbehörde</dt>
           <dd>{legalProfile.supervisoryAuthority}</dd>
 
           <dt className="font-medium text-brand-dark">Kammerzugehörigkeit</dt>
           <dd>{legalProfile.chamber}</dd>
+
+          <dt className="font-medium text-brand-dark">Berufsrechtliche Vorschriften</dt>
+          <dd>
+            Gewerbeordnung (GewO) – abrufbar im Rechtsinformationssystem des Bundes (RIS) unter{" "}
+            <a
+              href="https://www.ris.bka.gv.at"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-brand-turquoise hover:underline transition-colors font-medium"
+            >
+              www.ris.bka.gv.at
+            </a>
+          </dd>
+        </dl>
+      </LegalSection>
+
+      <LegalSection title="Informationspflichten nach dem Mediengesetz">
+        <dl className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-x-6 gap-y-3">
+          <dt className="font-medium text-brand-dark">Blattlinie</dt>
+          <dd>{legalProfile.blattlinie}</dd>
         </dl>
       </LegalSection>
 

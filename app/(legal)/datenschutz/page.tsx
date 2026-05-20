@@ -13,7 +13,7 @@ export default function DatenschutzPage() {
   return (
     <LegalPageLayout
       title="Datenschutzerklärung"
-      intro="Diese Vorlage informiert über Art, Umfang und Zweck der Verarbeitung personenbezogener Daten auf dieser Website. Bitte ersetze alle Platzhalter durch deine realen Angaben."
+      intro="Diese Datenschutzerklärung informiert Sie über Art, Umfang und Zweck der Verarbeitung personenbezogener Daten auf dieser Website gemäß den Vorgaben der Datenschutz-Grundverordnung (DSGVO)."
       lastUpdated={legalProfile.lastUpdated}
     >
       <LegalSection title="1. Verantwortlicher">
@@ -71,50 +71,77 @@ export default function DatenschutzPage() {
         </p>
       </LegalSection>
 
-      <LegalSection title="5. Cookies">
+      <LegalSection title="5. Cookies &amp; Lokaler Speicher">
         <p>
-          Unsere Website verwendet Cookies. Dabei handelt es sich um kleine Textdateien, die auf
-          deinem Endgerät gespeichert werden. Cookies können technisch notwendig sein oder
-          für Analyse- und Marketingzwecke eingesetzt werden.
+          Unsere Website ist darauf ausgelegt, Ihre Privatsphäre bestmöglich zu schützen. Daher verwenden wir 
+          <strong> keine tracking-, profiling- oder werbebezogenen Cookies</strong>.
         </p>
         <p>
-          Details zur Art und Steuerung eingesetzter Cookies findest du in der
-          Cookie-Richtlinie.
+          Wir nutzen lediglich den lokalen Speicher Ihres Browsers (LocalStorage), um Ihre getroffene Cookie- bzw. Datenschutz-Entscheidung 
+          zu speichern (unter dem Schlüssel <code>letitbloom_cookie_consent_v1</code>). Dieser Speicher ist technisch 
+          notwendig (berechtigtes Interesse gemäß Art. 6 Abs. 1 lit. f DSGVO), damit wir Ihnen den Cookie-Banner nicht bei 
+          jedem einzelnen Seitenaufruf erneut anzeigen müssen.
+        </p>
+        <p>
+          Details zur Art und Steuerung eingesetzter Speicheroptionen finden Sie in der Cookie-Richtlinie.
         </p>
       </LegalSection>
 
-      <LegalSection title="6. Webanalyse mit Vercel Analytics">
+      <LegalSection title="6. Webanalyse (Vercel Analytics &amp; Speed Insights)">
         {legalProfile.analyticsEnabled ? (
           <>
             <p>
-              Diese Website verwendet {legalProfile.analyticsTool}, einen Webanalysedienst von Vercel Inc., 
-              zur statistischen Auswertung der Besucherzugriffe und zur Optimierung der Nutzererfahrung.
+              Diese Website verwendet <strong>Vercel Analytics</strong> und <strong>Vercel Speed Insights</strong>, 
+              Webanalysedienste des Hosting-Anbieters Vercel Inc. (Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA), 
+              zur statistischen Auswertung der Besucherzugriffe und zur Überwachung der technischen Performance (Ladezeiten, Stabilität).
             </p>
             <p>
-              Vercel Analytics arbeitet datenschutzfreundlich und erfasst Standard-Zugriffsdaten (wie Seitenaufrufe, Browsertyp, Betriebssystem) in aggregierter Form. Es werden dabei <strong>keine Tracking-Cookies</strong> auf deinem Endgerät gespeichert und IP-Adressen werden vor der Speicherung anonymisiert, sodass keine Rückschlüsse auf individuelle Nutzer möglich sind.
+              Beide Dienste arbeiten standardmäßig vollkommen datenschutzfreundlich und <strong>cookieless</strong>. 
+              Es werden keine Tracking-Cookies auf Ihrem Endgerät gespeichert und es erfolgt kein systemübergreifendes Tracking. 
+              Die erhobenen Zugriffs- und Telemetriedaten (z. B. aufgerufene Seiten, Browsertyp, Ladezeit-Metriken) werden in 
+              aggregierter und anonymisierter Form verarbeitet. IP-Adressen werden unmittelbar bei der Erfassung auf Netzwerkebene 
+              anonymisiert, sodass keine Rückschlüsse auf Ihre Person möglich sind.
             </p>
             <p>
-              Die Verarbeitung dieser anonymisierten Daten erfolgt auf Grundlage unseres berechtigten Interesses (Art. 6 Abs. 1 lit. f DSGVO) an der Stabilität und kontinuierlichen Verbesserung unserer Website.
+              Obwohl diese Analyse-Dienste ohne Speicherung personenbezogener Daten auskommen, laden wir sie auf dieser Website 
+              erst nach Ihrer freiwilligen Zustimmung über unseren Cookie- bzw. Consent-Banner (Einwilligung gemäß Art. 6 Abs. 1 lit. a DSGVO). 
+              Sie können diese Einwilligung jederzeit mit Wirkung für die Zukunft über die Cookie-Einstellungen widerrufen.
             </p>
           </>
         ) : (
           <p>
-            Dieser Abschnitt ist als Platzhalter vorgesehen. Bitte aktivieren, anpassen oder
-            entfernen, je nachdem ob {legalProfile.analyticsTool} tatsächlich eingesetzt wird.
+            Der Webanalyse-Dienst ist aktuell deaktiviert.
           </p>
         )}
       </LegalSection>
 
-      <LegalSection title="7. Kontaktformular">
+      <LegalSection title="7. Kontaktformular &amp; Datenübermittlung an Web3Forms">
         <p>
-          Wenn du uns über das Kontaktformular kontaktierst, verarbeiten wir die von dir
-          eingegebenen Daten (z. B. Name, E-Mail-Adresse, Nachricht), um deine Anfrage zu
-          bearbeiten.
+          Wenn Sie uns über das Kontaktformular kontaktieren, verarbeiten wir die von Ihnen
+          eingegebenen Daten (z. B. Name, E-Mail-Adresse, Telefonnummer sowie Ihre Nachricht) ausschließlich,
+          um Ihre Anfrage zu bearbeiten.
         </p>
         <p>
-          Rechtsgrundlage ist je nach Anliegen Art. 6 Abs. 1 lit. b DSGVO (vorvertragliche
-          Maßnahmen) oder Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an
-          Kommunikationsbearbeitung).
+          Zur technischen Übertragung und Zustellung dieser Formularanfragen nutzen wir den Dienst <strong>Web3Forms</strong> 
+          (bereitgestellt von Lintel Technologies Private Limited, Hyderabad, Indien). Web3Forms dient als reiner technischer 
+          Zustelldienst (Auftragsverarbeiter), welcher die im Formular eingegebenen Daten entgegennimmt und sicher als E-Mail 
+          an unser Postfach weiterleitet. Die Daten werden von Web3Forms nicht dauerhaft gespeichert, nicht für eigene Zwecke 
+          analysiert und nicht an Dritte weitergegeben.
+        </p>
+        <p>
+          Die Verarbeitung dieser Daten erfolgt auf Grundlage Ihrer Einwilligung (Art. 6 Abs. 1 lit. a DSGVO) oder zur Durchführung 
+          vorvertraglicher Maßnahmen bzw. Erfüllung eines Vertrages (Art. 6 Abs. 1 lit. b DSGVO).
+        </p>
+        <p>
+          Weitere Details zum Datenschutz des Dienstleisters finden Sie in der Datenschutzerklärung von Web3Forms unter:{" "}
+          <a
+            href="https://web3forms.com/privacy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-brand-turquoise hover:underline transition-colors font-medium"
+          >
+            https://web3forms.com/privacy
+          </a>.
         </p>
       </LegalSection>
 

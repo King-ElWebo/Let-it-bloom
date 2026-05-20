@@ -20,9 +20,9 @@ export const CONSENT_CATEGORY_TEXT: Record<
     required: true,
   },
   marketing: {
-    title: 'Marketing',
+    title: 'Statistik & Analyse',
     description:
-      'Wird für personalisierte Inhalte und Werbemaßnahmen genutzt. Aktuell nur vorbereitet und standardmäßig deaktiviert.',
+      'Erlaubt das Sammeln von anonymisierten Nutzungsstatistiken und Performance-Daten über Vercel Analytics und Speed Insights, um unsere Website stetig zu verbessern.',
     required: false,
   },
   externalMedia: {
