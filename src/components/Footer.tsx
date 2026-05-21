@@ -1,13 +1,6 @@
 import Link from 'next/link';
 import { CookieSettingsButton } from '@/src/components/cookies/CookieSettingsButton';
-
-const navigationLinks = [
-  { label: 'Leistungen', href: '/#leistungen' },
-  { label: 'Galerie', href: '/#galerie' },
-  { label: 'Saisonales', href: '/#saisonales' },
-  { label: 'Über mich', href: '/#ueber-mich' },
-  { label: 'Kontakt', href: '/#kontakt' },
-];
+import { getSeasonalConfig } from '@/src/lib/seasonal';
 
 const legalLinks = [
   { label: 'Impressum', href: '/impressum' },
@@ -15,7 +8,17 @@ const legalLinks = [
   { label: 'Cookie-Richtlinie', href: '/cookie-richtlinie' },
 ];
 
-export function Footer() {
+export async function Footer() {
+  const { enabled, offers } = await getSeasonalConfig();
+  const showSeasonal = enabled && offers.some(offer => offer.active);
+
+  const navigationLinks = [
+    { label: 'Leistungen', href: '/#leistungen' },
+    { label: 'Galerie', href: '/#galerie' },
+    ...(showSeasonal ? [{ label: 'Saisonales', href: '/#saisonales' }] : []),
+    { label: 'Über mich', href: '/#ueber-mich' },
+    { label: 'Kontakt', href: '/#kontakt' },
+  ];
   return (
     <footer className="bg-[var(--color-brand-turquoise-footer)] text-brand-cream py-12 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

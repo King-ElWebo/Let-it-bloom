@@ -1,7 +1,7 @@
 import { revalidatePath } from "next/cache";
 import { NextResponse } from "next/server";
 import { hasAdminSession } from "@/src/lib/admin-auth";
-import { getSeasonalOffers, saveSeasonalOffers } from "@/src/lib/seasonal";
+import { getSeasonalConfig, saveSeasonalConfig } from "@/src/lib/seasonal";
 
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
@@ -11,8 +11,8 @@ export async function GET(): Promise<NextResponse> {
     return unauthorizedResponse();
   }
 
-  const offers = await getSeasonalOffers();
-  return NextResponse.json({ offers });
+  const config = await getSeasonalConfig();
+  return NextResponse.json(config);
 }
 
 export async function PUT(request: Request): Promise<NextResponse> {
@@ -22,12 +22,13 @@ export async function PUT(request: Request): Promise<NextResponse> {
 
   const body = await request.json().catch(() => null);
   const offers = isRecord(body) ? body.offers : undefined;
+  const enabled = isRecord(body) && typeof body.enabled === "boolean" ? body.enabled : true;
 
   try {
-    const savedOffers = await saveSeasonalOffers(offers);
+    const savedConfig = await saveSeasonalConfig({ enabled, offers });
     revalidatePath("/");
 
-    return NextResponse.json({ offers: savedOffers });
+    return NextResponse.json(savedConfig);
   } catch (error) {
     return NextResponse.json(
       {

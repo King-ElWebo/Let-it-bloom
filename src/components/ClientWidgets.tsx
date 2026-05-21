@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import { usePathname } from 'next/navigation';
 
 const CookieConsentRoot = dynamic(
   () => import('@/src/components/cookies/CookieConsentRoot').then((mod) => mod.CookieConsentRoot),
@@ -23,12 +24,15 @@ const ConsentSpeedInsights = dynamic(
 );
 
 export function ClientWidgets() {
+  const pathname = usePathname();
+  const isAdminPath = pathname === '/admin' || pathname?.startsWith('/admin/');
+
   return (
     <>
       <CookieConsentRoot />
       <ConsentAnalytics />
       <ConsentSpeedInsights />
-      <WhatsAppFloatingButton />
+      {!isAdminPath && <WhatsAppFloatingButton />}
     </>
   );
 }

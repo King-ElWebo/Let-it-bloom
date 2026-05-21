@@ -1,15 +1,18 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { MobileMenu } from '@/src/components/MobileMenu';
+import { getSeasonalConfig } from '@/src/lib/seasonal';
 
-const navLinks = [
-  { name: 'Leistungen', href: '/#leistungen' },
-  { name: 'Galerie', href: '/#galerie' },
-  { name: 'Saisonales', href: '/#saisonales' },
-  { name: 'Über mich', href: '/#ueber-mich' },
-];
+export async function Header() {
+  const { enabled, offers } = await getSeasonalConfig();
+  const showSeasonal = enabled && offers.some(offer => offer.active);
 
-export function Header() {
+  const navLinks = [
+    { name: 'Leistungen', href: '/#leistungen' },
+    { name: 'Galerie', href: '/#galerie' },
+    ...(showSeasonal ? [{ name: 'Saisonales', href: '/#saisonales' }] : []),
+    { name: 'Über mich', href: '/#ueber-mich' },
+  ];
   return (
     <header className="sticky top-0 z-50 bg-brand-beige/90 backdrop-blur-md border-b border-brand-turquoise/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

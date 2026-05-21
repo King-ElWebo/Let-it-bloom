@@ -1,39 +1,41 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { ImageUp, Loader2, LogOut, Save } from "lucide-react";
+import { ArrowLeft, ImageUp, Loader2, LogOut, Save } from "lucide-react";
+import Link from "next/link";
 import type { FormEvent } from "react";
 import type { SeasonalOffer } from "@/src/lib/seasonal";
 
 type AdminDashboardProps = {
   initialIsAuthenticated: boolean;
+  initialEnabled: boolean;
   initialOffers: SeasonalOffer[];
   isConfigured: boolean;
 };
 
-type FieldName = "title" | "description" | "image";
-
 export function AdminDashboard({
   initialIsAuthenticated,
+  initialEnabled,
   initialOffers,
   isConfigured,
 }: AdminDashboardProps) {
   const [isAuthenticated, setIsAuthenticated] = useState(initialIsAuthenticated);
   const [offers, setOffers] = useState<SeasonalOffer[]>(initialOffers);
+  const [enabled, setEnabled] = useState(initialEnabled);
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [isSaving, setIsSaving] = useState(false);
   const [isLoggingIn, setIsLoggingIn] = useState(false);
   const [uploadingId, setUploadingId] = useState<string | null>(null);
 
-  const canSave = useMemo(
-    () =>
-      offers.every(
-        (offer) =>
-          offer.title.trim() && offer.description.trim() && offer.image.trim(),
-      ),
-    [offers],
-  );
+  const canSave = useMemo(() => {
+    if (!enabled) return true;
+    return offers.every(
+      (offer) =>
+        !offer.active ||
+        (offer.title.trim() && offer.description.trim() && offer.image.trim()),
+    );
+  }, [offers, enabled]);
 
   async function handleLogin(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -60,6 +62,7 @@ export function AdminDashboard({
       }
 
       setOffers(seasonalData.offers);
+      setEnabled(seasonalData.enabled ?? true);
       setPassword("");
       setIsAuthenticated(true);
       setMessage("Angemeldet.");
@@ -74,6 +77,7 @@ export function AdminDashboard({
     await fetch("/api/admin/logout", { method: "POST" });
     setIsAuthenticated(false);
     setOffers([]);
+    setEnabled(true);
     setMessage("");
   }
 
@@ -85,7 +89,7 @@ export function AdminDashboard({
       const response = await fetch("/api/admin/seasonal", {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ offers }),
+        body: JSON.stringify({ offers, enabled }),
       });
       const data = await response.json().catch(() => ({}));
 
@@ -94,6 +98,7 @@ export function AdminDashboard({
       }
 
       setOffers(data.offers);
+      setEnabled(data.enabled ?? true);
       setMessage("Gespeichert.");
     } catch (error) {
       setMessage(
@@ -133,7 +138,11 @@ export function AdminDashboard({
     }
   }
 
-  function updateOffer(id: string, field: FieldName, value: string) {
+  function updateOffer<K extends keyof SeasonalOffer>(
+    id: string,
+    field: K,
+    value: SeasonalOffer[K],
+  ) {
     setOffers((currentOffers) =>
       currentOffers.map((offer) =>
         offer.id === id ? { ...offer, [field]: value } : offer,
@@ -178,6 +187,16 @@ export function AdminDashboard({
           )}
 
           {message ? <p className="mt-4 text-sm text-brand-dark/70">{message}</p> : null}
+
+          <div className="mt-6 border-t border-brand-dark/10 pt-4 text-center">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 text-sm text-brand-dark/60 hover:text-brand-turquoise transition-colors"
+            >
+              <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+              Zurück zur Startseite
+            </Link>
+          </div>
         </section>
       </main>
     );
@@ -196,6 +215,13 @@ export function AdminDashboard({
             </h1>
           </div>
           <div className="flex flex-wrap gap-2">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 rounded-md border border-brand-dark/15 bg-white px-4 py-2 text-sm font-medium transition-colors hover:border-brand-dark/30"
+            >
+              <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+              Zur Website
+            </Link>
             <button
               className="inline-flex items-center gap-2 rounded-md border border-brand-dark/15 bg-white px-4 py-2 text-sm font-medium transition-colors hover:border-brand-dark/30"
               type="button"
@@ -220,12 +246,60 @@ export function AdminDashboard({
           </div>
         </div>
 
+        {/* Master Toggle */}
+        <div className="mb-6 rounded-xl border border-brand-turquoise/20 bg-brand-turquoise/5 p-5 shadow-xs flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <div className="max-w-2xl">
+            <h2 className="text-lg font-serif font-semibold text-brand-dark mb-1">
+              Saisonale Angebote auf der Website anzeigen
+            </h2>
+            <p className="text-sm text-brand-dark/70">
+              Deaktivieren Sie diesen Schalter, um die gesamte Sektion „Saisonale Anlässe“ sofort auf der Website und in der Navigation auszublenden, unabhängig von den einzelnen Angeboten.
+            </p>
+          </div>
+          <div className="flex items-center shrink-0">
+            <label className="relative inline-flex items-center cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={enabled}
+                onChange={(event) => setEnabled(event.target.checked)}
+                className="sr-only peer"
+              />
+              <div className="w-11 h-6 bg-brand-dark/20 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-brand-dark/20 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-brand-turquoise"></div>
+              <span className="ms-3 text-sm font-medium text-brand-dark">
+                {enabled ? "Aktiviert" : "Deaktiviert"}
+              </span>
+            </label>
+          </div>
+        </div>
+
         <div className="grid gap-4 lg:grid-cols-3">
           {offers.map((offer, index) => (
             <article
-              className="rounded-lg border border-brand-dark/10 bg-white p-4 shadow-sm"
+              className={`rounded-lg border bg-white p-4 shadow-sm transition-all duration-300 ${
+                offer.active
+                  ? "border-brand-dark/10"
+                  : "border-brand-dark/5 bg-gray-50/50 opacity-80"
+              }`}
               key={offer.id}
             >
+              <div className="mb-4 flex items-center justify-between">
+                <span className="text-xs font-semibold uppercase tracking-wider text-brand-dark/50">
+                  Angebot {index + 1}
+                </span>
+                <label className="relative inline-flex items-center cursor-pointer select-none">
+                  <input
+                    type="checkbox"
+                    checked={offer.active}
+                    onChange={(event) =>
+                      updateOffer(offer.id, "active", event.target.checked)
+                    }
+                    className="sr-only peer"
+                  />
+                  <div className="w-9 h-5 bg-brand-dark/20 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-brand-dark/20 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-brand-turquoise"></div>
+                  <span className="ms-2 text-xs font-medium text-brand-dark">Aktiv</span>
+                </label>
+              </div>
+
               <div className="mb-4 overflow-hidden rounded-md bg-brand-beige">
                 {offer.image ? (
                   <img
@@ -244,7 +318,7 @@ export function AdminDashboard({
                     className="mb-1 block text-sm font-medium"
                     htmlFor={`${offer.id}-title`}
                   >
-                    Titel {index + 1}
+                    Titel
                   </label>
                   <input
                     id={`${offer.id}-title`}

@@ -11,6 +11,11 @@ export type SeasonalOffer = {
   active: boolean;
 };
 
+export type SeasonalConfig = {
+  enabled: boolean;
+  offers: SeasonalOffer[];
+};
+
 export const SEASONAL_OFFERS_KEY = "let-it-bloom:seasonal-offers";
 
 const SLOT_COUNT = 3;
@@ -54,51 +59,87 @@ export function normalizeSeasonalOffers(value: unknown): SeasonalOffer[] {
       title: toCleanString(offer.title, fallback.title, 120),
       description: toCleanString(offer.description, fallback.description, 500),
       image: toImageSource(offer.image, fallback.image),
-      active: true,
+      active: typeof offer.active === "boolean" ? offer.active : true,
     };
   });
 }
 
-export async function getSeasonalOffers(): Promise<SeasonalOffer[]> {
+export async function getSeasonalConfig(): Promise<SeasonalConfig> {
   noStore();
   try {
-    const offers = await readSeasonalOffersFromStore();
-    return normalizeSeasonalOffers(offers);
+    return await readSeasonalConfigFromStore();
   } catch (error) {
     if (process.env.NODE_ENV === "development") {
       console.warn("Seasonal KV fallback:", error);
     }
 
-    return getDefaultSeasonalOffers();
+    return { enabled: true, offers: getDefaultSeasonalOffers() };
   }
+}
+
+export async function saveSeasonalConfig(config: {
+  enabled: unknown;
+  offers: unknown;
+}): Promise<SeasonalConfig> {
+  const normalizedOffers = normalizeSeasonalOffers(config.offers);
+  const normalizedConfig = {
+    enabled: typeof config.enabled === "boolean" ? config.enabled : true,
+    offers: normalizedOffers,
+  };
+  await writeSeasonalConfigToStore(normalizedConfig);
+  return normalizedConfig;
+}
+
+export async function getSeasonalOffers(): Promise<SeasonalOffer[]> {
+  const config = await getSeasonalConfig();
+  return config.offers;
 }
 
 export async function saveSeasonalOffers(offers: unknown): Promise<SeasonalOffer[]> {
   const normalizedOffers = normalizeSeasonalOffers(offers);
-  await writeSeasonalOffersToStore(normalizedOffers);
+  const config = await getSeasonalConfig();
+  config.offers = normalizedOffers;
+  await saveSeasonalConfig(config);
   return normalizedOffers;
 }
 
-async function readSeasonalOffersFromStore(): Promise<unknown> {
+async function readSeasonalConfigFromStore(): Promise<SeasonalConfig> {
   const store = await getSeasonalStore();
+  let value: unknown;
 
   if (store.kind === "rest") {
-    return store.client.get<SeasonalOffer[]>(SEASONAL_OFFERS_KEY);
+    value = await store.client.get<unknown>(SEASONAL_OFFERS_KEY);
+  } else {
+    const raw = await store.client.get(SEASONAL_OFFERS_KEY);
+    value = raw ? JSON.parse(raw) : null;
   }
 
-  const value = await store.client.get(SEASONAL_OFFERS_KEY);
-  return value ? JSON.parse(value) : null;
+  if (!value) {
+    return { enabled: true, offers: getDefaultSeasonalOffers() };
+  }
+
+  if (Array.isArray(value)) {
+    return { enabled: true, offers: normalizeSeasonalOffers(value) };
+  }
+
+  if (isRecord(value)) {
+    const enabled = typeof value.enabled === "boolean" ? value.enabled : true;
+    const offers = normalizeSeasonalOffers(value.offers);
+    return { enabled, offers };
+  }
+
+  return { enabled: true, offers: getDefaultSeasonalOffers() };
 }
 
-async function writeSeasonalOffersToStore(offers: SeasonalOffer[]): Promise<void> {
+async function writeSeasonalConfigToStore(config: SeasonalConfig): Promise<void> {
   const store = await getSeasonalStore();
 
   if (store.kind === "rest") {
-    await store.client.set(SEASONAL_OFFERS_KEY, offers);
+    await store.client.set(SEASONAL_OFFERS_KEY, config);
     return;
   }
 
-  await store.client.set(SEASONAL_OFFERS_KEY, JSON.stringify(offers));
+  await store.client.set(SEASONAL_OFFERS_KEY, JSON.stringify(config));
 }
 
 async function getSeasonalStore(): Promise<SeasonalStore> {

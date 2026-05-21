@@ -1,17 +1,20 @@
 import { AdminDashboard } from "./AdminDashboard";
 import { hasAdminSession, isAdminConfigured } from "@/src/lib/admin-auth";
-import { getSeasonalOffers } from "@/src/lib/seasonal";
+import { getSeasonalConfig } from "@/src/lib/seasonal";
 
 export const dynamic = "force-dynamic";
 
 export default async function AdminPage() {
   const isAuthenticated = await hasAdminSession();
-  const offers = isAuthenticated ? await getSeasonalOffers() : [];
+  const config = isAuthenticated
+    ? await getSeasonalConfig()
+    : { enabled: true, offers: [] };
 
   return (
     <AdminDashboard
       initialIsAuthenticated={isAuthenticated}
-      initialOffers={offers}
+      initialEnabled={config.enabled}
+      initialOffers={config.offers}
       isConfigured={isAdminConfigured()}
     />
   );

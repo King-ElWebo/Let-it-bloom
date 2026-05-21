@@ -1,11 +1,14 @@
-import { getSeasonalOffers } from "@/src/lib/seasonal";
+import { getSeasonalConfig } from "@/src/lib/seasonal";
 import Image from 'next/image';
 
 const seasonalImageSizes = "(max-width: 640px) calc(100vw - 32px), (max-width: 1024px) 50vw, 33vw";
 
 export async function Seasonal() {
-  const seasonalOffers = await getSeasonalOffers();
-  const activeOffers = seasonalOffers.filter(offer => offer.active).slice(0, 3);
+  const { enabled, offers } = await getSeasonalConfig();
+
+  if (!enabled) return null;
+
+  const activeOffers = offers.filter(offer => offer.active).slice(0, 3);
 
   if (activeOffers.length === 0) return null;
 
