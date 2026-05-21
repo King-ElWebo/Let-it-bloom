@@ -252,7 +252,7 @@ export function Contact() {
                   <Truck className="text-brand-turquoise w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-medium text-brand-dark text-base sm:text-lg mb-1">Montag &amp; Sonntag</h3>
+                  <h3 className="font-medium text-brand-dark text-base sm:text-lg mb-1">Montag bis Sonntag</h3>
                   <p className="text-brand-dark">
                     Lieferung in Langenzersdorf und Umgebung kostenlos<br />sowie Abholung möglich
                   </p>
