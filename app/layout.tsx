@@ -24,6 +24,11 @@ export const metadata: Metadata = {
   description:
     "Mobiler Blumen- und Pflanzenhändler in Langenzersdorf: Schnittblumen, Topfpflanzen, Dekorationsartikel und Gartenpflege. Vorbestellung aller Produkte jederzeit möglich.",
   keywords: "Blumenatelier Langenzersdorf, Blumen Langenzersdorf, Schnittblumen, Topfpflanzen, Dekoration, Gartenpflege, Blumenstrauß, Let It Bloom",
+  icons: {
+    icon: "/icon.jpg",
+    shortcut: "/icon.jpg",
+    apple: "/icon.jpg",
+  },
   openGraph: {
     title: "Let It Bloom – Blumenatelier in Langenzersdorf",
     description: "Mobiler Blumen- und Pflanzenhändler in Langenzersdorf: Schnittblumen, Topfpflanzen, Dekorationsartikel und Gartenpflege.",
