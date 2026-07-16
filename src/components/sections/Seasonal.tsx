@@ -26,7 +26,7 @@ export async function Seasonal() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 md:gap-8">
           {activeOffers.map((offer) => (
-            <div key={offer.id} className="group relative rounded-3xl overflow-hidden aspect-4/5 shadow-sm">
+            <div key={offer.id} className="w-full group relative rounded-3xl overflow-hidden aspect-[4/5] shadow-sm">
               <Image 
                 src={offer.image} 
                 alt={offer.title} 
